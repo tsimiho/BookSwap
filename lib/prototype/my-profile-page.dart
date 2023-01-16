@@ -91,7 +91,7 @@ class Scene extends StatelessWidget {
                                 Container(
                                   // iconsadd24pxjYu (54:15629)
                                   margin: EdgeInsets.fromLTRB(
-                                      2 * fem, 7 * fem, 92 * fem, 4 * fem),
+                                      0 * fem, 7 * fem, 124 * fem, 4 * fem),
                                   child: TextButton(
                                     onPressed: () {},
                                     style: TextButton.styleFrom(
