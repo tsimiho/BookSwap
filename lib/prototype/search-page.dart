@@ -33,7 +33,7 @@ class Scene extends StatelessWidget {
                 ),
                 child: Container(
                   padding: EdgeInsets.fromLTRB(
-                      17 * fem, 30 * fem, 17 * fem, 5 * fem),
+                      17 * fem, 30 * fem, 17 * fem, 0 * fem),
                   width: double.infinity,
                   height: 91 * fem,
                   decoration: BoxDecoration(

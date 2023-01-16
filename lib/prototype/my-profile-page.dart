@@ -266,7 +266,7 @@ class Scene extends StatelessWidget {
                     top: 193 * fem,
                     child: Container(
                       width: 332 * fem,
-                      height: 371 * fem,
+                      height: 256 * fem,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -323,7 +323,7 @@ class Scene extends StatelessWidget {
                                       child: Container(
                                         // mediatextcontent8u7 (I71:14252;63:10962)
                                         width: 531 * fem,
-                                        height: 376 * fem,
+                                        height: 256 * fem,
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -415,14 +415,14 @@ class Scene extends StatelessWidget {
                                                   0 * fem,
                                                   0 * fem),
                                               width: 520 * fem,
-                                              height: 160 * fem,
+                                              height: 70 * fem,
                                               child: Container(
                                                 // autogroupgeamqU5 (UPtMa1gXKgCGoy9aqVGEAM)
                                                 margin: EdgeInsets.fromLTRB(
                                                     0 * fem,
                                                     0 * fem,
                                                     0 * fem,
-                                                    144 * fem),
+                                                    0 * fem),
                                                 padding: EdgeInsets.fromLTRB(
                                                     0 * fem,
                                                     5 * fem,
@@ -482,8 +482,7 @@ class Scene extends StatelessWidget {
                                                                         0 * fem,
                                                                         0 * fem,
                                                                         0 * fem,
-                                                                        33 *
-                                                                            fem),
+                                                                        0 * fem),
                                                                     width: double
                                                                         .infinity,
                                                                     height: 27 *
@@ -588,7 +587,7 @@ class Scene extends StatelessWidget {
                                                                 2.25 * fem,
                                                                 0 * fem,
                                                                 4.25 * fem),
-                                                        width: 83 * fem,
+                                                        width: 30 * fem,
                                                         height: double.infinity,
                                                         child: Align(
                                                           // icond6R (I71:14252;63:11004)
