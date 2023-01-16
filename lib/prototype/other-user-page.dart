@@ -13,10 +13,10 @@ class Scene extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Container(
-      width: double.infinity,
+      width: 360 * fem,
       child: Container(
         // otheruserpageYYy (54:11294)
-        padding: EdgeInsets.fromLTRB(15 * fem, 31 * fem, 17 * fem, 17 * fem),
+        padding: EdgeInsets.fromLTRB(0 * fem, 31 * fem, 0 * fem, 17 * fem),
         width: double.infinity,
         decoration: BoxDecoration(
           color: Color(0xffffffff),
@@ -95,7 +95,7 @@ class Scene extends StatelessWidget {
                                   // monogrameLR (I54:11297;52350:27883)
                                   margin: EdgeInsets.fromLTRB(
                                       0 * fem, 2 * fem, 26 * fem, 2 * fem),
-                                  width: 40 * fem,
+                                  width: 38 * fem,
                                   height: double.infinity,
                                   decoration: BoxDecoration(
                                     color: Color(0xffe46962),
@@ -129,7 +129,7 @@ class Scene extends StatelessWidget {
                                       Container(
                                         // headerjmB (I54:11297;52350:27887)
                                         margin: EdgeInsets.fromLTRB(
-                                            0 * fem, 0 * fem, 0 * fem, 4 * fem),
+                                            0 * fem, 0 * fem, 0 * fem, 0 * fem),
                                         child: Text(
                                           'Username',
                                           style: SafeGoogleFont(
@@ -220,20 +220,22 @@ class Scene extends StatelessWidget {
                             Container(
                               // textfieldnQ1 (I54:11354;38:1889;52798:24431)
                               margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 0 * fem, 33 * fem),
+                                  0 * fem, 0 * fem, 0 * fem, 0 * fem),
                               width: double.infinity,
                               height: 27 * fem,
                               decoration: BoxDecoration(
                                 color: Color(0xffe46962),
                                 borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(4 * fem),
-                                  topRight: Radius.circular(4 * fem),
+                                  topLeft: Radius.circular(12 * fem),
+                                  topRight: Radius.circular(12 * fem),
+                                  bottomLeft: Radius.circular(12 * fem),
+                                  bottomRight: Radius.circular(12 * fem),
                                 ),
                               ),
                               child: Container(
                                 // statelayerfih (I54:11354;38:1889;52798:24432)
                                 padding: EdgeInsets.fromLTRB(
-                                    16 * fem, 5.5 * fem, 17 * fem, 3 * fem),
+                                    16 * fem, 5.5 * fem, 17 * fem, 0 * fem),
                                 width: double.infinity,
                                 height: double.infinity,
                                 decoration: BoxDecoration(
@@ -248,30 +250,6 @@ class Scene extends StatelessWidget {
                                   height: double.infinity,
                                   child: Stack(
                                     children: [
-                                      Positioned(
-                                        // labeltextT8m (I54:11354;38:1889;52798:24435)
-                                        left: 0 * fem,
-                                        top: 2.5 * fem,
-                                        child: Align(
-                                          child: SizedBox(
-                                            width: 42 * fem,
-                                            height: 16 * fem,
-                                            child: Text(
-                                              'Label 1',
-                                              style: SafeGoogleFont(
-                                                'Roboto',
-                                                fontSize: 12 * ffem,
-                                                fontWeight: FontWeight.w400,
-                                                height:
-                                                    1.3333333333 * ffem / fem,
-                                                letterSpacing:
-                                                    0.400000006 * fem,
-                                                color: Color(0xff49454f),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
                                       Positioned(
                                         // inputtext5R3 (I54:11354;38:1889;52798:24437)
                                         left: 1 * fem,
