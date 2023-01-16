@@ -148,7 +148,7 @@ class Scene extends StatelessWidget {
                                   children: [
                                     Container(
                                       // textfieldEjK (I54:12899;38:1568;52798:24375)
-                                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 12*fem),
+                                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 0*fem),
                                       width: double.infinity,
                                       height: 48*fem,
                                       decoration: BoxDecoration (
@@ -207,21 +207,7 @@ class Scene extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      // supportingtext4EV (I54:12899;38:1568;52798:24385)
-                                      margin: EdgeInsets.fromLTRB(16*fem, 0*fem, 0*fem, 0*fem),
-                                      child: Text(
-                                        'Supporting text',
-                                        style: SafeGoogleFont (
-                                          'Roboto',
-                                          fontSize: 12*ffem,
-                                          fontWeight: FontWeight.w400,
-                                          height: 1.3333333333*ffem/fem,
-                                          letterSpacing: 0.400000006*fem,
-                                          color: Color(0xff49454f),
-                                        ),
-                                      ),
-                                    ),
+                                  
                                   ],
                                 ),
                               ),
@@ -254,7 +240,7 @@ class Scene extends StatelessWidget {
                                   children: [
                                     Container(
                                       // textfieldyEy (I54:12911;38:1568;52798:24375)
-                                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 12*fem),
+                                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 0*fem),
                                       width: double.infinity,
                                       height: 48*fem,
                                       decoration: BoxDecoration (
@@ -313,21 +299,7 @@ class Scene extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      // supportingtextfvR (I54:12911;38:1568;52798:24385)
-                                      margin: EdgeInsets.fromLTRB(16*fem, 0*fem, 0*fem, 0*fem),
-                                      child: Text(
-                                        'Supporting text',
-                                        style: SafeGoogleFont (
-                                          'Roboto',
-                                          fontSize: 12*ffem,
-                                          fontWeight: FontWeight.w400,
-                                          height: 1.3333333333*ffem/fem,
-                                          letterSpacing: 0.400000006*fem,
-                                          color: Color(0xff49454f),
-                                        ),
-                                      ),
-                                    ),
+                                  
                                   ],
                                 ),
                               ),
@@ -360,7 +332,7 @@ class Scene extends StatelessWidget {
                                   children: [
                                     Container(
                                       // textfieldwWZ (I54:12922;38:1568;52798:24375)
-                                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 12*fem),
+                                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 0*fem),
                                       width: double.infinity,
                                       height: 48*fem,
                                       decoration: BoxDecoration (
@@ -419,21 +391,7 @@ class Scene extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      // supportingtextPQV (I54:12922;38:1568;52798:24385)
-                                      margin: EdgeInsets.fromLTRB(16*fem, 0*fem, 0*fem, 0*fem),
-                                      child: Text(
-                                        'Supporting text',
-                                        style: SafeGoogleFont (
-                                          'Roboto',
-                                          fontSize: 12*ffem,
-                                          fontWeight: FontWeight.w400,
-                                          height: 1.3333333333*ffem/fem,
-                                          letterSpacing: 0.400000006*fem,
-                                          color: Color(0xff49454f),
-                                        ),
-                                      ),
-                                    ),
+                                   
                                   ],
                                 ),
                               ),
@@ -1126,21 +1084,7 @@ class Scene extends StatelessWidget {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
-                            // supportingtextaH7 (I54:12874;51:5969;52036:23647)
-                            margin: EdgeInsets.fromLTRB(0*fem, 3*fem, 143*fem, 0*fem),
-                            child: Text(
-                              'Notifications',
-                              style: SafeGoogleFont (
-                                'Fjord',
-                                fontSize: 20*ffem,
-                                fontWeight: FontWeight.w400,
-                                height: 1.2*ffem/fem,
-                                letterSpacing: 0.150000006*fem,
-                                color: Color(0xff0b0b0b),
-                              ),
-                            ),
-                          ),
+                          
                           TextButton(
                             // switchTrh (54:12878)
                             onPressed: () {},
@@ -1202,21 +1146,7 @@ class Scene extends StatelessWidget {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
-                            // supportingtextyMB (I54:12879;51:5969;52036:23647)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 135*fem, 1*fem),
-                            child: Text(
-                              'Sound Effects',
-                              style: SafeGoogleFont (
-                                'Fjord',
-                                fontSize: 20*ffem,
-                                fontWeight: FontWeight.w400,
-                                height: 1.2*ffem/fem,
-                                letterSpacing: 0.150000006*fem,
-                                color: Color(0xff0b0b0b),
-                              ),
-                            ),
-                          ),
+                         
                           TextButton(
                             // switch3M3 (54:12880)
                             onPressed: () {},
