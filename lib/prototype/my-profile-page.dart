@@ -6,7 +6,7 @@ import 'package:myapp/utils.dart';
 import '../assets/stacked-card2.dart';
 import '../assets/navbar.dart';
 
-class Scene extends StatelessWidget {
+class MyProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
