@@ -146,7 +146,7 @@ class Scene extends StatelessWidget {
                 top: 193 * fem,
                 child: Container(
                     width: 332 * fem,
-                    height: 482 * fem,
+                    height: 371 * fem,
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -189,7 +189,6 @@ class Scene extends StatelessWidget {
                             height: 10 * fem,
                           ),
                         ]))),
-            NavBar()
           ],
         ),
       ),
