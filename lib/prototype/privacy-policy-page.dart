@@ -50,7 +50,7 @@ class Scene extends StatelessWidget {
                   ),
                   Container(
                     // snackbardarknvD (I54:5126;51:5969)
-                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 4*fem),
+                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 0*fem),
                     width: 181*fem,
                     height: 55*fem,
                     decoration: BoxDecoration (
@@ -77,15 +77,16 @@ class Scene extends StatelessWidget {
             ),
             Container(
               // frame5yUu (54:5158)
-              padding: EdgeInsets.fromLTRB(12*fem, 14*fem, 10*fem, 14*fem),
+              padding: EdgeInsets.fromLTRB(12*fem, 0*fem, 10*fem, 0*fem),
               width: double.infinity,
               height: 328*fem,
               decoration: BoxDecoration (
                 color: Color(0xfff4eff4),
                 borderRadius: BorderRadius.circular(20*fem),
               ),
-              child: Center(
+              child: Container(
                 // loremipsumdolorsitametconsecte (54:5157)
+                padding: EdgeInsets.fromLTRB(0*fem, 15*fem, 0*fem, 0*fem),
                 child: SizedBox(
                   child: Container(
                     constraints: BoxConstraints (
