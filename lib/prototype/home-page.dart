@@ -54,14 +54,31 @@ class Home extends StatelessWidget {
                             14 * fem, 0 * fem, 14 * fem, 0 * fem),
                         width: double.infinity,
                         height: 485 * fem,
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
-                                width: double.infinity,
-                                height: 308 * fem,
-                                child: Row(
+                        child: SingleChildScrollView(
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+                                  width: double.infinity,
+                                  height: 308 * fem,
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      StackedCard(),
+                                      Container(
+                                        width: 12 * fem,
+                                        height: 308 * fem,
+                                      ),
+                                      StackedCard()
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10 * fem,
+                                ),
+                                Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     StackedCard(),
@@ -72,25 +89,11 @@ class Home extends StatelessWidget {
                                     StackedCard()
                                   ],
                                 ),
-                              ),
-                              SizedBox(
-                                height: 10 * fem,
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  StackedCard(),
-                                  Container(
-                                    width: 12 * fem,
-                                    height: 308 * fem,
-                                  ),
-                                  StackedCard()
-                                ],
-                              ),
-                              SizedBox(
-                                height: 10 * fem,
-                              ),
-                            ]))
+                                SizedBox(
+                                  height: 10 * fem,
+                                ),
+                              ]),
+                        ))
                   ])),
           BottomAppBar(child: NavBar()),
         ]));

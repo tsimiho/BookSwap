@@ -144,7 +144,8 @@ class Scene extends StatelessWidget {
                         10 * fem, 0 * fem, 10 * fem, 0 * fem),
                     width: double.infinity,
                     height: 485 * fem,
-                    child: Column(
+                    child: SingleChildScrollView(
+                        child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         TradeOffer(),
@@ -157,7 +158,7 @@ class Scene extends StatelessWidget {
                         ),
                         TradeOffer()
                       ],
-                    ),
+                    )),
                   ),
                   NavBar()
                 ])));

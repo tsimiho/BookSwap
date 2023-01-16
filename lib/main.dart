@@ -9,14 +9,14 @@ import 'package:myapp/utils.dart';
 // import 'package:myapp/prototype/history-page.dart';
 // import 'package:myapp/prototype/add-book-page.dart';
 // import 'package:myapp/prototype/edit-book-page.dart';
-import 'package:myapp/prototype/settings-page.dart';
-//import 'package:myapp/prototype/my-profile-page.dart';
+// import 'package:myapp/prototype/settings-page.dart';
+import 'package:myapp/prototype/my-profile-page.dart';
 //import 'package:myapp/prototype/in-chat-page.dart';
 // import 'package:myapp/prototype/chats-page.dart';
 // import 'package:myapp/prototype/requests-page-trade-offers.dart';
-//import 'package:myapp/prototype/requests-page-requests.dart';
-//import 'package:myapp/prototype/search-page.dart';
-//import 'package:myapp/prototype/home-page.dart';
+// import 'package:myapp/prototype/requests-page-requests.dart';
+// import 'package:myapp/prototype/search-page.dart';
+// import 'package:myapp/prototype/home-page.dart';
 // import 'package:myapp/prototype/sign-up-page.dart';
 // import 'package:myapp/prototype/sign-in-page.dart';
 // import 'package:myapp/assets/text-field.dart';
@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         body: SingleChildScrollView(
-          child: Scene(),
+          child: MyProfile(),
         ),
       ),
     );

@@ -33,7 +33,7 @@ class Scene extends StatelessWidget {
                 ),
                 child: Container(
                   padding: EdgeInsets.fromLTRB(
-                      17 * fem, 30 * fem, 17 * fem, 0 * fem),
+                      17 * fem, 20 * fem, 17 * fem, 0 * fem),
                   width: double.infinity,
                   height: 91 * fem,
                   decoration: BoxDecoration(
@@ -127,14 +127,30 @@ class Scene extends StatelessWidget {
                     EdgeInsets.fromLTRB(14 * fem, 0 * fem, 14 * fem, 0 * fem),
                 width: double.infinity,
                 height: 485 * fem,
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
-                        width: double.infinity,
-                        height: 308 * fem,
-                        child: Row(
+                child: SingleChildScrollView(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+                          width: double.infinity,
+                          height: 308 * fem,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              StackedCard(),
+                              Container(
+                                width: 12 * fem,
+                                height: 308 * fem,
+                              ),
+                              StackedCard()
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10 * fem,
+                        ),
+                        Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             StackedCard(),
@@ -145,25 +161,11 @@ class Scene extends StatelessWidget {
                             StackedCard()
                           ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 10 * fem,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          StackedCard(),
-                          Container(
-                            width: 12 * fem,
-                            height: 308 * fem,
-                          ),
-                          StackedCard()
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10 * fem,
-                      ),
-                    ])),
+                        SizedBox(
+                          height: 10 * fem,
+                        ),
+                      ]),
+                )),
             NavBar(),
           ],
         ),
