@@ -156,8 +156,12 @@ class Scene extends StatelessWidget {
             Container(
                 height: 410 * fem,
                 width: 360 * fem,
-                child: Column(
+                child: SingleChildScrollView(
+                    child: Column(
                   children: [
+                    HorizontalCard(),
+                    HorizontalCard(),
+                    HorizontalCard(),
                     HorizontalCard(),
                     HorizontalCard(),
                     HorizontalCard(),
@@ -166,8 +170,8 @@ class Scene extends StatelessWidget {
                     HorizontalCard(),
                     HorizontalCard()
                   ],
-                )),
-          NavBar()
+                ))),
+            NavBar()
           ],
         ),
       ),

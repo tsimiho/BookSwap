@@ -105,15 +105,21 @@ class Scene extends StatelessWidget {
                     ),
                   ],
                 )),
-            History(),
-            SizedBox(
-              height: 10 * fem,
-            ),
-            History(),
-            SizedBox(
-              height: 10 * fem,
-            ),
-            History()
+            Container(
+                height: 540 * fem,
+                child: SingleChildScrollView(
+                  child: Column(children: [
+                    History(),
+                    SizedBox(
+                      height: 10 * fem,
+                    ),
+                    History(),
+                    SizedBox(
+                      height: 10 * fem,
+                    ),
+                    History()
+                  ]),
+                ))
           ],
         ),
       ),
