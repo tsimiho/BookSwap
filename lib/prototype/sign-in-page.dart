@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/assets/newTextField.dart';
 import 'package:myapp/utils.dart';
 
 class Scene extends StatelessWidget {
@@ -257,74 +258,7 @@ class Scene extends StatelessWidget {
                   padding: EdgeInsets.zero,
                 ),
                 child: Container(
-                  width: 222 * fem,
-                  height: 48 * fem,
-                  child: Container(
-                    // textfieldvx9 (I39:1607;38:1019)
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4 * fem),
-                        topRight: Radius.circular(4 * fem),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // textfieldqJR (I39:1607;38:1019;52798:24375)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: double.infinity,
-                          height: 48 * fem,
-                          decoration: BoxDecoration(
-                            color: Color(0xfff4eff4),
-                            borderRadius: BorderRadius.circular(30 * fem),
-                          ),
-                          child: Container(
-                            // statelayerwsF (I39:1607;38:1019;52798:24376)
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 8 * fem, 16 * fem, 0 * fem),
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4 * fem),
-                                topRight: Radius.circular(4 * fem),
-                              ),
-                            ),
-                            child: Container(
-                              // autogroup3jvuDZs (UPvAqKcswog3XrCZX33Jvu)
-                              padding: EdgeInsets.fromLTRB(
-                                  0 * fem, 8 * fem, 0 * fem, 6 * fem),
-                              width: double.infinity,
-                              height: double.infinity,
-                              child: Container(
-                                // contentL8h (I39:1607;38:1019;52798:24377)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 133 * fem, 0 * fem),
-                                width: 57 * fem,
-                                height: double.infinity,
-                                child: Text(
-                                  'Password',
-                                  style: SafeGoogleFont(
-                                    'Roboto',
-                                    fontSize: 12 * ffem,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.3333333333 * ffem / fem,
-                                    letterSpacing: 0.400000006 * fem,
-                                    color: Color(0xff49454f),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                    width: 222 * fem, height: 48 * fem, child: NewTextField()),
               ),
             ),
             Positioned(
@@ -337,74 +271,7 @@ class Scene extends StatelessWidget {
                   padding: EdgeInsets.zero,
                 ),
                 child: Container(
-                  width: 222 * fem,
-                  height: 48 * fem,
-                  child: Container(
-                    // textfieldYty (I39:1593;38:1019)
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4 * fem),
-                        topRight: Radius.circular(4 * fem),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // textfieldCTj (I39:1593;38:1019;52798:24375)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: double.infinity,
-                          height: 48 * fem,
-                          decoration: BoxDecoration(
-                            color: Color(0xfff4eff4),
-                            borderRadius: BorderRadius.circular(30 * fem),
-                          ),
-                          child: Container(
-                            // statelayer3z9 (I39:1593;38:1019;52798:24376)
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 8 * fem, 16 * fem, 0 * fem),
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4 * fem),
-                                topRight: Radius.circular(4 * fem),
-                              ),
-                            ),
-                            child: Container(
-                              // autogroupysqqVLM (UPvBGotQnDvw6BTQ1XySQq)
-                              padding: EdgeInsets.fromLTRB(
-                                  0 * fem, 8 * fem, 0 * fem, 6 * fem),
-                              width: double.infinity,
-                              height: double.infinity,
-                              child: Container(
-                                // contentyFX (I39:1593;38:1019;52798:24377)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 132 * fem, 0 * fem),
-                                width: 58 * fem,
-                                height: double.infinity,
-                                child: Text(
-                                  'Username',
-                                  style: SafeGoogleFont(
-                                    'Roboto',
-                                    fontSize: 12 * ffem,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.3333333333 * ffem / fem,
-                                    letterSpacing: 0.400000006 * fem,
-                                    color: Color(0xff49454f),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                    width: 222 * fem, height: 48 * fem, child: NewTextField()),
               ),
             ),
             Positioned(
