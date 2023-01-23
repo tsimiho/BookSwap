@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/assets/PasswordField.dart';
 import 'package:myapp/utils.dart';
 
 class Scene extends StatelessWidget {
@@ -87,76 +88,10 @@ class Scene extends StatelessWidget {
                   padding: EdgeInsets.zero,
                 ),
                 child: Container(
-                  width: double.infinity,
-                  height: 48 * fem,
-                  child: Container(
-                    // textfieldUw3 (I54:5172;38:1019)
                     width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4 * fem),
-                        topRight: Radius.circular(4 * fem),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // textfieldBaZ (I54:5172;38:1019;52798:24375)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: double.infinity,
-                          height: 48 * fem,
-                          decoration: BoxDecoration(
-                            color: Color(0xfff4eff4),
-                            borderRadius: BorderRadius.circular(30 * fem),
-                          ),
-                          child: Container(
-                            // statelayergGR (I54:5172;38:1019;52798:24376)
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 8 * fem, 16 * fem, 0 * fem),
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4 * fem),
-                                topRight: Radius.circular(4 * fem),
-                              ),
-                            ),
-                            child: Container(
-                              // autogroupxj4qyFX (UPswTngecQXjfTj8WSxJ4q)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 44 * fem, 0 * fem),
-                              padding: EdgeInsets.fromLTRB(
-                                  0 * fem, 8 * fem, 0 * fem, 6 * fem),
-                              width: 190 * fem,
-                              height: double.infinity,
-                              child: Container(
-                                // contentfe9 (I54:5172;38:1019;52798:24377)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 88 * fem, 0 * fem),
-                                width: 102 * fem,
-                                height: double.infinity,
-                                child: Text(
-                                  'Current Password',
-                                  style: SafeGoogleFont(
-                                    'Roboto',
-                                    fontSize: 12 * ffem,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.3333333333 * ffem / fem,
-                                    letterSpacing: 0.400000006 * fem,
-                                    color: Color(0xff49454f),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                    height: 48 * fem,
+                    child: PasswordField(
+                        label: 'Current Password', init: '12345678')),
               ),
             ),
             Container(
@@ -169,76 +104,9 @@ class Scene extends StatelessWidget {
                   padding: EdgeInsets.zero,
                 ),
                 child: Container(
-                  width: double.infinity,
-                  height: 48 * fem,
-                  child: Container(
-                    // textfieldtQR (I54:5195;38:1019)
                     width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4 * fem),
-                        topRight: Radius.circular(4 * fem),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // textfieldyAy (I54:5195;38:1019;52798:24375)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: double.infinity,
-                          height: 48 * fem,
-                          decoration: BoxDecoration(
-                            color: Color(0xfff4eff4),
-                            borderRadius: BorderRadius.circular(30 * fem),
-                          ),
-                          child: Container(
-                            // statelayer5Uu (I54:5195;38:1019;52798:24376)
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 8 * fem, 16 * fem, 0 * fem),
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4 * fem),
-                                topRight: Radius.circular(4 * fem),
-                              ),
-                            ),
-                            child: Container(
-                              // autogroupvkuzNyo (UPsxM1iJ8ctZZN5HG5VkUZ)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 44 * fem, 0 * fem),
-                              padding: EdgeInsets.fromLTRB(
-                                  0 * fem, 8 * fem, 0 * fem, 6 * fem),
-                              width: 190 * fem,
-                              height: double.infinity,
-                              child: Container(
-                                // contentH5B (I54:5195;38:1019;52798:24377)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 105 * fem, 0 * fem),
-                                width: 85 * fem,
-                                height: double.infinity,
-                                child: Text(
-                                  'New Password',
-                                  style: SafeGoogleFont(
-                                    'Roboto',
-                                    fontSize: 12 * ffem,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.3333333333 * ffem / fem,
-                                    letterSpacing: 0.400000006 * fem,
-                                    color: Color(0xff49454f),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                    height: 48 * fem,
+                    child: PasswordField(label: 'New Password')),
               ),
             ),
             Container(
@@ -246,82 +114,14 @@ class Scene extends StatelessWidget {
               margin:
                   EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 31 * fem),
               child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                ),
-                child: Container(
-                  width: double.infinity,
-                  height: 48 * fem,
-                  child: Container(
-                    // textfieldJuP (I54:5184;38:1019)
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4 * fem),
-                        topRight: Radius.circular(4 * fem),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // textfieldpcq (I54:5184;38:1019;52798:24375)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: double.infinity,
-                          height: 48 * fem,
-                          decoration: BoxDecoration(
-                            color: Color(0xfff4eff4),
-                            borderRadius: BorderRadius.circular(30 * fem),
-                          ),
-                          child: Container(
-                            // statelayerXn9 (I54:5184;38:1019;52798:24376)
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 8 * fem, 16 * fem, 0 * fem),
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4 * fem),
-                                topRight: Radius.circular(4 * fem),
-                              ),
-                            ),
-                            child: Container(
-                              // autogrouppovheLy (UPswvcFHzAdYiQ7Bmepovh)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 44 * fem, 0 * fem),
-                              padding: EdgeInsets.fromLTRB(
-                                  0 * fem, 8 * fem, 0 * fem, 6 * fem),
-                              width: 190 * fem,
-                              height: double.infinity,
-                              child: Container(
-                                // contentLzV (I54:5184;38:1019;52798:24377)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 85 * fem, 0 * fem),
-                                width: 105 * fem,
-                                height: double.infinity,
-                                child: Text(
-                                  'Confirm Password',
-                                  style: SafeGoogleFont(
-                                    'Roboto',
-                                    fontSize: 12 * ffem,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.3333333333 * ffem / fem,
-                                    letterSpacing: 0.400000006 * fem,
-                                    color: Color(0xff49454f),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
                   ),
-                ),
-              ),
+                  child: Container(
+                      width: double.infinity,
+                      height: 48 * fem,
+                      child: PasswordField(label: 'Confirm Password'))),
             ),
             Container(
               // changepassword66V (54:5208)

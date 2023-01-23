@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/assets/newTextField.dart';
 import 'package:myapp/utils.dart';
 
 class Scene extends StatelessWidget {
@@ -33,7 +34,7 @@ class Scene extends StatelessWidget {
                   Container(
                     // backkzD (71:14182)
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 134 * fem, 0 * fem),
+                        0 * fem, 0 * fem, 124 * fem, 0 * fem),
                     child: TextButton(
                       onPressed: () {},
                       style: TextButton.styleFrom(
@@ -85,90 +86,12 @@ class Scene extends StatelessWidget {
                   padding: EdgeInsets.zero,
                 ),
                 child: Container(
-                  width: 295 * fem,
-                  height: 48 * fem,
-                  child: Container(
-                    // textfieldKpM (I71:14184;38:1568)
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4 * fem),
-                        topRight: Radius.circular(4 * fem),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // textfieldAa5 (I71:14184;38:1568;52798:24375)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: double.infinity,
-                          height: 48 * fem,
-                          decoration: BoxDecoration(
-                            color: Color(0xfff4eff4),
-                            borderRadius: BorderRadius.circular(30 * fem),
-                          ),
-                          child: Container(
-                            // statelayer4QZ (I71:14184;38:1568;52798:24376)
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 6 * fem, 16 * fem, 0 * fem),
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4 * fem),
-                                topRight: Radius.circular(4 * fem),
-                              ),
-                            ),
-                            child: Container(
-                              // autogroup9kbtACh (UPtCd6vVQqPQPv3yTf9kBT)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 73 * fem, 0 * fem),
-                              width: 190 * fem,
-                              height: double.infinity,
-                              child: Container(
-                                // contentUjB (I71:14184;38:1568;52798:24377)
-                                width: 33 * fem,
-                                height: 36 * fem,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      // labeltextDAy (I71:14184;38:1568;52798:24379)
-                                      'Title',
-                                      style: SafeGoogleFont(
-                                        'Roboto',
-                                        fontSize: 12 * ffem,
-                                        fontWeight: FontWeight.w400,
-                                        height: 1.3333333333 * ffem / fem,
-                                        letterSpacing: 0.400000006 * fem,
-                                        color: Color(0xff49454f),
-                                      ),
-                                    ),
-                                    Text(
-                                      // inputtextj9K (I71:14184;38:1568;52798:24381)
-                                      'Input',
-                                      style: SafeGoogleFont(
-                                        'Roboto',
-                                        fontSize: 14 * ffem,
-                                        fontWeight: FontWeight.w400,
-                                        height: 1.4285714286 * ffem / fem,
-                                        letterSpacing: 0.25 * fem,
-                                        color: Color(0xff1c1b1f),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                    width: 295 * fem,
+                    height: 48 * fem,
+                    child: NewTextField(
+                      label: 'Title',
+                      init: 'Input',
+                    )),
               ),
             ),
             Container(
@@ -180,90 +103,12 @@ class Scene extends StatelessWidget {
                   padding: EdgeInsets.zero,
                 ),
                 child: Container(
-                  width: 295 * fem,
-                  height: 48 * fem,
-                  child: Container(
-                    // textfieldQ8y (I71:14185;38:1568)
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4 * fem),
-                        topRight: Radius.circular(4 * fem),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // textfieldJEM (I71:14185;38:1568;52798:24375)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: double.infinity,
-                          height: 48 * fem,
-                          decoration: BoxDecoration(
-                            color: Color(0xfff4eff4),
-                            borderRadius: BorderRadius.circular(30 * fem),
-                          ),
-                          child: Container(
-                            // statelayerNED (I71:14185;38:1568;52798:24376)
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 6 * fem, 16 * fem, 0 * fem),
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4 * fem),
-                                topRight: Radius.circular(4 * fem),
-                              ),
-                            ),
-                            child: Container(
-                              // autogroupsgz7Uo3 (UPtD56BBx1LPWiymVRSGZ7)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 73 * fem, 0 * fem),
-                              width: 190 * fem,
-                              height: double.infinity,
-                              child: Container(
-                                // content1HB (I71:14185;38:1568;52798:24377)
-                                width: 39 * fem,
-                                height: 36 * fem,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      // labeltextwRj (I71:14185;38:1568;52798:24379)
-                                      'Author',
-                                      style: SafeGoogleFont(
-                                        'Roboto',
-                                        fontSize: 12 * ffem,
-                                        fontWeight: FontWeight.w400,
-                                        height: 1.3333333333 * ffem / fem,
-                                        letterSpacing: 0.400000006 * fem,
-                                        color: Color(0xff49454f),
-                                      ),
-                                    ),
-                                    Text(
-                                      // inputtext3Um (I71:14185;38:1568;52798:24381)
-                                      'Input',
-                                      style: SafeGoogleFont(
-                                        'Roboto',
-                                        fontSize: 14 * ffem,
-                                        fontWeight: FontWeight.w400,
-                                        height: 1.4285714286 * ffem / fem,
-                                        letterSpacing: 0.25 * fem,
-                                        color: Color(0xff1c1b1f),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                    width: 295 * fem,
+                    height: 48 * fem,
+                    child: NewTextField(
+                      label: 'Author',
+                      init: 'Input',
+                    )),
               ),
             ),
             Container(
@@ -275,90 +120,12 @@ class Scene extends StatelessWidget {
                   padding: EdgeInsets.zero,
                 ),
                 child: Container(
-                  width: 295 * fem,
-                  height: 48 * fem,
-                  child: Container(
-                    // textfieldKah (I71:14186;38:1568)
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4 * fem),
-                        topRight: Radius.circular(4 * fem),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // textfieldeN5 (I71:14186;38:1568;52798:24375)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: double.infinity,
-                          height: 48 * fem,
-                          decoration: BoxDecoration(
-                            color: Color(0xfff4eff4),
-                            borderRadius: BorderRadius.circular(30 * fem),
-                          ),
-                          child: Container(
-                            // statelayerZjw (I71:14186;38:1568;52798:24376)
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 6 * fem, 16 * fem, 0 * fem),
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4 * fem),
-                                topRight: Radius.circular(4 * fem),
-                              ),
-                            ),
-                            child: Container(
-                              // autogroupfcfbSYq (UPtDVaUPNvD5x6tguPfcFb)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 73 * fem, 0 * fem),
-                              width: 190 * fem,
-                              height: double.infinity,
-                              child: Container(
-                                // contentmLD (I71:14186;38:1568;52798:24377)
-                                width: 40 * fem,
-                                height: 36 * fem,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      // labeltext6dP (I71:14186;38:1568;52798:24379)
-                                      'Edition',
-                                      style: SafeGoogleFont(
-                                        'Roboto',
-                                        fontSize: 12 * ffem,
-                                        fontWeight: FontWeight.w400,
-                                        height: 1.3333333333 * ffem / fem,
-                                        letterSpacing: 0.400000006 * fem,
-                                        color: Color(0xff49454f),
-                                      ),
-                                    ),
-                                    Text(
-                                      // inputtextCRX (I71:14186;38:1568;52798:24381)
-                                      'Input',
-                                      style: SafeGoogleFont(
-                                        'Roboto',
-                                        fontSize: 14 * ffem,
-                                        fontWeight: FontWeight.w400,
-                                        height: 1.4285714286 * ffem / fem,
-                                        letterSpacing: 0.25 * fem,
-                                        color: Color(0xff1c1b1f),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                    width: 295 * fem,
+                    height: 48 * fem,
+                    child: NewTextField(
+                      label: 'Editon',
+                      init: 'Input',
+                    )),
               ),
             ),
             Container(

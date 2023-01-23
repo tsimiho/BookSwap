@@ -42,88 +42,95 @@ class HorizontalCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12 * fem),
               ),
               child: Container(
-                // headeryZK (I54:5348;52350:27881)
-                padding:
-                    EdgeInsets.fromLTRB(0 * fem, 16 * fem, 0 * fem, 16 * fem),
-                width: double.infinity,
-                height: double.infinity,
-                child: Container(
-                  // content6P3 (I54:5348;52350:27882)
-                  width: 122.91 * fem,
-                  height: double.infinity,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        // monogram1ku (I54:5348;52350:27883)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 4 * fem, 25.91 * fem, 4 * fem),
-                        width: 40 * fem,
-                        height: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Color(0xffe46962),
-                          borderRadius: BorderRadius.circular(20 * fem),
-                        ),
-                        child: Center(
-                          child: Center(
-                            child: Text(
-                              'A',
-                              textAlign: TextAlign.center,
-                              style: SafeGoogleFont(
-                                'Roboto',
-                                fontSize: 16 * ffem,
-                                fontWeight: FontWeight.w500,
-                                height: 1.5 * ffem / fem,
-                                letterSpacing: 0.150000006 * fem,
-                                color: Color(0xfffffbfe),
-                              ),
-                            ),
+                // headernkq (I51:4636;57:11535)
+                margin: EdgeInsets.fromLTRB(8 * fem, 6 * fem, 0 * fem, 6 * fem),
+                width: 340 * fem,
+                height: 48 * fem,
+                child: TextButton(
+                  // contenthso (I51:4636;57:11536)
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(
+                        0 * fem, 2 * fem, 17 * fem, 2 * fem),
+                    width: 320 * fem,
+                    height: double.infinity,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          // monogramyqK (I51:4636;57:11537)
+                          margin: EdgeInsets.fromLTRB(
+                              0 * fem, 8 * fem, 15.91 * fem, 8 * fem),
+                          width: 45 * fem,
+                          height: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Color(0xffe46962),
+                            borderRadius: BorderRadius.circular(25 * fem),
                           ),
-                        ),
-                      ),
-                      Container(
-                        // textDMB (I54:5348;52350:27886)
-                        width: 57 * fem,
-                        height: double.infinity,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              // headerjqK (I54:5348;52350:27887)
-                              margin: EdgeInsets.fromLTRB(
-                                  0.09 * fem, 0 * fem, 0 * fem, 4 * fem),
+                          child: Center(
+                            child: Center(
                               child: Text(
-                                'Header',
+                                'A',
+                                textAlign: TextAlign.center,
                                 style: SafeGoogleFont(
                                   'Roboto',
                                   fontSize: 16 * ffem,
                                   fontWeight: FontWeight.w500,
                                   height: 1.5 * ffem / fem,
                                   letterSpacing: 0.150000006 * fem,
-                                  color: Color(0xff1c1b1f),
+                                  color: Color(0xfffffbfe),
                                 ),
                               ),
                             ),
-                            Container(
-                              // subheadDVb (I54:5348;52350:27888)
-                              width: double.infinity,
-                              child: Text(
-                                'Subhead',
-                                textAlign: TextAlign.center,
-                                style: SafeGoogleFont(
-                                  'Roboto',
-                                  fontSize: 14 * ffem,
-                                  fontWeight: FontWeight.w400,
-                                  height: 1.4285714286 * ffem / fem,
-                                  letterSpacing: 0.25 * fem,
-                                  color: Color(0xff1c1b1f),
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ],
+                        Container(
+                          // textnGy (I51:4636;57:11540)
+                          width: 75.09 * fem,
+                          height: double.infinity,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                // headerJWD (I51:4636;57:11541)
+                                margin: EdgeInsets.fromLTRB(
+                                    0.09 * fem, 6 * fem, 0 * fem, 0 * fem),
+                                child: Text(
+                                  'Username',
+                                  style: SafeGoogleFont(
+                                    'Roboto',
+                                    fontSize: 16 * ffem,
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.5 * ffem / fem,
+                                    letterSpacing: 0.150000006 * fem,
+                                    color: Color(0xff1c1b1f),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                // subheadNW5 (I51:4636;57:11542)
+                                width: double.infinity,
+                                child: Text(
+                                  'Distance',
+                                  textAlign: TextAlign.left,
+                                  style: SafeGoogleFont(
+                                    'Roboto',
+                                    fontSize: 14 * ffem,
+                                    fontWeight: FontWeight.w400,
+                                    height: 1.4285714286 * ffem / fem,
+                                    letterSpacing: 0.25 * fem,
+                                    color: Color(0xff1c1b1f),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

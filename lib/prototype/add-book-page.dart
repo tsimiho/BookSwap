@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/assets/newTextField.dart';
 import 'package:myapp/utils.dart';
 
 class Scene extends StatelessWidget {
@@ -33,7 +34,7 @@ class Scene extends StatelessWidget {
                   Container(
                     // backFF7 (54:15633)
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 134 * fem, 0 * fem),
+                        0 * fem, 0 * fem, 125 * fem, 0 * fem),
                     child: TextButton(
                       onPressed: () {},
                       style: TextButton.styleFrom(
@@ -85,239 +86,36 @@ class Scene extends StatelessWidget {
                   padding: EdgeInsets.zero,
                 ),
                 child: Container(
-                  width: 295 * fem,
-                  height: 48 * fem,
-                  child: Container(
-                    // textfieldWCy (I54:15907;38:1019)
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4 * fem),
-                        topRight: Radius.circular(4 * fem),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // textfield8k9 (I54:15907;38:1019;52798:24375)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: double.infinity,
-                          height: 48 * fem,
-                          decoration: BoxDecoration(
-                            color: Color(0xfff4eff4),
-                            borderRadius: BorderRadius.circular(30 * fem),
-                          ),
-                          child: Container(
-                            // statelayerykm (I54:15907;38:1019;52798:24376)
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 8 * fem, 16 * fem, 0 * fem),
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4 * fem),
-                                topRight: Radius.circular(4 * fem),
-                              ),
-                            ),
-                            child: Container(
-                              // autogrouparfffNh (UPtADqbCwak2MdYTuuARff)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 73 * fem, 0 * fem),
-                              padding: EdgeInsets.fromLTRB(
-                                  0 * fem, 8 * fem, 0 * fem, 6 * fem),
-                              width: 190 * fem,
-                              height: double.infinity,
-                              child: Container(
-                                // contentZU5 (I54:15907;38:1019;52798:24377)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 157 * fem, 0 * fem),
-                                width: 33 * fem,
-                                height: double.infinity,
-                                child: Text(
-                                  'Title',
-                                  style: SafeGoogleFont(
-                                    'Roboto',
-                                    fontSize: 12 * ffem,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.3333333333 * ffem / fem,
-                                    letterSpacing: 0.400000006 * fem,
-                                    color: Color(0xff49454f),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                    width: 295 * fem,
+                    height: 48 * fem,
+                    child: NewTextField(label: 'Title')),
               ),
             ),
             Container(
               // textfieldTxm (54:18770)
-              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 18 * fem, 12 * fem),
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 12 * fem, 12 * fem),
               child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                ),
-                child: Container(
-                  width: 295 * fem,
-                  height: 48 * fem,
-                  child: Container(
-                    // textfield9ah (I54:18770;38:1019)
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4 * fem),
-                        topRight: Radius.circular(4 * fem),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // textfieldEs3 (I54:18770;38:1019;52798:24375)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: double.infinity,
-                          height: 48 * fem,
-                          decoration: BoxDecoration(
-                            color: Color(0xfff4eff4),
-                            borderRadius: BorderRadius.circular(30 * fem),
-                          ),
-                          child: Container(
-                            // statelayerZPX (I54:18770;38:1019;52798:24376)
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 8 * fem, 16 * fem, 0 * fem),
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4 * fem),
-                                topRight: Radius.circular(4 * fem),
-                              ),
-                            ),
-                            child: Container(
-                              // autogroupcc49H4d (UPtAbunm9Bmvb33RZ6CC49)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 73 * fem, 0 * fem),
-                              padding: EdgeInsets.fromLTRB(
-                                  0 * fem, 8 * fem, 0 * fem, 6 * fem),
-                              width: 190 * fem,
-                              height: double.infinity,
-                              child: Container(
-                                // contentNbs (I54:18770;38:1019;52798:24377)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 151 * fem, 0 * fem),
-                                width: 39 * fem,
-                                height: double.infinity,
-                                child: Text(
-                                  'Author',
-                                  style: SafeGoogleFont(
-                                    'Roboto',
-                                    fontSize: 12 * ffem,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.3333333333 * ffem / fem,
-                                    letterSpacing: 0.400000006 * fem,
-                                    color: Color(0xff49454f),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
                   ),
-                ),
-              ),
+                  child: Container(
+                      width: 295 * fem,
+                      height: 48 * fem,
+                      child: NewTextField(label: 'Author'))),
             ),
             Container(
               // textfield3bX (54:18781)
               margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 12 * fem, 20 * fem),
               child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                ),
-                child: Container(
-                  width: 295 * fem,
-                  height: 48 * fem,
-                  child: Container(
-                    // textfield7rH (I54:18781;38:1019)
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4 * fem),
-                        topRight: Radius.circular(4 * fem),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // textfieldEvu (I54:18781;38:1019;52798:24375)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: double.infinity,
-                          height: 48 * fem,
-                          decoration: BoxDecoration(
-                            color: Color(0xfff4eff4),
-                            borderRadius: BorderRadius.circular(30 * fem),
-                          ),
-                          child: Container(
-                            // statelayerjsf (I54:18781;38:1019;52798:24376)
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 8 * fem, 16 * fem, 0 * fem),
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4 * fem),
-                                topRight: Radius.circular(4 * fem),
-                              ),
-                            ),
-                            child: Container(
-                              // autogroupnm5tcgZ (UPtAzu8TTqaLLywUMGNM5T)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 73 * fem, 0 * fem),
-                              padding: EdgeInsets.fromLTRB(
-                                  0 * fem, 8 * fem, 0 * fem, 6 * fem),
-                              width: 190 * fem,
-                              height: double.infinity,
-                              child: Container(
-                                // contentt8H (I54:18781;38:1019;52798:24377)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 150 * fem, 0 * fem),
-                                width: 40 * fem,
-                                height: double.infinity,
-                                child: Text(
-                                  'Edition',
-                                  style: SafeGoogleFont(
-                                    'Roboto',
-                                    fontSize: 12 * ffem,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.3333333333 * ffem / fem,
-                                    letterSpacing: 0.400000006 * fem,
-                                    color: Color(0xff49454f),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
                   ),
-                ),
-              ),
+                  child: Container(
+                      width: 295 * fem,
+                      height: 48 * fem,
+                      child: NewTextField(label: 'Edition'))),
             ),
             Container(
               // autogroupap4mSJD (UPt9eSPC9a3HS5V8iiAP4m)

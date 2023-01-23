@@ -4,31 +4,18 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
-class NewTextField extends StatefulWidget {
-  const NewTextField(
-      {Key? key,
-      required this.label,
-      this.init,
-      this.specialIcon,
-      this.onClick})
-      : super(key: key);
-  final String label;
-  final String? init;
-  final IconData? specialIcon;
-  final VoidCallback? onClick;
-
+class MessageField extends StatefulWidget {
   @override
-  _NewTextFieldState createState() => _NewTextFieldState();
+  _MessageFieldState createState() => _MessageFieldState();
 }
 
-class _NewTextFieldState extends State<NewTextField> {
+class _MessageFieldState extends State<MessageField> {
   final textController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
 
-    if (widget.init != null) textController.text = '${widget.init}';
     textController.addListener(() => setState(() {}));
   }
 
@@ -43,31 +30,34 @@ class _NewTextFieldState extends State<NewTextField> {
         child: buildText(),
       );
 
-  Widget buildText() => Material(
-          child: TextField(
+  Widget buildText() => TextField(
         controller: textController,
         cursorColor: Color(0xffe46962),
         decoration: InputDecoration(
-          //hintText: textController.text.isEmpty ? 'Username' : '',
-          labelText: '${widget.label}',
+          hintText: 'Message...',
+          hintStyle: TextStyle(color: Color(0xff49454f)),
+          floatingLabelBehavior: FloatingLabelBehavior.never,
+          labelText: 'Message...',
           labelStyle: TextStyle(
               color: textController.text.isEmpty
                   ? Color(0xff49454f)
                   : Color(0xffe46962)),
-          // icon: Icon(Icons.mail),
-          suffixIcon: widget.specialIcon != null
+          prefixIcon: IconButton(
+            icon: Icon(Icons.photo_camera),
+            color: Color(0xffe46962),
+            onPressed: () => {},
+          ),
+          suffixIcon: textController.text.isEmpty
               ? IconButton(
-                  icon: Icon(widget.specialIcon),
+                  icon: Icon(Icons.mic),
                   color: Color(0xffe46962),
-                  onPressed: widget.onClick,
+                  onPressed: () => {},
                 )
-              : (textController.text.isEmpty
-                  ? Container(width: 0)
-                  : IconButton(
-                      icon: Icon(Icons.close),
-                      color: Color(0xffe46962),
-                      onPressed: () => textController.clear(),
-                    )),
+              : IconButton(
+                  icon: Icon(Icons.send),
+                  color: Color(0xffe46962),
+                  onPressed: () => {},
+                ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xfff4eff4)),
             borderRadius: BorderRadius.circular(20.0),
@@ -81,8 +71,8 @@ class _NewTextFieldState extends State<NewTextField> {
           filled: true,
           fillColor: Color(0xfff4eff4),
         ),
-        keyboardType: TextInputType.text,
+        keyboardType: TextInputType.multiline,
         textInputAction: TextInputAction.done,
-        // autofocus: true,
-      ));
+        autofocus: true,
+      );
 }

@@ -4,24 +4,17 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
-class NewTextField extends StatefulWidget {
-  const NewTextField(
-      {Key? key,
-      required this.label,
-      this.init,
-      this.specialIcon,
-      this.onClick})
-      : super(key: key);
+class PasswordField extends StatefulWidget {
+  PasswordField({Key? key, required this.label, this.init}) : super(key: key);
   final String label;
   final String? init;
-  final IconData? specialIcon;
-  final VoidCallback? onClick;
+  bool isPasswordVisible = false;
 
   @override
-  _NewTextFieldState createState() => _NewTextFieldState();
+  _PasswordFieldState createState() => _PasswordFieldState();
 }
 
-class _NewTextFieldState extends State<NewTextField> {
+class _PasswordFieldState extends State<PasswordField> {
   final textController = TextEditingController();
 
   @override
@@ -43,8 +36,7 @@ class _NewTextFieldState extends State<NewTextField> {
         child: buildText(),
       );
 
-  Widget buildText() => Material(
-          child: TextField(
+  Widget buildText() => TextField(
         controller: textController,
         cursorColor: Color(0xffe46962),
         decoration: InputDecoration(
@@ -55,19 +47,14 @@ class _NewTextFieldState extends State<NewTextField> {
                   ? Color(0xff49454f)
                   : Color(0xffe46962)),
           // icon: Icon(Icons.mail),
-          suffixIcon: widget.specialIcon != null
-              ? IconButton(
-                  icon: Icon(widget.specialIcon),
-                  color: Color(0xffe46962),
-                  onPressed: widget.onClick,
-                )
-              : (textController.text.isEmpty
-                  ? Container(width: 0)
-                  : IconButton(
-                      icon: Icon(Icons.close),
-                      color: Color(0xffe46962),
-                      onPressed: () => textController.clear(),
-                    )),
+          suffixIcon: IconButton(
+            icon: widget.isPasswordVisible
+                ? Icon(Icons.visibility_off)
+                : Icon(Icons.visibility),
+            color: Color(0xffe46962),
+            onPressed: () => setState(
+                () => widget.isPasswordVisible = !widget.isPasswordVisible),
+          ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xfff4eff4)),
             borderRadius: BorderRadius.circular(20.0),
@@ -83,6 +70,7 @@ class _NewTextFieldState extends State<NewTextField> {
         ),
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.done,
+        obscureText: !widget.isPasswordVisible,
         // autofocus: true,
-      ));
+      );
 }

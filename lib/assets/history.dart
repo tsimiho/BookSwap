@@ -208,7 +208,7 @@ class History extends StatelessWidget {
                                     Container(
                                       // mediaudK (I54:15594;57:9384)
                                       margin: EdgeInsets.fromLTRB(
-                                          0 * fem, 0 * fem, 0 * fem, 48 * fem),
+                                          0 * fem, 0 * fem, 0 * fem, 38 * fem),
                                       width: 96 * fem,
                                       height: 123 * fem,
                                       child: ClipRRect(

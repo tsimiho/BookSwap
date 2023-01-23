@@ -96,9 +96,84 @@ class Scene extends StatelessWidget {
               ),
             ),
             Positioned(
-              // here8VF (39:1676)
-              left: 246 * fem,
+              // donthaveanaccountRYD (38:1017)
+              left: 60 * fem,
               top: 431 * fem,
+              child: Container(
+                width: 187 * fem,
+                height: 37 * fem,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20 * fem),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      // textfield7A9 (I38:1017;52798:24431)
+                      margin: EdgeInsets.fromLTRB(
+                          0 * fem, 0 * fem, 0 * fem, 0 * fem),
+                      width: 187 * fem,
+                      height: 30 * fem,
+                      decoration: BoxDecoration(
+                        color: Color(0xffffffff),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(4 * fem),
+                          topRight: Radius.circular(4 * fem),
+                        ),
+                      ),
+                      child: Container(
+                        // statelayerBfo (I38:1017;52798:24432)
+                        padding: EdgeInsets.fromLTRB(
+                            0 * fem, 0 * fem, 0 * fem, 0 * fem),
+                        width: double.infinity,
+                        height: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(4 * fem),
+                            topRight: Radius.circular(4 * fem),
+                          ),
+                        ),
+                        child: Container(
+                          // contentdnh (I38:1017;52798:24433)
+                          width: double.infinity,
+                          height: 28 * fem,
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                // inputtexthvy (I38:1017;52798:24437)
+                                left: 0 * fem,
+                                top: 0 * fem,
+                                child: Align(
+                                  child: SizedBox(
+                                    width: 190 * fem,
+                                    height: 16 * fem,
+                                    child: Text(
+                                      'Don’t have an account? Create one',
+                                      style: SafeGoogleFont(
+                                        'Roboto',
+                                        fontSize: 11 * ffem,
+                                        fontWeight: FontWeight.w500,
+                                        height: 1.4545454545 * ffem / fem,
+                                        letterSpacing: 0.5 * fem,
+                                        color: Color(0xff000000),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              // here8VF (39:1676)
+              left: 230 * fem,
+              top: 418 * fem,
               child: TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
@@ -174,95 +249,7 @@ class Scene extends StatelessWidget {
               ),
             ),
             Positioned(
-              // donthaveanaccountRYD (38:1017)
-              left: 60 * fem,
-              top: 431 * fem,
-              child: Container(
-                width: 187 * fem,
-                height: 37 * fem,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20 * fem),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      // textfield7A9 (I38:1017;52798:24431)
-                      margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                      width: 187 * fem,
-                      height: 30 * fem,
-                      decoration: BoxDecoration(
-                        color: Color(0xffffffff),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(4 * fem),
-                          topRight: Radius.circular(4 * fem),
-                        ),
-                      ),
-                      child: Container(
-                        // statelayerBfo (I38:1017;52798:24432)
-                        padding: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                        width: double.infinity,
-                        height: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(4 * fem),
-                            topRight: Radius.circular(4 * fem),
-                          ),
-                        ),
-                        child: Container(
-                          // contentdnh (I38:1017;52798:24433)
-                          width: double.infinity,
-                          height: 28 * fem,
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                // inputtexthvy (I38:1017;52798:24437)
-                                left: 0 * fem,
-                                top: 0 * fem,
-                                child: Align(
-                                  child: SizedBox(
-                                    width: 190 * fem,
-                                    height: 16 * fem,
-                                    child: Text(
-                                      'Don’t have an account? Create one ',
-                                      style: SafeGoogleFont(
-                                        'Roboto',
-                                        fontSize: 11 * ffem,
-                                        fontWeight: FontWeight.w500,
-                                        height: 1.4545454545 * ffem / fem,
-                                        letterSpacing: 0.5 * fem,
-                                        color: Color(0xff000000),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
               // passwordeDw (39:1607)
-              left: 57 * fem,
-              top: 301 * fem,
-              child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                ),
-                child: Container(
-                    width: 222 * fem, height: 48 * fem, child: NewTextField()),
-              ),
-            ),
-            Positioned(
-              // usernames29 (39:1593)
               left: 57 * fem,
               top: 222 * fem,
               child: TextButton(
@@ -271,7 +258,24 @@ class Scene extends StatelessWidget {
                   padding: EdgeInsets.zero,
                 ),
                 child: Container(
-                    width: 222 * fem, height: 48 * fem, child: NewTextField()),
+                    width: 222 * fem,
+                    height: 48 * fem,
+                    child: NewTextField(label: 'Username')),
+              ),
+            ),
+            Positioned(
+              // usernames29 (39:1593)
+              left: 57 * fem,
+              top: 301 * fem,
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                ),
+                child: Container(
+                    width: 222 * fem,
+                    height: 48 * fem,
+                    child: NewTextField(label: 'Password')),
               ),
             ),
             Positioned(
@@ -328,7 +332,7 @@ class Scene extends StatelessWidget {
                                   Positioned(
                                     // inputtextuiq (I39:1725;38:1013;52798:24437)
                                     left: 0 * fem,
-                                    top: 6 * fem,
+                                    top: 5 * fem,
                                     child: Align(
                                       child: SizedBox(
                                         width: 36 * fem,

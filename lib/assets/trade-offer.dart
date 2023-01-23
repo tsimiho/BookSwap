@@ -355,40 +355,48 @@ class TradeOffer extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                  // buttonRzq (I54:28615;54:14722)
-                                  padding: EdgeInsets.fromLTRB(
-                                      10 * fem, 10 * fem, 0 * fem, 8 * fem),
-                                  width: 32 * fem,
-                                  height: 38 * fem,
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.circular(100 * fem),
-                                  ),
-                                  child: Container(
-                                    // statelayerYJm (I54:28615;54:14722;51631:4822)
-                                    padding: EdgeInsets.fromLTRB(0 * fem,
-                                        2.25 * fem, 0 * fem, 4.25 * fem),
+                                    // buttonRzq (I54:28615;54:14722)
+                                    padding: EdgeInsets.fromLTRB(
+                                        6 * fem, 10 * fem, 0 * fem, 8 * fem),
                                     width: 32 * fem,
-                                    height: double.infinity,
-                                    child: Align(
-                                      // iconRNZ (I54:28615;54:14722;50716:11439)
-                                      alignment: Alignment.centerLeft,
-                                      child: SizedBox(
-                                        width: 12 * fem,
-                                        height: 13.5 * fem,
-                                        child: Container(
-                                          margin: EdgeInsets.fromLTRB(0 * fem,
-                                              0 * fem, 0 * fem, 0 * fem),
-                                          child: Image.asset(
-                                            'assets/prototype/images/icon-gxy.png',
+                                    height: 38 * fem,
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.circular(100 * fem),
+                                    ),
+                                    child: TextButton(
+                                      onPressed: () {},
+                                      style: TextButton.styleFrom(
+                                        padding: EdgeInsets.zero,
+                                      ),
+                                      child: Container(
+                                        // statelayerYJm (I54:28615;54:14722;51631:4822)
+                                        padding: EdgeInsets.fromLTRB(0 * fem,
+                                            2.25 * fem, 0 * fem, 4.25 * fem),
+                                        width: 32 * fem,
+                                        height: double.infinity,
+                                        child: Align(
+                                          // iconRNZ (I54:28615;54:14722;50716:11439)
+                                          alignment: Alignment.center,
+                                          child: SizedBox(
                                             width: 12 * fem,
                                             height: 13.5 * fem,
+                                            child: Container(
+                                              margin: EdgeInsets.fromLTRB(
+                                                  0 * fem,
+                                                  0 * fem,
+                                                  0 * fem,
+                                                  0 * fem),
+                                              child: Image.asset(
+                                                'assets/prototype/images/icon-gxy.png',
+                                                width: 12 * fem,
+                                                height: 13.5 * fem,
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ),
-                                ),
+                                    )),
                               ],
                             ),
                           ),

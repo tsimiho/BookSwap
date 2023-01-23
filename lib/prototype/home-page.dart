@@ -95,7 +95,6 @@ class Home extends StatelessWidget {
                               ]),
                         ))
                   ])),
-          BottomAppBar(child: NavBar()),
         ]));
   }
 }

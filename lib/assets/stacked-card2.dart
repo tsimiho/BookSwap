@@ -239,31 +239,29 @@ class StackedCard2 extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            // statelayerX3P (I71:14252;63:11003)
-                            margin: EdgeInsets.fromLTRB(
-                                10 * fem, 10 * fem, 0 * fem, 2 * fem),
-                            padding: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                            width: 30 * fem,
-                            height: 38 * fem,
-                            child: Align(
-                              // icond6R (I71:14252;63:11004)
-                              alignment: Alignment.centerRight,
-                              child: SizedBox(
-                                width: 12 * fem,
-                                height: 13.5 * fem,
-                                child: Container(
-                                  margin: EdgeInsets.fromLTRB(
-                                      0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                                  child: Image.asset(
-                                    'assets/prototype/images/icon-961.png',
-                                    width: 12 * fem,
-                                    height: 13.5 * fem,
+                              // statelayerX3P (I71:14252;63:11003)
+                              margin: EdgeInsets.fromLTRB(
+                                  10 * fem, 8 * fem, 0 * fem, 0 * fem),
+                              padding: EdgeInsets.fromLTRB(
+                                  0 * fem, 0 * fem, 0 * fem, 0 * fem),
+                              width: 45 * fem,
+                              height: 57 * fem,
+                              child: TextButton(
+                                onPressed: () => {},
+                                child: SizedBox(
+                                  width: 45 * fem,
+                                  height: 57 * fem,
+                                  child: Container(
+                                    margin: EdgeInsets.fromLTRB(
+                                        0 * fem, 0 * fem, 0 * fem, 0 * fem),
+                                    child: Image.asset(
+                                      'assets/prototype/images/icon-961.png',
+                                      width: 45 * fem,
+                                      height: 57 * fem,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                          ),
+                              )),
                         ],
                       ),
                     ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/prototype/settings-page.dart';
 import 'package:myapp/utils.dart';
 import '../assets/stacked-card2.dart';
 import '../assets/navbar.dart';
@@ -38,7 +39,14 @@ class MyProfile extends StatelessWidget {
                               width: 48 * fem,
                               height: 48 * fem,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SecondRoute()),
+                                  );
+                                },
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                 ),
@@ -64,8 +72,8 @@ class MyProfile extends StatelessWidget {
                                 Container(
                                   // snackbardarkXSq (I54:13151;51:5969)
                                   margin: EdgeInsets.fromLTRB(
-                                      0 * fem, 10 * fem, 0 * fem, 0 * fem),
-                                  width: 107 * fem,
+                                      0 * fem, 8 * fem, 0 * fem, 0 * fem),
+                                  width: 97 * fem,
                                   height: 61 * fem,
                                   decoration: BoxDecoration(
                                     border:
@@ -91,7 +99,7 @@ class MyProfile extends StatelessWidget {
                                 Container(
                                   // iconsadd24pxjYu (54:15629)
                                   margin: EdgeInsets.fromLTRB(
-                                      0 * fem, 7 * fem, 124 * fem, 4 * fem),
+                                      0 * fem, 7 * fem, 110 * fem, 4 * fem),
                                   child: TextButton(
                                     onPressed: () {},
                                     style: TextButton.styleFrom(
@@ -111,7 +119,7 @@ class MyProfile extends StatelessWidget {
                                 Container(
                                   // iconsaccesstime24pxapR (54:13142)
                                   margin: EdgeInsets.fromLTRB(
-                                      0 * fem, 0 * fem, 0 * fem, 0 * fem),
+                                      0 * fem, 0 * fem, 10 * fem, 0 * fem),
                                   child: TextButton(
                                     onPressed: () {},
                                     style: TextButton.styleFrom(
@@ -332,7 +340,15 @@ class MyProfile extends StatelessWidget {
                       ],
                     ),
                   ),
-                  NavBar(),
                 ])));
+  }
+}
+
+class SecondRoute extends StatelessWidget {
+  const SecondRoute({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Settings();
   }
 }
