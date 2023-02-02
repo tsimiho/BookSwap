@@ -43,8 +43,7 @@ class MyProfile extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            const SecondRoute()),
+                                        builder: (context) => const Settings()),
                                   );
                                 },
                                 style: TextButton.styleFrom(
@@ -341,14 +340,5 @@ class MyProfile extends StatelessWidget {
                     ),
                   ),
                 ])));
-  }
-}
-
-class SecondRoute extends StatelessWidget {
-  const SecondRoute({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Settings();
   }
 }

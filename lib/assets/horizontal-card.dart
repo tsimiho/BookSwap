@@ -4,6 +4,8 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
+import '../prototype/in-chat-page.dart';
+
 class HorizontalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,13 @@ class HorizontalCard extends StatelessWidget {
                 height: 48 * fem,
                 child: TextButton(
                   // contenthso (I51:4636;57:11536)
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const InChatRoute()),
+                    );
+                  },
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
                   ),
@@ -139,5 +147,14 @@ class HorizontalCard extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class InChatRoute extends StatelessWidget {
+  const InChatRoute({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return InChat();
   }
 }

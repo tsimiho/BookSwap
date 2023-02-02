@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/assets/SearchField.dart';
 import 'package:myapp/utils.dart';
-import '../assets/navbar.dart';
 import '../assets/stacked-card.dart';
 
 class Search extends StatelessWidget {
@@ -71,7 +70,6 @@ class Search extends StatelessWidget {
                         ),
                       ]),
                 )),
-            NavBar(),
           ],
         ),
       ),

@@ -4,12 +4,12 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/assets/newTextField.dart';
 import 'package:myapp/utils.dart';
-
 import '../assets/ListItem.dart';
 import '../assets/newSwitch.dart';
 
 class Settings extends StatelessWidget {
-  bool notifications = true;
+  const Settings({super.key});
+  final bool notifications = true;
 
   @override
   Widget build(BuildContext context) {
