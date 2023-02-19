@@ -5,13 +5,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/assets/newTextField.dart';
 import 'package:myapp/utils.dart';
 
-class Scene extends StatelessWidget {
+class AddBook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
+    return SingleChildScrollView(
+        child: Material(
+            child: Container(
       width: double.infinity,
       child: Container(
         // addbookpageN2u (54:15632)
@@ -36,7 +38,9 @@ class Scene extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(
                         0 * fem, 0 * fem, 125 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -299,6 +303,6 @@ class Scene extends StatelessWidget {
           ],
         ),
       ),
-    );
+    )));
   }
 }

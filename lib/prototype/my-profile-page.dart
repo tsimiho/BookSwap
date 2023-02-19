@@ -3,9 +3,10 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/prototype/settings-page.dart';
+import 'package:myapp/prototype/add-book-page.dart';
+import 'package:myapp/prototype/history-page.dart';
 import 'package:myapp/utils.dart';
 import '../assets/stacked-card2.dart';
-import '../assets/navbar.dart';
 
 class MyProfile extends StatelessWidget {
   @override
@@ -27,7 +28,7 @@ class MyProfile extends StatelessWidget {
                   Container(
                     // autogroupxkqx4Qq (UPtLPTpQn1sTWCBa4gXkqX)
                     width: double.infinity,
-                    height: 564 * fem,
+                    height: 724 * fem,
                     child: Stack(
                       children: [
                         Positioned(
@@ -43,7 +44,7 @@ class MyProfile extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const Settings()),
+                                        builder: (context) => Settings()),
                                   );
                                 },
                                 style: TextButton.styleFrom(
@@ -100,7 +101,13 @@ class MyProfile extends StatelessWidget {
                                   margin: EdgeInsets.fromLTRB(
                                       0 * fem, 7 * fem, 110 * fem, 4 * fem),
                                   child: TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => AddBook()),
+                                      );
+                                    },
                                     style: TextButton.styleFrom(
                                       padding: EdgeInsets.zero,
                                     ),
@@ -120,7 +127,14 @@ class MyProfile extends StatelessWidget {
                                   margin: EdgeInsets.fromLTRB(
                                       0 * fem, 0 * fem, 10 * fem, 0 * fem),
                                   child: TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                HistoryPage()),
+                                      );
+                                    },
                                     style: TextButton.styleFrom(
                                       padding: EdgeInsets.zero,
                                     ),
@@ -287,55 +301,52 @@ class MyProfile extends StatelessWidget {
                             left: 14 * fem,
                             top: 193 * fem,
                             child: Container(
-                                width: 332 * fem,
-                                height: 371 * fem,
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
-                                          width: double.infinity,
-                                          height: 256 * fem,
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              StackedCard2(),
-                                              Container(
-                                                width: 12 * fem,
-                                                height: 256 * fem,
-                                              ),
-                                              StackedCard2(),
-                                            ],
+                              width: 332 * fem,
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+                                      width: double.infinity,
+                                      height: 256 * fem,
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          StackedCard2(),
+                                          Container(
+                                            width: 12 * fem,
+                                            height: 256 * fem,
                                           ),
-                                        ),
-                                        SizedBox(
-                                          height: 10 * fem,
-                                        ),
-                                        Container(
-                                          // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
-                                          width: double.infinity,
-                                          height: 256 * fem,
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              StackedCard2(),
-                                              Container(
-                                                width: 12 * fem,
-                                                height: 256 * fem,
-                                              ),
-                                              StackedCard2(),
-                                            ],
+                                          StackedCard2(),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10 * fem,
+                                    ),
+                                    Container(
+                                      // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+                                      width: double.infinity,
+                                      height: 256 * fem,
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          StackedCard2(),
+                                          Container(
+                                            width: 12 * fem,
+                                            height: 256 * fem,
                                           ),
-                                        ),
-                                        SizedBox(
-                                          height: 10 * fem,
-                                        ),
-                                      ]),
-                                ))),
+                                          StackedCard2(),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10 * fem,
+                                    ),
+                                  ]),
+                            )),
                       ],
                     ),
                   ),

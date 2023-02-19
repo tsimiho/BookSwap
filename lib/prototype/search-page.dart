@@ -24,17 +24,18 @@ class Search extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SearchField(),
-            SizedBox(height: 10 * fem),
+            SizedBox(height: 4 * fem),
             Container(
                 // frame16To7 (65:12474)
                 margin:
                     EdgeInsets.fromLTRB(14 * fem, 0 * fem, 14 * fem, 0 * fem),
                 width: double.infinity,
-                height: 485 * fem,
+                height: 465 * fem,
                 child: SingleChildScrollView(
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        SizedBox(height: 10 * fem),
                         Container(
                           // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
                           width: double.infinity,

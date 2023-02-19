@@ -13,8 +13,8 @@ class InChat extends StatelessWidget {
     double ffem = fem * 0.97;
     return Scaffold(
         body: Center(
-            child: SingleChildScrollView(
-                child: Column(
+            //child: SingleChildScrollView(
+            child: Column(
       children: [
         Container(
           width: double.infinity,
@@ -30,8 +30,8 @@ class InChat extends StatelessWidget {
               children: [
                 Container(
                   // autogrouppqu3Vny (UPtpnUqQ7yC3utA4uzPqu3)
-                  margin: EdgeInsets.fromLTRB(
-                      0 * fem, 0 * fem, 30 * fem, 290 * fem),
+                  margin:
+                      EdgeInsets.fromLTRB(0 * fem, 0 * fem, 30 * fem, 0 * fem),
                   width: double.infinity,
                   height: 80 * fem,
                   child: Row(
@@ -40,7 +40,7 @@ class InChat extends StatelessWidget {
                       Container(
                         // backPNZ (51:8852)
                         margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 3 * fem, 0 * fem),
+                            0 * fem, 0 * fem, 3 * fem, 20 * fem),
                         child: TextButton(
                           onPressed: () {
                             Navigator.pop(context);
@@ -163,44 +163,232 @@ class InChat extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  // autogroupnjamRe1 (UPtqM8ZfMrMeVihxoHNJAM)
-                  margin:
-                      EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 36 * fem),
-                  width: double.infinity,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        // othermessageit1 (71:15816)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 48 * fem, 8 * fem, 0 * fem),
-                        child: TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                          ),
-                          child: Container(
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 16 * fem, 27.5 * fem, 0 * fem),
-                            width: 154 * fem,
-                            height: 64 * fem,
+                SingleChildScrollView(
+                    child: Material(
+                        child: Column(children: [
+                  Container(
+                    // autogroupnjamRe1 (UPtqM8ZfMrMeVihxoHNJAM)
+                    margin: EdgeInsets.fromLTRB(
+                        0 * fem, 200 * fem, 0 * fem, 36 * fem),
+                    width: double.infinity,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          // othermessageit1 (71:15816)
+                          margin: EdgeInsets.fromLTRB(
+                              0 * fem, 48 * fem, 8 * fem, 0 * fem),
+                          child: TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                            ),
                             child: Container(
-                              // mediatextcontentz4q (I71:15816;71:15499)
-                              width: double.infinity,
-                              height: double.infinity,
+                              padding: EdgeInsets.fromLTRB(
+                                  16 * fem, 16 * fem, 27.5 * fem, 0 * fem),
+                              width: 154 * fem,
+                              height: 74 * fem,
                               child: Container(
-                                // autogroupbcq9KN1 (UPtqqHRRGxJP3GDEqCBCQ9)
-                                width: 84 * fem,
-                                height: 32 * fem,
-                                child: Stack(
+                                // mediatextcontentz4q (I71:15816;71:15499)
+                                width: double.infinity,
+                                height: double.infinity,
+                                child: Container(
+                                  // autogroupbcq9KN1 (UPtqqHRRGxJP3GDEqCBCQ9)
+                                  width: 84 * fem,
+                                  height: 32 * fem,
+                                  child: Stack(
+                                    children: [
+                                      Positioned(
+                                        // textfield3Yu (I71:15816;71:15500)
+                                        left: 0 * fem,
+                                        top: 0 * fem,
+                                        child: Container(
+                                          width: 84 * fem,
+                                          height: 32 * fem,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20 * fem),
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                // textfieldLH7 (I71:15816;71:15500;52798:24431)
+                                                margin: EdgeInsets.fromLTRB(
+                                                    0 * fem,
+                                                    0 * fem,
+                                                    0 * fem,
+                                                    28 * fem),
+                                                width: double.infinity,
+                                                height: 32 * fem,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xffe6e1e5),
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    topLeft: Radius.circular(
+                                                        4 * fem),
+                                                    topRight: Radius.circular(
+                                                        4 * fem),
+                                                  ),
+                                                ),
+                                                child: Container(
+                                                  // statelayerENV (I71:15816;71:15500;52798:24432)
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      16 * fem,
+                                                      8 * fem,
+                                                      16 * fem,
+                                                      8 * fem),
+                                                  width: double.infinity,
+                                                  height: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      topLeft: Radius.circular(
+                                                          4 * fem),
+                                                      topRight: Radius.circular(
+                                                          4 * fem),
+                                                    ),
+                                                  ),
+                                                  child: Container(
+                                                    // contentwGu (I71:15816;71:15500;52798:24433)
+                                                    width: double.infinity,
+                                                    height: double.infinity,
+                                                    child: Stack(
+                                                      children: [
+                                                        Positioned(
+                                                          // inputtextKYM (I71:15816;71:15500;52798:24437)
+                                                          left: 0 * fem,
+                                                          top: 0 * fem,
+                                                          child: Center(
+                                                            child: Align(
+                                                              child: SizedBox(
+                                                                width: 52 * fem,
+                                                                height:
+                                                                    16 * fem,
+                                                                child: Text(
+                                                                  'Message',
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style:
+                                                                      SafeGoogleFont(
+                                                                    'Roboto',
+                                                                    fontSize:
+                                                                        12 *
+                                                                            ffem,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400,
+                                                                    height:
+                                                                        1.3333333333 *
+                                                                            ffem /
+                                                                            fem,
+                                                                    letterSpacing:
+                                                                        0.400000006 *
+                                                                            fem,
+                                                                    color: Color(
+                                                                        0xff000000),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        // cardoutlinedFaR (I71:15816;71:15497)
+                                        left: 0 * fem,
+                                        top: 5 * fem,
+                                        child: Container(
+                                          width: 22 * fem,
+                                          height: 22 * fem,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                                color: Color(0xffffffff)),
+                                            color: Color(0xfffffbfe),
+                                            borderRadius:
+                                                BorderRadius.circular(12 * fem),
+                                          ),
+                                          child: Center(
+                                            // hearticonvalentine21kGH (I71:15816;71:15498)
+                                            child: SizedBox(
+                                              width: 22 * fem,
+                                              height: 21.59 * fem,
+                                              child: Image.asset(
+                                                'assets/prototype/images/heart-icon-valentine-2-1.png',
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          // mymessageEx9 (71:15330)
+                          margin: EdgeInsets.fromLTRB(
+                              0 * fem, 0 * fem, 0 * fem, 48 * fem),
+                          child: TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                            ),
+                            child: Container(
+                              padding: EdgeInsets.fromLTRB(
+                                  16 * fem, 16 * fem, 16 * fem, 0 * fem),
+                              width: 154 * fem,
+                              height: 64 * fem,
+                              child: Container(
+                                // contentuYV (I71:15330;71:15163)
+                                width: double.infinity,
+                                height: double.infinity,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Positioned(
-                                      // textfield3Yu (I71:15816;71:15500)
-                                      left: 0 * fem,
-                                      top: 0 * fem,
+                                    Container(
+                                      // cardoutlineddzH (I71:15330;71:15166)
+                                      margin: EdgeInsets.fromLTRB(
+                                          0 * fem, 0 * fem, 16 * fem, 16 * fem),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Color(0xffffffff)),
+                                        color: Color(0xfffffbfe),
+                                        borderRadius:
+                                            BorderRadius.circular(12 * fem),
+                                      ),
+                                      child: Center(
+                                        // hearticonvalentine21L81 (I71:15330;71:15167)
+                                        child: SizedBox(
+                                          width: 22 * fem,
+                                          height: 21.59 * fem,
+                                          child: Image.asset(
+                                            'assets/prototype/images/heart-icon-valentine-2-1-3jw.png',
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      // mediatextcontentEUH (I71:15330;71:15218)
+                                      width: 84 * fem,
+                                      height: double.infinity,
                                       child: Container(
-                                        width: 84 * fem,
+                                        // textfieldmj7 (I71:15330;71:15168)
+                                        width: double.infinity,
                                         height: 32 * fem,
                                         decoration: BoxDecoration(
                                           borderRadius:
@@ -211,7 +399,7 @@ class InChat extends StatelessWidget {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              // textfieldLH7 (I71:15816;71:15500;52798:24431)
+                                              // textfieldtoj (I71:15330;71:15168;52798:24431)
                                               margin: EdgeInsets.fromLTRB(
                                                   0 * fem,
                                                   0 * fem,
@@ -220,7 +408,7 @@ class InChat extends StatelessWidget {
                                               width: double.infinity,
                                               height: 32 * fem,
                                               decoration: BoxDecoration(
-                                                color: Color(0xffe6e1e5),
+                                                color: Color(0xffe46962),
                                                 borderRadius: BorderRadius.only(
                                                   topLeft:
                                                       Radius.circular(4 * fem),
@@ -229,7 +417,7 @@ class InChat extends StatelessWidget {
                                                 ),
                                               ),
                                               child: Container(
-                                                // statelayerENV (I71:15816;71:15500;52798:24432)
+                                                // statelayern8R (I71:15330;71:15168;52798:24432)
                                                 padding: EdgeInsets.fromLTRB(
                                                     16 * fem,
                                                     8 * fem,
@@ -247,13 +435,13 @@ class InChat extends StatelessWidget {
                                                   ),
                                                 ),
                                                 child: Container(
-                                                  // contentwGu (I71:15816;71:15500;52798:24433)
+                                                  // content57X (I71:15330;71:15168;52798:24433)
                                                   width: double.infinity,
                                                   height: double.infinity,
                                                   child: Stack(
                                                     children: [
                                                       Positioned(
-                                                        // inputtextKYM (I71:15816;71:15500;52798:24437)
+                                                        // inputtextU9f (I71:15330;71:15168;52798:24437)
                                                         left: 0 * fem,
                                                         top: 0 * fem,
                                                         child: Center(
@@ -282,7 +470,7 @@ class InChat extends StatelessWidget {
                                                                       0.400000006 *
                                                                           fem,
                                                                   color: Color(
-                                                                      0xff000000),
+                                                                      0xffffffff),
                                                                 ),
                                                               ),
                                                             ),
@@ -298,199 +486,22 @@ class InChat extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    Positioned(
-                                      // cardoutlinedFaR (I71:15816;71:15497)
-                                      left: 0 * fem,
-                                      top: 5 * fem,
-                                      child: Container(
-                                        width: 22 * fem,
-                                        height: 22 * fem,
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                              color: Color(0xffffffff)),
-                                          color: Color(0xfffffbfe),
-                                          borderRadius:
-                                              BorderRadius.circular(12 * fem),
-                                        ),
-                                        child: Center(
-                                          // hearticonvalentine21kGH (I71:15816;71:15498)
-                                          child: SizedBox(
-                                            width: 22 * fem,
-                                            height: 21.59 * fem,
-                                            child: Image.asset(
-                                              'assets/prototype/images/heart-icon-valentine-2-1.png',
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
                                   ],
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      Container(
-                        // mymessageEx9 (71:15330)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 0 * fem, 48 * fem),
-                        child: TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                          ),
-                          child: Container(
-                            padding: EdgeInsets.fromLTRB(
-                                16 * fem, 16 * fem, 16 * fem, 0 * fem),
-                            width: 154 * fem,
-                            height: 64 * fem,
-                            child: Container(
-                              // contentuYV (I71:15330;71:15163)
-                              width: double.infinity,
-                              height: double.infinity,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    // cardoutlineddzH (I71:15330;71:15166)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 16 * fem, 16 * fem),
-                                    decoration: BoxDecoration(
-                                      border:
-                                          Border.all(color: Color(0xffffffff)),
-                                      color: Color(0xfffffbfe),
-                                      borderRadius:
-                                          BorderRadius.circular(12 * fem),
-                                    ),
-                                    child: Center(
-                                      // hearticonvalentine21L81 (I71:15330;71:15167)
-                                      child: SizedBox(
-                                        width: 22 * fem,
-                                        height: 21.59 * fem,
-                                        child: Image.asset(
-                                          'assets/prototype/images/heart-icon-valentine-2-1-3jw.png',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    // mediatextcontentEUH (I71:15330;71:15218)
-                                    width: 84 * fem,
-                                    height: double.infinity,
-                                    child: Container(
-                                      // textfieldmj7 (I71:15330;71:15168)
-                                      width: double.infinity,
-                                      height: 32 * fem,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(20 * fem),
-                                      ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            // textfieldtoj (I71:15330;71:15168;52798:24431)
-                                            margin: EdgeInsets.fromLTRB(0 * fem,
-                                                0 * fem, 0 * fem, 28 * fem),
-                                            width: double.infinity,
-                                            height: 32 * fem,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xffe46962),
-                                              borderRadius: BorderRadius.only(
-                                                topLeft:
-                                                    Radius.circular(4 * fem),
-                                                topRight:
-                                                    Radius.circular(4 * fem),
-                                              ),
-                                            ),
-                                            child: Container(
-                                              // statelayern8R (I71:15330;71:15168;52798:24432)
-                                              padding: EdgeInsets.fromLTRB(
-                                                  16 * fem,
-                                                  8 * fem,
-                                                  16 * fem,
-                                                  8 * fem),
-                                              width: double.infinity,
-                                              height: double.infinity,
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.only(
-                                                  topLeft:
-                                                      Radius.circular(4 * fem),
-                                                  topRight:
-                                                      Radius.circular(4 * fem),
-                                                ),
-                                              ),
-                                              child: Container(
-                                                // content57X (I71:15330;71:15168;52798:24433)
-                                                width: double.infinity,
-                                                height: double.infinity,
-                                                child: Stack(
-                                                  children: [
-                                                    Positioned(
-                                                      // inputtextU9f (I71:15330;71:15168;52798:24437)
-                                                      left: 0 * fem,
-                                                      top: 0 * fem,
-                                                      child: Center(
-                                                        child: Align(
-                                                          child: SizedBox(
-                                                            width: 52 * fem,
-                                                            height: 16 * fem,
-                                                            child: Text(
-                                                              'Message',
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style:
-                                                                  SafeGoogleFont(
-                                                                'Roboto',
-                                                                fontSize:
-                                                                    12 * ffem,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400,
-                                                                height:
-                                                                    1.3333333333 *
-                                                                        ffem /
-                                                                        fem,
-                                                                letterSpacing:
-                                                                    0.400000006 *
-                                                                        fem,
-                                                                color: Color(
-                                                                    0xffffffff),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
+                  MessageField()
+                ]))),
               ],
             ),
           ),
         ),
-        MessageField()
       ],
-    ))));
+    )));
   }
 }

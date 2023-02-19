@@ -6,7 +6,7 @@ import 'package:myapp/utils.dart';
 //import 'package:myapp/prototype/other-user-page.dart';
 //import 'package:myapp/prototype/change-password-page.dart';
 //import 'package:myapp/prototype/privacy-policy-page.dart';
-// import 'package:myapp/prototype/history-page.dart';
+//import 'package:myapp/prototype/history-page.dart';
 // import 'package:myapp/prototype/add-book-page.dart';
 // import 'package:myapp/prototype/edit-book-page.dart';
 // import 'package:myapp/prototype/settings-page.dart'; // τσεκάρισμα switch
@@ -14,7 +14,8 @@ import 'package:myapp/prototype/my-profile-page.dart';
 //import 'package:myapp/prototype/in-chat-page.dart'; // multiline, messages, ...
 import 'package:myapp/prototype/chats-page.dart';
 //import 'package:myapp/prototype/requests-page-trade-offers.dart';
-import 'package:myapp/prototype/requests-page-requests.dart';
+import 'package:myapp/prototype/requests-trade-offers-page.dart';
+//import 'package:myapp/prototype/requests-page-requests.dart';
 import 'package:myapp/prototype/search-page.dart';
 import 'package:myapp/prototype/home-page.dart';
 //import 'package:myapp/prototype/sign-up-page.dart'; // GPS
@@ -75,7 +76,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static List<Widget> _widgetOptions = <Widget>[
     Home(),
     Search(),
-    Requests(),
+    RequestsTradeOffers(),
     Chats(),
     MyProfile()
   ];
@@ -99,7 +100,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         )),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false, // <-- HERE
+        showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[

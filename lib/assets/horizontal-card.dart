@@ -53,8 +53,7 @@ class HorizontalCard extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const InChatRoute()),
+                      MaterialPageRoute(builder: (context) => InChat()),
                     );
                   },
                   style: TextButton.styleFrom(
@@ -147,14 +146,5 @@ class HorizontalCard extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class InChatRoute extends StatelessWidget {
-  const InChatRoute({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return InChat();
   }
 }

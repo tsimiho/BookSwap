@@ -6,6 +6,8 @@ import 'package:myapp/assets/newTextField.dart';
 import 'package:myapp/utils.dart';
 import '../assets/ListItem.dart';
 import '../assets/newSwitch.dart';
+import 'package:myapp/prototype/change-password-page.dart';
+import 'package:myapp/prototype/privacy-policy-page.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -452,7 +454,13 @@ class Settings extends StatelessWidget {
                     margin:
                         EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 8 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ChangePassword()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -491,7 +499,13 @@ class Settings extends StatelessWidget {
                   ),
                   TextButton(
                     // snackbardark54m (54:12875)
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PrivacyPolicy()),
+                      );
+                    },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
                     ),

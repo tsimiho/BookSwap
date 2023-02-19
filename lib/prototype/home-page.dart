@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
                     Container(
                       // snackbardark8MX (I51:5972;51:5969)
                       margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 0 * fem, 18 * fem),
+                          0 * fem, 10 * fem, 0 * fem, 0 * fem),
                       padding: EdgeInsets.fromLTRB(
                           16 * fem, 20.5 * fem, 16 * fem, 20.5 * fem),
                       width: double.infinity,
@@ -49,51 +49,50 @@ class Home extends StatelessWidget {
                       ),
                     ),
                     Container(
-                        // frame16To7 (65:12474)
-                        margin: EdgeInsets.fromLTRB(
-                            14 * fem, 0 * fem, 14 * fem, 0 * fem),
-                        width: double.infinity,
-                        height: 485 * fem,
-                        child: SingleChildScrollView(
-                          child: Column(
+                      // frame16To7 (65:12474)
+                      margin: EdgeInsets.fromLTRB(
+                          14 * fem, 0 * fem, 14 * fem, 0 * fem),
+                      width: double.infinity,
+                      //height: double.infinity,
+                      //child: SingleChildScrollView(
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+                              width: double.infinity,
+                              //height: double.infinity,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  StackedCard(),
+                                  Container(
+                                    width: 12 * fem,
+                                    height: 308 * fem,
+                                  ),
+                                  StackedCard()
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10 * fem,
+                            ),
+                            Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
+                                StackedCard(),
                                 Container(
-                                  // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
-                                  width: double.infinity,
+                                  width: 12 * fem,
                                   height: 308 * fem,
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      StackedCard(),
-                                      Container(
-                                        width: 12 * fem,
-                                        height: 308 * fem,
-                                      ),
-                                      StackedCard()
-                                    ],
-                                  ),
                                 ),
-                                SizedBox(
-                                  height: 10 * fem,
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    StackedCard(),
-                                    Container(
-                                      width: 12 * fem,
-                                      height: 308 * fem,
-                                    ),
-                                    StackedCard()
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 40 * fem,
-                                ),
-                              ]),
-                        ))
+                                StackedCard()
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10 * fem,
+                            ),
+                          ]),
+                    )
                   ])),
         ]));
   }

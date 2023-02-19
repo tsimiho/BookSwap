@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
+import 'package:myapp/prototype/edit-book-page.dart';
 
 class StackedCard2 extends StatelessWidget {
   @override
@@ -139,7 +140,13 @@ class StackedCard2 extends StatelessWidget {
                             margin: EdgeInsets.fromLTRB(
                                 0 * fem, 8 * fem, 0 * fem, 0 * fem),
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => EditBook()),
+                                );
+                              },
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
                               ),

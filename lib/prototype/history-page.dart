@@ -6,17 +6,19 @@ import 'package:myapp/utils.dart';
 import '../assets/history.dart';
 import '../assets/navbar.dart';
 
-class Scene extends StatelessWidget {
+class HistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
+    return SingleChildScrollView(
+        child: Material(
+            child: Container(
       width: double.infinity,
       child: Container(
         // historypageBcD (54:15265)
-        padding: EdgeInsets.fromLTRB(10 * fem, 23 * fem, 10 * fem, 33 * fem),
+        padding: EdgeInsets.fromLTRB(10 * fem, 20 * fem, 10 * fem, 6 * fem),
         width: double.infinity,
         decoration: BoxDecoration(
           color: Color(0xffffffff),
@@ -38,7 +40,9 @@ class Scene extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(
                           0 * fem, 0 * fem, 142 * fem, 0 * fem),
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.zero,
                         ),
@@ -106,7 +110,7 @@ class Scene extends StatelessWidget {
                   ],
                 )),
             Container(
-                height: 540 * fem,
+                height: 510 * fem,
                 child: SingleChildScrollView(
                   child: Column(children: [
                     History(),
@@ -123,6 +127,6 @@ class Scene extends StatelessWidget {
           ],
         ),
       ),
-    );
+    )));
   }
 }
