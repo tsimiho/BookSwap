@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
+import 'package:myapp/prototype/other-user-page.dart';
 
 class StackedCard3 extends StatelessWidget {
   @override
@@ -62,7 +63,12 @@ class StackedCard3 extends StatelessWidget {
                   height: 48 * fem,
                   child: TextButton(
                     // contenthso (I51:4636;57:11536)
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => OtherUser()),
+                      );
+                    },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
                     ),

@@ -1,10 +1,23 @@
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
+import 'package:myapp/prototype/other-user-page.dart';
 
 class StackedCard extends StatelessWidget {
+  const StackedCard(
+      {Key? key,
+      required this.username,
+      required this.distance,
+      required this.title,
+      required this.requested})
+      : super(key: key);
+
+  final String username, distance, title;
+  final bool requested;
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -62,7 +75,12 @@ class StackedCard extends StatelessWidget {
                   height: 48 * fem,
                   child: TextButton(
                     // contenthso (I51:4636;57:11536)
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => OtherUser()),
+                      );
+                    },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
                     ),
@@ -113,7 +131,7 @@ class StackedCard extends StatelessWidget {
                                   margin: EdgeInsets.fromLTRB(
                                       0.09 * fem, 0 * fem, 0 * fem, 0 * fem),
                                   child: Text(
-                                    'Username',
+                                    username,
                                     style: SafeGoogleFont(
                                       'Roboto',
                                       fontSize: 16 * ffem,
@@ -128,7 +146,7 @@ class StackedCard extends StatelessWidget {
                                   // subheadNW5 (I51:4636;57:11542)
                                   width: double.infinity,
                                   child: Text(
-                                    'Distance',
+                                    '$distance km',
                                     textAlign: TextAlign.left,
                                     style: SafeGoogleFont(
                                       'Roboto',
@@ -155,7 +173,7 @@ class StackedCard extends StatelessWidget {
                   width: 160 * fem,
                   height: 121 * fem,
                   child: Image.asset(
-                    'assets/prototype/images/media-NVF.png',
+                    'assets/covers/images/harrypotter.png',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -166,18 +184,18 @@ class StackedCard extends StatelessWidget {
                   padding:
                       EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
                   width: 515 * fem,
-                  height: 85 * fem,
+                  height: 94 * fem,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         // headlinedqK (I51:4636;57:11547)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 0 * fem, 12 * fem),
-                        width: 57 * fem,
-                        height: 24 * fem,
+                        // margin: EdgeInsets.fromLTRB(
+                        //     0 * fem, 0 * fem, 0 * fem, 12 * fem),
+                        width: 140 * fem,
+                        height: 46 * fem,
                         child: Text(
-                          'Title',
+                          title,
                           style: SafeGoogleFont(
                             'Roboto',
                             fontSize: 16 * ffem,
@@ -195,7 +213,7 @@ class StackedCard extends StatelessWidget {
                         child: Container(
                           // requestbook2cZ (I51:4636;57:10366)
                           margin: EdgeInsets.fromLTRB(
-                              0 * fem, 20 * fem, 60 * fem, 0 * fem),
+                              0 * fem, 0 * fem, 60 * fem, 0 * fem),
                           child: TextButton(
                             onPressed: () {},
                             style: TextButton.styleFrom(
@@ -258,7 +276,9 @@ class StackedCard extends StatelessWidget {
                                                       width: 47 * fem,
                                                       height: 14 * fem,
                                                       child: Text(
-                                                        'Request',
+                                                        requested
+                                                            ? 'Requested'
+                                                            : 'Request',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: SafeGoogleFont(

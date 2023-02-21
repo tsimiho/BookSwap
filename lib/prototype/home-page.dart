@@ -7,6 +7,12 @@ import '../assets/navbar.dart';
 import '../assets/stacked-card.dart';
 
 class Home extends StatelessWidget {
+  final Sexample = StackedCard(
+      username: 'Nikos',
+      distance: '3.5',
+      title: 'Harry Potter and the Goblet of Fire',
+      requested: true);
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -65,12 +71,12 @@ class Home extends StatelessWidget {
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  StackedCard(),
+                                  Sexample,
                                   Container(
                                     width: 12 * fem,
                                     height: 308 * fem,
                                   ),
-                                  StackedCard()
+                                  Sexample,
                                 ],
                               ),
                             ),
@@ -80,12 +86,12 @@ class Home extends StatelessWidget {
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                StackedCard(),
+                                Sexample,
                                 Container(
                                   width: 12 * fem,
                                   height: 308 * fem,
                                 ),
-                                StackedCard()
+                                Sexample,
                               ],
                             ),
                             SizedBox(
