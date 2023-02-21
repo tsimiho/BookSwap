@@ -32,6 +32,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  shared_preferences: ^2.0.17
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -271,6 +272,7 @@ flutter:
     - assets/assets/images/heart-icon-valentine-2-1-SBb.png
     - assets/assets/images/heart-icon-valentine-2-1-Vub.png
     - assets/assets/images/heart-icon-valentine-2-1-a4R.png
+    - assets/covers/images/harrypotter.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
