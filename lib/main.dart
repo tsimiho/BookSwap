@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
+import 'package:myapp/CreateData.dart';
 //import 'package:myapp/prototype/other-user-page.dart';
 //import 'package:myapp/prototype/change-password-page.dart';
 //import 'package:myapp/prototype/privacy-policy-page.dart';
@@ -80,6 +81,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     Chats(),
     MyProfile()
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    CreateData();
+  }
 
   void _onItemTapped(int index) {
     setState(() {

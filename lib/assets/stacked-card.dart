@@ -173,7 +173,7 @@ class StackedCard extends StatelessWidget {
                   width: 160 * fem,
                   height: 121 * fem,
                   child: Image.asset(
-                    'assets/covers/images/harrypotter.png',
+                    'assets/images/Nikos123---Harry Potter and the Goblet of Fire.png',
                     fit: BoxFit.cover,
                   ),
                 ),

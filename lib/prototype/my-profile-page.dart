@@ -7,8 +7,68 @@ import 'package:myapp/prototype/add-book-page.dart';
 import 'package:myapp/prototype/history-page.dart';
 import 'package:myapp/utils.dart';
 import '../assets/stacked-card2.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class MyProfile extends StatelessWidget {
+class MyProfile extends StatefulWidget {
+  @override
+  _MyProfileState createState() => _MyProfileState();
+}
+
+class _MyProfileState extends State<MyProfile> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  List<String> title = [];
+  //late Future<String> username;
+  String username = '';
+  List<String> author = [];
+  List<Widget> C = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      username = (prefs.getString('user') ?? '');
+      title = (prefs.getStringList('Nikos123---list') ?? []);
+      for (var t in title) {
+        String at = (prefs.getString('Nikos123---$t---author') ?? '');
+        author.add(at);
+      }
+      double fem = 1;
+      for (var i = 0; i < title.length / 2; i++) {
+        C.add(Container(
+          // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+          width: double.infinity,
+          height: 290 * fem,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              StackedCard2(
+                  title: title[2 * i],
+                  author: author[2 * i],
+                  imagestring: 'assets/images/$username---${title[2 * i]}.png'),
+              Container(
+                width: 12 * fem,
+                height: 290 * fem,
+              ),
+              StackedCard2(
+                  title: title[2 * i + 1],
+                  author: author[2 * i + 1],
+                  imagestring:
+                      'assets/images/$username---${title[2 * i + 1]}.png'),
+            ],
+          ),
+        ));
+        C.add(SizedBox(
+          height: 10 * fem,
+        ));
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -210,7 +270,9 @@ class MyProfile extends StatelessWidget {
                                           child: Center(
                                             child: Center(
                                               child: Text(
-                                                'A',
+                                                username.isEmpty
+                                                    ? ''
+                                                    : username[0],
                                                 textAlign: TextAlign.center,
                                                 style: SafeGoogleFont(
                                                   'Roboto',
@@ -240,7 +302,7 @@ class MyProfile extends StatelessWidget {
                                                     0 * fem,
                                                     4 * fem),
                                                 child: Text(
-                                                  'Username',
+                                                  username,
                                                   style: SafeGoogleFont(
                                                     'Roboto',
                                                     fontSize: 16 * ffem,
@@ -299,53 +361,12 @@ class MyProfile extends StatelessWidget {
                         Positioned(
                             // frame217SH (71:14918)
                             left: 14 * fem,
-                            top: 193 * fem,
+                            top: 185 * fem,
                             child: Container(
                               width: 332 * fem,
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
-                                      width: double.infinity,
-                                      height: 256 * fem,
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          StackedCard2(),
-                                          Container(
-                                            width: 12 * fem,
-                                            height: 256 * fem,
-                                          ),
-                                          StackedCard2(),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10 * fem,
-                                    ),
-                                    Container(
-                                      // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
-                                      width: double.infinity,
-                                      height: 256 * fem,
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          StackedCard2(),
-                                          Container(
-                                            width: 12 * fem,
-                                            height: 256 * fem,
-                                          ),
-                                          StackedCard2(),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10 * fem,
-                                    ),
-                                  ]),
+                                  children: C),
                             )),
                       ],
                     ),

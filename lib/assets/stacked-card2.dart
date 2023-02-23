@@ -6,6 +6,15 @@ import 'package:myapp/utils.dart';
 import 'package:myapp/prototype/edit-book-page.dart';
 
 class StackedCard2 extends StatelessWidget {
+  const StackedCard2(
+      {Key? key,
+      required this.title,
+      required this.author,
+      required this.imagestring})
+      : super(key: key);
+
+  final String title, author, imagestring;
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -15,14 +24,14 @@ class StackedCard2 extends StatelessWidget {
       // stackedcardVhj (I71:14252;63:10959)
       margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
       width: 160 * fem,
-      height: 256 * fem,
+      height: 290 * fem,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12 * fem),
       ),
       child: Container(
         // cardelevatedktZ (I71:14252;63:10960)
         width: double.infinity,
-        height: 256 * fem,
+        height: 290 * fem,
         decoration: BoxDecoration(
           color: Color(0xfffffbfe),
           borderRadius: BorderRadius.circular(12 * fem),
@@ -41,9 +50,9 @@ class StackedCard2 extends StatelessWidget {
         ),
         child: Container(
           // contentcontainereDF (I71:14252;63:10961)
-          padding: EdgeInsets.fromLTRB(0 * fem, 14 * fem, 0 * fem, 0 * fem),
+          padding: EdgeInsets.fromLTRB(0 * fem, 10 * fem, 0 * fem, 0 * fem),
           width: double.infinity,
-          height: 256 * fem,
+          height: 290 * fem,
           decoration: BoxDecoration(
             border: Border.all(color: Color(0xffcac4d0)),
             borderRadius: BorderRadius.circular(12 * fem),
@@ -51,16 +60,16 @@ class StackedCard2 extends StatelessWidget {
           child: Container(
             // mediatextcontent8u7 (I71:14252;63:10962)
             width: 531 * fem,
-            height: 256 * fem,
+            height: 290 * fem,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   // headerEhF (I71:14252;63:10963)
                   margin:
-                      EdgeInsets.fromLTRB(8 * fem, 0 * fem, 0 * fem, 14 * fem),
+                      EdgeInsets.fromLTRB(8 * fem, 0 * fem, 0 * fem, 8 * fem),
                   width: 344 * fem,
-                  height: 44 * fem,
+                  height: (title.length > 20 ? 66 : 42) * fem,
                   child: Container(
                     // contentZUd (I71:14252;63:10964)
                     margin:
@@ -76,7 +85,7 @@ class StackedCard2 extends StatelessWidget {
                         children: [
                           Text(
                             // header27K (I71:14252;63:10969)
-                            'Title',
+                            title,
                             style: SafeGoogleFont(
                               'Roboto',
                               fontSize: 16 * ffem,
@@ -88,7 +97,7 @@ class StackedCard2 extends StatelessWidget {
                           ),
                           Text(
                             // subheadvCh (I71:14252;63:10970)
-                            'Author',
+                            author,
                             style: SafeGoogleFont(
                               'Roboto',
                               fontSize: 14 * ffem,
@@ -106,11 +115,11 @@ class StackedCard2 extends StatelessWidget {
                 Container(
                   // media3HK (I71:14252;63:10973)
                   margin:
-                      EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 16 * fem),
+                      EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 2 * fem),
                   width: 160 * fem,
-                  height: 114 * fem,
+                  height: (title.length > 20 ? 114 : 136) * fem,
                   child: Image.asset(
-                    'assets/prototype/images/media-RJ9-mso.png',
+                    imagestring,
                     fit: BoxFit.cover,
                   ),
                 ),
