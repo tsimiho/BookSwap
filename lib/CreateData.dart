@@ -14,7 +14,8 @@ Future<void> CreateData() async {
     'Harry Potter and the Goblet of Fire',
     'Le Petit Nicolas',
     'Les Miserables',
-    'Appointment with Death'
+    'Appointment with Death',
+    'Diary of a Wimpy Kid'
   ]);
   await prefs.setString(
       'Nikos123---Harry Potter and the Goblet of Fire---author',
@@ -24,4 +25,6 @@ Future<void> CreateData() async {
   await prefs.setString('Nikos123---Les Miserables---author', 'Victor Hugo');
   await prefs.setString(
       'Nikos123---Appointment with Death---author', 'Agatha Christie');
+  await prefs.setString(
+      'Nikos123---Diary of a Wimpy Kid---author', 'Jeff Kiney');
 }

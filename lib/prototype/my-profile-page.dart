@@ -17,7 +17,6 @@ class MyProfile extends StatefulWidget {
 class _MyProfileState extends State<MyProfile> {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   List<String> title = [];
-  //late Future<String> username;
   String username = '';
   List<String> author = [];
   List<Widget> C = [];
@@ -38,7 +37,7 @@ class _MyProfileState extends State<MyProfile> {
         author.add(at);
       }
       double fem = 1;
-      for (var i = 0; i < title.length / 2; i++) {
+      for (var i = 0; i < title.length ~/ 2; i++) {
         C.add(Container(
           // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
           width: double.infinity,
@@ -59,6 +58,30 @@ class _MyProfileState extends State<MyProfile> {
                   author: author[2 * i + 1],
                   imagestring:
                       'assets/images/$username---${title[2 * i + 1]}.png'),
+            ],
+          ),
+        ));
+        C.add(SizedBox(
+          height: 10 * fem,
+        ));
+      }
+      if (title.length % 2 != 0) {
+        C.add(Container(
+          // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+          width: double.infinity,
+          height: 290 * fem,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              StackedCard2(
+                  title: title[title.length - 1],
+                  author: author[title.length - 1],
+                  imagestring:
+                      'assets/images/$username---${title[title.length - 1]}.png'),
+              Container(
+                width: 172 * fem,
+                height: 290 * fem,
+              ),
             ],
           ),
         ));
@@ -88,7 +111,10 @@ class _MyProfileState extends State<MyProfile> {
                   Container(
                     // autogroupxkqx4Qq (UPtLPTpQn1sTWCBa4gXkqX)
                     width: double.infinity,
-                    height: 724 * fem,
+                    height: (title.length <= 4
+                            ? 714
+                            : (title.length ~/ 2 - 1) * 290 + 714) *
+                        fem,
                     child: Stack(
                       children: [
                         Positioned(
