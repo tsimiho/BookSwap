@@ -47,7 +47,11 @@ class _SearchFieldState extends State<SearchField> {
             color: Color(0xffe46962),
           ),
           suffixIcon: textController.text.isEmpty
-              ? Container(width: 0)
+              ? IconButton(
+                  icon: Icon(Icons.mic),
+                  color: Color(0xffe46962),
+                  onPressed: () => {},
+                )
               : IconButton(
                   icon: Icon(Icons.close),
                   color: Color(0xffe46962),
