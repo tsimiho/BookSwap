@@ -502,7 +502,8 @@ class Settings extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MyHomePage()),
+                        MaterialPageRoute(
+                            builder: (context) => PrivacyPolicy()),
                       );
                     },
                     style: TextButton.styleFrom(

@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/assets/newTextField.dart';
 import 'package:myapp/utils.dart';
+import 'package:myapp/assets/book-cover.dart';
 
 class AddBook extends StatelessWidget {
   @override
@@ -189,26 +190,17 @@ class AddBook extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    // coverKeq (54:28239)
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 73 * fem, 0 * fem),
-                    width: 96 * fem,
-                    height: 157 * fem,
-                    child: Image.asset(
-                      'assets/prototype/images/cover-wuj.png',
+                      // coverKeq (54:28239)
+                      margin: EdgeInsets.fromLTRB(
+                          0 * fem, 0 * fem, 73 * fem, 0 * fem),
                       width: 96 * fem,
                       height: 157 * fem,
-                    ),
-                  ),
+                      child: BookCover()),
                   Container(
                     // coverRSy (54:28821)
                     width: 96 * fem,
                     height: 157 * fem,
-                    child: Image.asset(
-                      'assets/prototype/images/cover.png',
-                      width: 96 * fem,
-                      height: 157 * fem,
-                    ),
+                    child: BookCover(),
                   ),
                 ],
               ),
