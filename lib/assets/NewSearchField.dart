@@ -119,19 +119,20 @@ class _SearchFieldState extends State<SearchField> {
               Icons.search,
               color: Color(0xffe46962),
             ),
-            suffixIcon: textController.text.isEmpty
-                ? IconButton(
-                    icon: Icon(Icons.mic),
-                    color: Color(0xffe46962),
-                    onPressed: _speechToText.isNotListening
-                        ? _startListening
-                        : _stopListening,
-                  )
-                : IconButton(
-                    icon: Icon(Icons.close),
-                    color: Color(0xffe46962),
-                    onPressed: () => textController.clear(),
-                  ),
+            suffixIcon:
+                (textController.text.isEmpty && _speechToText.isNotListening)
+                    ? IconButton(
+                        icon: Icon(Icons.mic),
+                        color: Color(0xffe46962),
+                        onPressed: _speechToText.isNotListening
+                            ? _startListening
+                            : _stopListening,
+                      )
+                    : IconButton(
+                        icon: Icon(Icons.close),
+                        color: Color(0xffe46962),
+                        onPressed: () => textController.clear(),
+                      ),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xfff4eff4)),
               borderRadius: BorderRadius.circular(20.0),
