@@ -1,507 +1,264 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/assets/MessageField.dart';
-import 'package:myapp/utils.dart';
+import 'dart:convert';
+import 'dart:io';
 
-class InChat extends StatelessWidget {
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:mime/mime.dart';
+import 'package:open_filex/open_filex.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:uuid/uuid.dart';
+
+class InChat extends StatefulWidget {
+  const InChat({super.key});
+
+  @override
+  State<InChat> createState() => _InChatState();
+}
+
+class _InChatState extends State<InChat> {
+  List<types.Message> _messages = [];
+  final _user = const types.User(
+    id: '82091008-a484-4a89-ae75-a22bf8d6f3ac',
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    _loadMessages();
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Scaffold(
-        body: Center(
-            //child: SingleChildScrollView(
-            child: Column(
-      children: [
-        Container(
-          width: double.infinity,
-          child: Container(
-            // inchatpagerV7 (51:8714)
-            padding: EdgeInsets.fromLTRB(22 * fem, 22 * fem, 22 * fem, 6 * fem),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Color(0xffffffff),
+    return Container(
+        width: double.infinity,
+        child: Stack(
+          children: [
+            Scaffold(
+              body: Chat(
+                messages: _messages,
+                onAttachmentPressed: _handleAttachmentPressed,
+                onMessageTap: _handleMessageTap,
+                onPreviewDataFetched: _handlePreviewDataFetched,
+                onSendPressed: _handleSendPressed,
+                showUserAvatars: true,
+                showUserNames: true,
+                user: _user,
+                theme: const DefaultChatTheme(
+                    inputBackgroundColor: Color(0xfff4eff4),
+                    inputTextColor: Color(0xffe46962),
+                    inputTextCursorColor: Color(0xffe46962),
+                    sentMessageDocumentIconColor:
+                        Color.fromARGB(255, 255, 255, 255),
+                    primaryColor: Color(0xffe46962),
+                    userAvatarNameColors: [Color(0xffe46962)]),
+              ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  // autogrouppqu3Vny (UPtpnUqQ7yC3utA4uzPqu3)
-                  margin:
-                      EdgeInsets.fromLTRB(0 * fem, 0 * fem, 30 * fem, 0 * fem),
-                  width: double.infinity,
-                  height: 80 * fem,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        // backPNZ (51:8852)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 3 * fem, 20 * fem),
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                          ),
-                          child: Container(
-                            width: 44 * fem,
-                            height: 48 * fem,
-                            child: Image.asset(
-                              'assets/prototype/images/back-hPf.png',
-                              width: 44 * fem,
-                              height: 48 * fem,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        // horizontalcardqVT (54:5781)
-                        width: 225 * fem,
-                        height: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25 * fem),
-                        ),
-                        child: Container(
-                          // cardoutlinedZgM (I54:5781;52350:27878)
-                          width: double.infinity,
-                          height: double.infinity,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Color(0xffffffff)),
-                            color: Color(0xfffffbfe),
-                            borderRadius: BorderRadius.circular(25 * fem),
-                          ),
-                          child: Container(
-                            // contentcontainerUoK (I54:5781;52350:27879)
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Color(0xffffffff)),
-                              borderRadius: BorderRadius.circular(25 * fem),
-                            ),
-                            child: Container(
-                              // headerCjK (I54:5781;52350:27881)
-                              padding: EdgeInsets.fromLTRB(
-                                  0 * fem, 2 * fem, 0 * fem, 2 * fem),
-                              width: 360 * fem,
-                              height: double.infinity,
-                              child: TextButton(
-                                // contentXFo (I54:5781;52350:27882)
-                                onPressed: () {},
-                                style: TextButton.styleFrom(
-                                  padding: EdgeInsets.zero,
-                                ),
-                                child: Container(
-                                  padding: EdgeInsets.fromLTRB(
-                                      16 * fem, 18 * fem, 63 * fem, 12 * fem),
-                                  width: 239 * fem,
-                                  height: double.infinity,
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        // monogramoUD (I54:5781;52350:27883)
-                                        margin: EdgeInsets.fromLTRB(0 * fem,
-                                            0 * fem, 16 * fem, 6 * fem),
-                                        width: 40 * fem,
-                                        height: 40 * fem,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xffe46962),
-                                          borderRadius:
-                                              BorderRadius.circular(20 * fem),
-                                        ),
-                                        child: Center(
-                                          child: Center(
-                                            child: Text(
-                                              'A',
-                                              textAlign: TextAlign.center,
-                                              style: SafeGoogleFont(
-                                                'Roboto',
-                                                fontSize: 16 * ffem,
-                                                fontWeight: FontWeight.w500,
-                                                height: 1.5 * ffem / fem,
-                                                letterSpacing:
-                                                    0.150000006 * fem,
-                                                color: Color(0xfffffbfe),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        // textnqw (I54:5781;52350:27886)
-                                        margin: EdgeInsets.fromLTRB(
-                                            0 * fem, 8 * fem, 0 * fem, 0 * fem),
-                                        padding: EdgeInsets.fromLTRB(10 * fem,
-                                            0 * fem, 0 * fem, 0 * fem),
-                                        height: 38 * fem,
-                                        child: Text(
-                                          'Username',
-                                          style: SafeGoogleFont(
-                                            'Roboto',
-                                            fontSize: 16 * ffem,
-                                            fontWeight: FontWeight.w500,
-                                            height: 1.5 * ffem / fem,
-                                            letterSpacing: 0.150000006 * fem,
-                                            color: Color(0xff1c1b1f),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+            Container(
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 72 * fem, 0 * fem),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                ),
+                child: Container(
+                  width: 48 * fem,
+                  height: 48 * fem,
+                  child: Image.asset(
+                    'assets/prototype/images/back.png',
+                    width: 48 * fem,
+                    height: 48 * fem,
                   ),
                 ),
-                SingleChildScrollView(
-                    child: Material(
-                        child: Column(children: [
-                  Container(
-                    // autogroupnjamRe1 (UPtqM8ZfMrMeVihxoHNJAM)
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 200 * fem, 0 * fem, 36 * fem),
-                    width: double.infinity,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          // othermessageit1 (71:15816)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 48 * fem, 8 * fem, 0 * fem),
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                            ),
-                            child: Container(
-                              padding: EdgeInsets.fromLTRB(
-                                  16 * fem, 16 * fem, 27.5 * fem, 0 * fem),
-                              width: 154 * fem,
-                              height: 74 * fem,
-                              child: Container(
-                                // mediatextcontentz4q (I71:15816;71:15499)
-                                width: double.infinity,
-                                height: double.infinity,
-                                child: Container(
-                                  // autogroupbcq9KN1 (UPtqqHRRGxJP3GDEqCBCQ9)
-                                  width: 84 * fem,
-                                  height: 32 * fem,
-                                  child: Stack(
-                                    children: [
-                                      Positioned(
-                                        // textfield3Yu (I71:15816;71:15500)
-                                        left: 0 * fem,
-                                        top: 0 * fem,
-                                        child: Container(
-                                          width: 84 * fem,
-                                          height: 32 * fem,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20 * fem),
-                                          ),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                // textfieldLH7 (I71:15816;71:15500;52798:24431)
-                                                margin: EdgeInsets.fromLTRB(
-                                                    0 * fem,
-                                                    0 * fem,
-                                                    0 * fem,
-                                                    28 * fem),
-                                                width: double.infinity,
-                                                height: 32 * fem,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xffe6e1e5),
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                    topLeft: Radius.circular(
-                                                        4 * fem),
-                                                    topRight: Radius.circular(
-                                                        4 * fem),
-                                                  ),
-                                                ),
-                                                child: Container(
-                                                  // statelayerENV (I71:15816;71:15500;52798:24432)
-                                                  padding: EdgeInsets.fromLTRB(
-                                                      16 * fem,
-                                                      8 * fem,
-                                                      16 * fem,
-                                                      8 * fem),
-                                                  width: double.infinity,
-                                                  height: double.infinity,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      topLeft: Radius.circular(
-                                                          4 * fem),
-                                                      topRight: Radius.circular(
-                                                          4 * fem),
-                                                    ),
-                                                  ),
-                                                  child: Container(
-                                                    // contentwGu (I71:15816;71:15500;52798:24433)
-                                                    width: double.infinity,
-                                                    height: double.infinity,
-                                                    child: Stack(
-                                                      children: [
-                                                        Positioned(
-                                                          // inputtextKYM (I71:15816;71:15500;52798:24437)
-                                                          left: 0 * fem,
-                                                          top: 0 * fem,
-                                                          child: Center(
-                                                            child: Align(
-                                                              child: SizedBox(
-                                                                width: 52 * fem,
-                                                                height:
-                                                                    16 * fem,
-                                                                child: Text(
-                                                                  'Message',
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                  style:
-                                                                      SafeGoogleFont(
-                                                                    'Roboto',
-                                                                    fontSize:
-                                                                        12 *
-                                                                            ffem,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w400,
-                                                                    height:
-                                                                        1.3333333333 *
-                                                                            ffem /
-                                                                            fem,
-                                                                    letterSpacing:
-                                                                        0.400000006 *
-                                                                            fem,
-                                                                    color: Color(
-                                                                        0xff000000),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        // cardoutlinedFaR (I71:15816;71:15497)
-                                        left: 0 * fem,
-                                        top: 5 * fem,
-                                        child: Container(
-                                          width: 22 * fem,
-                                          height: 22 * fem,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                                color: Color(0xffffffff)),
-                                            color: Color(0xfffffbfe),
-                                            borderRadius:
-                                                BorderRadius.circular(12 * fem),
-                                          ),
-                                          child: Center(
-                                            // hearticonvalentine21kGH (I71:15816;71:15498)
-                                            child: SizedBox(
-                                              width: 22 * fem,
-                                              height: 21.59 * fem,
-                                              child: Image.asset(
-                                                'assets/prototype/images/heart-icon-valentine-2-1.png',
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          // mymessageEx9 (71:15330)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 48 * fem),
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                            ),
-                            child: Container(
-                              padding: EdgeInsets.fromLTRB(
-                                  16 * fem, 16 * fem, 16 * fem, 0 * fem),
-                              width: 154 * fem,
-                              height: 64 * fem,
-                              child: Container(
-                                // contentuYV (I71:15330;71:15163)
-                                width: double.infinity,
-                                height: double.infinity,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      // cardoutlineddzH (I71:15330;71:15166)
-                                      margin: EdgeInsets.fromLTRB(
-                                          0 * fem, 0 * fem, 16 * fem, 16 * fem),
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: Color(0xffffffff)),
-                                        color: Color(0xfffffbfe),
-                                        borderRadius:
-                                            BorderRadius.circular(12 * fem),
-                                      ),
-                                      child: Center(
-                                        // hearticonvalentine21L81 (I71:15330;71:15167)
-                                        child: SizedBox(
-                                          width: 22 * fem,
-                                          height: 21.59 * fem,
-                                          child: Image.asset(
-                                            'assets/prototype/images/heart-icon-valentine-2-1-3jw.png',
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      // mediatextcontentEUH (I71:15330;71:15218)
-                                      width: 84 * fem,
-                                      height: double.infinity,
-                                      child: Container(
-                                        // textfieldmj7 (I71:15330;71:15168)
-                                        width: double.infinity,
-                                        height: 32 * fem,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20 * fem),
-                                        ),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              // textfieldtoj (I71:15330;71:15168;52798:24431)
-                                              margin: EdgeInsets.fromLTRB(
-                                                  0 * fem,
-                                                  0 * fem,
-                                                  0 * fem,
-                                                  28 * fem),
-                                              width: double.infinity,
-                                              height: 32 * fem,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xffe46962),
-                                                borderRadius: BorderRadius.only(
-                                                  topLeft:
-                                                      Radius.circular(4 * fem),
-                                                  topRight:
-                                                      Radius.circular(4 * fem),
-                                                ),
-                                              ),
-                                              child: Container(
-                                                // statelayern8R (I71:15330;71:15168;52798:24432)
-                                                padding: EdgeInsets.fromLTRB(
-                                                    16 * fem,
-                                                    8 * fem,
-                                                    16 * fem,
-                                                    8 * fem),
-                                                width: double.infinity,
-                                                height: double.infinity,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                    topLeft: Radius.circular(
-                                                        4 * fem),
-                                                    topRight: Radius.circular(
-                                                        4 * fem),
-                                                  ),
-                                                ),
-                                                child: Container(
-                                                  // content57X (I71:15330;71:15168;52798:24433)
-                                                  width: double.infinity,
-                                                  height: double.infinity,
-                                                  child: Stack(
-                                                    children: [
-                                                      Positioned(
-                                                        // inputtextU9f (I71:15330;71:15168;52798:24437)
-                                                        left: 0 * fem,
-                                                        top: 0 * fem,
-                                                        child: Center(
-                                                          child: Align(
-                                                            child: SizedBox(
-                                                              width: 52 * fem,
-                                                              height: 16 * fem,
-                                                              child: Text(
-                                                                'Message',
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style:
-                                                                    SafeGoogleFont(
-                                                                  'Roboto',
-                                                                  fontSize:
-                                                                      12 * ffem,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400,
-                                                                  height:
-                                                                      1.3333333333 *
-                                                                          ffem /
-                                                                          fem,
-                                                                  letterSpacing:
-                                                                      0.400000006 *
-                                                                          fem,
-                                                                  color: Color(
-                                                                      0xffffffff),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  MessageField()
-                ]))),
-              ],
-            ),
+              ),
+            )
+          ],
+        ));
+  }
+
+  void _addMessage(types.Message message) {
+    setState(() {
+      _messages.insert(0, message);
+    });
+  }
+
+  void _handleAttachmentPressed() {
+    showModalBottomSheet<void>(
+      context: context,
+      builder: (BuildContext context) => SafeArea(
+        child: SizedBox(
+          height: 144,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  _handleImageSelection();
+                },
+                child: const Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: Text('Photo'),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  _handleFileSelection();
+                },
+                child: const Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: Text('File'),
+                ),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: Text('Cancel'),
+                ),
+              ),
+            ],
           ),
         ),
-      ],
-    )));
+      ),
+    );
+  }
+
+  void _handleFileSelection() async {
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.any,
+    );
+
+    if (result != null && result.files.single.path != null) {
+      final message = types.FileMessage(
+        author: _user,
+        createdAt: DateTime.now().millisecondsSinceEpoch,
+        id: const Uuid().v4(),
+        mimeType: lookupMimeType(result.files.single.path!),
+        name: result.files.single.name,
+        size: result.files.single.size,
+        uri: result.files.single.path!,
+      );
+
+      _addMessage(message);
+    }
+  }
+
+  void _handleImageSelection() async {
+    final result = await ImagePicker().pickImage(
+      imageQuality: 70,
+      maxWidth: 1440,
+      source: ImageSource.gallery,
+    );
+
+    if (result != null) {
+      final bytes = await result.readAsBytes();
+      final image = await decodeImageFromList(bytes);
+
+      final message = types.ImageMessage(
+        author: _user,
+        createdAt: DateTime.now().millisecondsSinceEpoch,
+        height: image.height.toDouble(),
+        id: const Uuid().v4(),
+        name: result.name,
+        size: bytes.length,
+        uri: result.path,
+        width: image.width.toDouble(),
+      );
+
+      _addMessage(message);
+    }
+  }
+
+  void _handleMessageTap(BuildContext _, types.Message message) async {
+    if (message is types.FileMessage) {
+      var localPath = message.uri;
+
+      if (message.uri.startsWith('http')) {
+        try {
+          final index =
+              _messages.indexWhere((element) => element.id == message.id);
+          final updatedMessage =
+              (_messages[index] as types.FileMessage).copyWith(
+            isLoading: true,
+          );
+
+          setState(() {
+            _messages[index] = updatedMessage;
+          });
+
+          final client = http.Client();
+          final request = await client.get(Uri.parse(message.uri));
+          final bytes = request.bodyBytes;
+          final documentsDir = (await getApplicationDocumentsDirectory()).path;
+          localPath = '$documentsDir/${message.name}';
+
+          if (!File(localPath).existsSync()) {
+            final file = File(localPath);
+            await file.writeAsBytes(bytes);
+          }
+        } finally {
+          final index =
+              _messages.indexWhere((element) => element.id == message.id);
+          final updatedMessage =
+              (_messages[index] as types.FileMessage).copyWith(
+            isLoading: null,
+          );
+
+          setState(() {
+            _messages[index] = updatedMessage;
+          });
+        }
+      }
+
+      await OpenFilex.open(localPath);
+    }
+  }
+
+  void _handlePreviewDataFetched(
+    types.TextMessage message,
+    types.PreviewData previewData,
+  ) {
+    final index = _messages.indexWhere((element) => element.id == message.id);
+    final updatedMessage = (_messages[index] as types.TextMessage).copyWith(
+      previewData: previewData,
+    );
+
+    setState(() {
+      _messages[index] = updatedMessage;
+    });
+  }
+
+  void _handleSendPressed(types.PartialText message) {
+    final textMessage = types.TextMessage(
+      author: _user,
+      createdAt: DateTime.now().millisecondsSinceEpoch,
+      id: const Uuid().v4(),
+      text: message.text,
+    );
+
+    _addMessage(textMessage);
+  }
+
+  void _loadMessages() async {
+    final response = await rootBundle.loadString('assets/messages.json');
+    final messages = (jsonDecode(response) as List)
+        .map((e) => types.Message.fromJson(e as Map<String, dynamic>))
+        .toList();
+
+    setState(() {
+      _messages = messages;
+    });
   }
 }
