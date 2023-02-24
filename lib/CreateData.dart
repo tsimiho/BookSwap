@@ -51,12 +51,47 @@ Future<void> CreateData() async {
   ]);
 
   // GeorgeVk--author
-  await prefs.setString('GeorgeVk---The 39 Clues---author', 'J.K. Rowling');
+  await prefs.setString('GeorgeVk---The 39 Clues---author', 'Rick Riordan');
   await prefs.setString(
-      'GeorgeVk---Rich Dad Poor Dad---author', 'Sempe / Gosciny');
+      'GeorgeVk---Rich Dad Poor Dad---author', 'Robert T. Kiwosaky');
   await prefs.setString(
-      'GeorgeVk---The Lord of the Rings---author', 'Agatha Christie');
+      'GeorgeVk---The Lord of the Rings---author', 'J.R.R. Tolkien');
   await prefs.setString(
       "GeorgeVk---Harry Potter and the Philosopher's Stone---author",
       'J.K. Rowling');
+
+  //----------------------------- KostasP23 -----------------------------------//
+
+  // KostasP23---list
+  await prefs.setStringList('KostasP23---list', [
+    'Surrounded by Idiots',
+    "Harry Potter and the Philosopher's Stone",
+    'The Lord of the Rings',
+  ]);
+
+  // KostasP23--author
+  await prefs.setString(
+      'KostasP23---Surrounded by Idiots---author', 'Thomas Erikson');
+  await prefs.setString(
+      "KostasP23---Harry Potter and the Philosopher's Stone---author",
+      'J.K. Rowling');
+  await prefs.setString(
+      'KostasP23---The Lord of the Rings---author', 'J.R.R. Tolkien');
+
+  //----------------------------- LefterisR -----------------------------------//
+
+  // LefterisR---list
+  await prefs.setStringList('LefterisR---list', [
+    'The Lord of the Rings',
+    "Harry Potter and the Philosopher's Stone",
+    'The 39 Clues',
+  ]);
+
+  // LefterisR--author
+  await prefs.setString('LefterisR---The 39 Clues---author', 'Rick Riordan');
+  await prefs.setString(
+      "LefterisR---Harry Potter and the Philosopher's Stone---author",
+      'J.K. Rowling');
+  await prefs.setString(
+      'LefterisR---The Lord of the Rings---author', 'J.R.R. Tolkien');
 }
