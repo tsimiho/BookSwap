@@ -120,7 +120,7 @@ class _SearchFieldState extends State<SearchField> {
               color: Color(0xffe46962),
             ),
             suffixIcon:
-                (textController.text.isEmpty && _speechToText.isNotListening)
+                (textController.text.isEmpty || _speechToText.isListening)
                     ? IconButton(
                         icon: Icon(Icons.mic),
                         color: Color(0xffe46962),
