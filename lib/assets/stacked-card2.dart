@@ -10,10 +10,12 @@ class StackedCard2 extends StatelessWidget {
       {Key? key,
       required this.title,
       required this.author,
-      required this.imagestring})
+      required this.imagestring,
+      required this.onDelete})
       : super(key: key);
 
   final String title, author, imagestring;
+  final Function onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +26,14 @@ class StackedCard2 extends StatelessWidget {
       // stackedcardVhj (I71:14252;63:10959)
       margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
       width: 160 * fem,
-      height: 290 * fem,
+      height: 256 * fem,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12 * fem),
       ),
       child: Container(
         // cardelevatedktZ (I71:14252;63:10960)
         width: double.infinity,
-        height: 290 * fem,
+        height: 256 * fem,
         decoration: BoxDecoration(
           color: Color(0xfffffbfe),
           borderRadius: BorderRadius.circular(12 * fem),
@@ -52,7 +54,7 @@ class StackedCard2 extends StatelessWidget {
           // contentcontainereDF (I71:14252;63:10961)
           padding: EdgeInsets.fromLTRB(0 * fem, 10 * fem, 0 * fem, 0 * fem),
           width: double.infinity,
-          height: 290 * fem,
+          height: 256 * fem,
           decoration: BoxDecoration(
             border: Border.all(color: Color(0xffcac4d0)),
             borderRadius: BorderRadius.circular(12 * fem),
@@ -60,7 +62,7 @@ class StackedCard2 extends StatelessWidget {
           child: Container(
             // mediatextcontent8u7 (I71:14252;63:10962)
             width: 531 * fem,
-            height: 290 * fem,
+            height: 256 * fem,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -263,7 +265,7 @@ class StackedCard2 extends StatelessWidget {
                               width: 45 * fem,
                               height: 57 * fem,
                               child: TextButton(
-                                onPressed: () => {},
+                                onPressed: () => onDelete(title),
                                 child: SizedBox(
                                   width: 45 * fem,
                                   height: 57 * fem,

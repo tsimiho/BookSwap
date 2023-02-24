@@ -27,37 +27,53 @@ class _MyProfileState extends State<MyProfile> {
     _loadData();
   }
 
+  Future<void> _deleteBook(String T) async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      title = (prefs.getStringList('$username---list') ?? []);
+      title.remove(T);
+      prefs.setStringList('$username---list', title);
+    });
+    _loadData();
+  }
+
   Future<void> _loadData() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       username = (prefs.getString('user') ?? '');
-      title = (prefs.getStringList('Nikos123---list') ?? []);
+      title = (prefs.getStringList('$username---list') ?? []);
+      author = [];
       for (var t in title) {
-        String at = (prefs.getString('Nikos123---$t---author') ?? '');
+        String at = (prefs.getString('$username---$t---author') ?? '');
         author.add(at);
       }
-      double fem = 1;
+      double fem = MediaQuery.of(context).size.width / 360;
+      C = [];
       for (var i = 0; i < title.length ~/ 2; i++) {
         C.add(Container(
           // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
           width: double.infinity,
-          height: 290 * fem,
+          height: 256 * fem,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               StackedCard2(
                   title: title[2 * i],
                   author: author[2 * i],
-                  imagestring: 'assets/images/$username---${title[2 * i]}.png'),
+                  imagestring: 'assets/images/$username---${title[2 * i]}.png',
+                  onDelete: _deleteBook),
+              //onDelete: _deleteBook
               Container(
                 width: 12 * fem,
-                height: 290 * fem,
+                height: 256 * fem,
               ),
               StackedCard2(
-                  title: title[2 * i + 1],
-                  author: author[2 * i + 1],
-                  imagestring:
-                      'assets/images/$username---${title[2 * i + 1]}.png'),
+                title: title[2 * i + 1],
+                author: author[2 * i + 1],
+                imagestring:
+                    'assets/images/$username---${title[2 * i + 1]}.png',
+                onDelete: _deleteBook,
+              ),
             ],
           ),
         ));
@@ -69,18 +85,20 @@ class _MyProfileState extends State<MyProfile> {
         C.add(Container(
           // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
           width: double.infinity,
-          height: 290 * fem,
+          height: 256 * fem,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               StackedCard2(
-                  title: title[title.length - 1],
-                  author: author[title.length - 1],
-                  imagestring:
-                      'assets/images/$username---${title[title.length - 1]}.png'),
+                title: title[title.length - 1],
+                author: author[title.length - 1],
+                imagestring:
+                    'assets/images/$username---${title[title.length - 1]}.png',
+                onDelete: _deleteBook,
+              ),
               Container(
                 width: 172 * fem,
-                height: 290 * fem,
+                height: 256 * fem,
               ),
             ],
           ),
@@ -113,7 +131,7 @@ class _MyProfileState extends State<MyProfile> {
                     width: double.infinity,
                     height: (title.length <= 4
                             ? 714
-                            : (title.length ~/ 2 - 1) * 290 + 714) *
+                            : (title.length ~/ 2 - 1) * 266 + 714) *
                         fem,
                     child: Stack(
                       children: [

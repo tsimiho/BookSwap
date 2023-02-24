@@ -6,6 +6,17 @@ import 'package:myapp/utils.dart';
 import 'package:myapp/prototype/other-user-page.dart';
 
 class StackedCard3 extends StatelessWidget {
+  const StackedCard3(
+      {Key? key,
+      required this.title,
+      required this.username,
+      required this.imagestring,
+      required this.onDelete})
+      : super(key: key);
+
+  final String title, username, imagestring;
+  final Function onDelete;
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -66,7 +77,9 @@ class StackedCard3 extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => OtherUser()),
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                OtherUser(username: username)),
                       );
                     },
                     style: TextButton.styleFrom(
@@ -83,7 +96,7 @@ class StackedCard3 extends StatelessWidget {
                           Container(
                             // monogramyqK (I51:4636;57:11537)
                             margin: EdgeInsets.fromLTRB(
-                                0 * fem, 2 * fem, 15.91 * fem, 2 * fem),
+                                0 * fem, 2 * fem, 12 * fem, 2 * fem),
                             width: 40 * fem,
                             height: double.infinity,
                             decoration: BoxDecoration(
@@ -93,7 +106,7 @@ class StackedCard3 extends StatelessWidget {
                             child: Center(
                               child: Center(
                                 child: Text(
-                                  'A',
+                                  username.isEmpty ? '' : username[0],
                                   textAlign: TextAlign.center,
                                   style: SafeGoogleFont(
                                     'Roboto',
@@ -109,7 +122,7 @@ class StackedCard3 extends StatelessWidget {
                           ),
                           Container(
                             // textnGy (I51:4636;57:11540)
-                            width: 75.09 * fem,
+                            width: 78 * fem,
                             height: double.infinity,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,7 +132,7 @@ class StackedCard3 extends StatelessWidget {
                                   margin: EdgeInsets.fromLTRB(
                                       0.09 * fem, 0 * fem, 0 * fem, 0 * fem),
                                   child: Text(
-                                    'Username',
+                                    username,
                                     style: SafeGoogleFont(
                                       'Roboto',
                                       fontSize: 16 * ffem,
@@ -159,9 +172,9 @@ class StackedCard3 extends StatelessWidget {
                   margin:
                       EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 16 * fem),
                   width: 160 * fem,
-                  height: 121 * fem,
+                  height: (title.length > 16 ? 121 : 145) * fem,
                   child: Image.asset(
-                    'assets/prototype/images/media-NVF.png',
+                    imagestring,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -172,18 +185,18 @@ class StackedCard3 extends StatelessWidget {
                   padding:
                       EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
                   width: 515 * fem,
-                  height: 85 * fem,
+                  height: (title.length > 16 ? 94 : 70) * fem,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         // headlinedqK (I51:4636;57:11547)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 0 * fem, 12 * fem),
-                        width: 57 * fem,
-                        height: 24 * fem,
+                        // margin: EdgeInsets.fromLTRB(
+                        //     0 * fem, 0 * fem, 0 * fem, 12 * fem),
+                        width: 140 * fem,
+                        height: (title.length > 16 ? 46 : 22) * fem,
                         child: Text(
-                          'Title',
+                          title,
                           style: SafeGoogleFont(
                             'Roboto',
                             fontSize: 16 * ffem,
@@ -213,14 +226,21 @@ class StackedCard3 extends StatelessWidget {
                             width: double.infinity,
                             height: 46 * fem,
                             child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
                                   // requestbookTVT (I71:14252;63:10978)
                                   margin: EdgeInsets.fromLTRB(
                                       0 * fem, 8 * fem, 0 * fem, 0 * fem),
                                   child: TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                OtherUser(username: username)),
+                                      );
+                                    },
                                     style: TextButton.styleFrom(
                                       padding: EdgeInsets.zero,
                                     ),
@@ -264,9 +284,9 @@ class StackedCard3 extends StatelessWidget {
                                               child: Container(
                                                 // statelayerkN5 (I71:14252;63:10978;54:11369;52798:24432)
                                                 padding: EdgeInsets.fromLTRB(
-                                                    12 * fem,
+                                                    6 * fem,
                                                     5.5 * fem,
-                                                    12 * fem,
+                                                    16 * fem,
                                                     3 * fem),
                                                 width: double.infinity,
                                                 height: double.infinity,
@@ -292,7 +312,7 @@ class StackedCard3 extends StatelessWidget {
                                                         child: Center(
                                                           child: Align(
                                                             child: SizedBox(
-                                                              width: 60 * fem,
+                                                              width: 75 * fem,
                                                               height: 16 * fem,
                                                               child: Text(
                                                                 'Check List',
@@ -342,7 +362,8 @@ class StackedCard3 extends StatelessWidget {
                                     width: 45 * fem,
                                     height: 57 * fem,
                                     child: TextButton(
-                                      onPressed: () => {},
+                                      onPressed: () =>
+                                          {onDelete('$username---$title')},
                                       child: SizedBox(
                                         width: 45 * fem,
                                         height: 57 * fem,

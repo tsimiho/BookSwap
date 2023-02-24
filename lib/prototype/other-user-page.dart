@@ -4,8 +4,98 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 import '../assets/stacked-card4.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class OtherUser extends StatelessWidget {
+class OtherUser extends StatefulWidget {
+  const OtherUser({Key? key, required this.username}) : super(key: key);
+
+  final String username;
+
+  @override
+  _OtherUserState createState() => _OtherUserState();
+}
+
+class _OtherUserState extends State<OtherUser> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  List<String> title = [];
+  List<String> author = [];
+  List<Widget> C = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      title = (prefs.getStringList('${widget.username}---list') ?? []);
+      author = [];
+      for (var t in title) {
+        String at = (prefs.getString('${widget.username}---$t---author') ?? '');
+        author.add(at);
+      }
+      double fem = MediaQuery.of(context).size.width / 360;
+      C = [];
+      for (var i = 0; i < title.length ~/ 2; i++) {
+        C.add(Container(
+          // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+          width: double.infinity,
+          height: 256 * fem,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              StackedCard4(
+                  title: title[2 * i],
+                  author: author[2 * i],
+                  imagestring:
+                      'assets/images/${widget.username}---${title[2 * i]}.png'),
+              //onDelete: _deleteBook
+              Container(
+                width: 12 * fem,
+                height: 256 * fem,
+              ),
+              StackedCard4(
+                  title: title[2 * i + 1],
+                  author: author[2 * i + 1],
+                  imagestring:
+                      'assets/images/${widget.username}---${title[2 * i + 1]}.png'),
+            ],
+          ),
+        ));
+        C.add(SizedBox(
+          height: 10 * fem,
+        ));
+      }
+      if (title.length % 2 != 0) {
+        C.add(Container(
+          // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+          width: double.infinity,
+          height: 256 * fem,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              StackedCard4(
+                title: title[title.length - 1],
+                author: author[title.length - 1],
+                imagestring:
+                    'assets/images/${widget.username}---${title[title.length - 1]}.png',
+              ),
+              Container(
+                width: 172 * fem,
+                height: 256 * fem,
+              ),
+            ],
+          ),
+        ));
+        C.add(SizedBox(
+          height: 10 * fem,
+        ));
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -108,7 +198,9 @@ class OtherUser extends StatelessWidget {
                                   child: Center(
                                     child: Center(
                                       child: Text(
-                                        'A',
+                                        widget.username.isEmpty
+                                            ? ''
+                                            : widget.username[0],
                                         textAlign: TextAlign.center,
                                         style: SafeGoogleFont(
                                           'Roboto',
@@ -134,7 +226,7 @@ class OtherUser extends StatelessWidget {
                                         margin: EdgeInsets.fromLTRB(
                                             0 * fem, 0 * fem, 0 * fem, 0 * fem),
                                         child: Text(
-                                          'Username',
+                                          widget.username,
                                           style: SafeGoogleFont(
                                             'Roboto',
                                             fontSize: 16 * ffem,
@@ -192,7 +284,7 @@ class OtherUser extends StatelessWidget {
                         'Book List',
                         style: SafeGoogleFont(
                           'Cookie',
-                          fontSize: 24 * ffem,
+                          fontSize: 32 * ffem,
                           fontWeight: FontWeight.w400,
                           height: 0.8333333333 * ffem / fem,
                           letterSpacing: 0.25 * fem,
@@ -296,42 +388,43 @@ class OtherUser extends StatelessWidget {
               //height: 485 * fem,
               //child: SingleChildScrollView(
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
-                      width: double.infinity,
-                      //height: 308 * fem,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          StackedCard4(),
-                          Container(
-                            width: 12 * fem,
-                            height: 308 * fem,
-                          ),
-                          StackedCard4()
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10 * fem,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        StackedCard4(),
-                        Container(
-                          width: 12 * fem,
-                          height: 308 * fem,
-                        ),
-                        StackedCard4()
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10 * fem,
-                    ),
-                  ]),
+                  crossAxisAlignment: CrossAxisAlignment.center, children: C
+                  // [
+                  //         Container(
+                  //           // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+                  //           width: double.infinity,
+                  //           //height: 308 * fem,
+                  //           child: Row(
+                  //             crossAxisAlignment: CrossAxisAlignment.center,
+                  //             children: [
+                  //               StackedCard4(),
+                  //               Container(
+                  //                 width: 12 * fem,
+                  //                 height: 308 * fem,
+                  //               ),
+                  //               StackedCard4()
+                  //             ],
+                  //           ),
+                  //         ),
+                  //         SizedBox(
+                  //           height: 10 * fem,
+                  //         ),
+                  //         Row(
+                  //           crossAxisAlignment: CrossAxisAlignment.center,
+                  //           children: [
+                  //             StackedCard4(),
+                  //             Container(
+                  //               width: 12 * fem,
+                  //               height: 308 * fem,
+                  //             ),
+                  //             StackedCard4()
+                  //           ],
+                  //         ),
+                  //         SizedBox(
+                  //           height: 10 * fem,
+                  //         ),
+                  //       ]
+                  ),
             )
           ],
         ),

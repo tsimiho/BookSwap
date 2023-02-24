@@ -77,7 +77,9 @@ class StackedCard extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => OtherUser()),
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                OtherUser(username: username)),
                       );
                     },
                     style: TextButton.styleFrom(
