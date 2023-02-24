@@ -74,6 +74,7 @@ class _SearchFieldState extends State<SearchField> {
   void _onSpeechResult(SpeechRecognitionResult result) {
     setState(() {
       _lastWords = result.recognizedWords;
+      textController.text = _lastWords;
     });
   }
 
