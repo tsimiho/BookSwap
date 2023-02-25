@@ -103,7 +103,7 @@ class HorizontalCard extends StatelessWidget {
                         ),
                         Container(
                           // textnGy (I51:4636;57:11540)
-                          width: 75.09 * fem,
+                          width: 200 * fem,
                           height: double.infinity,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

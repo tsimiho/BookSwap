@@ -67,10 +67,10 @@ class Chats extends StatelessWidget {
                 child: Column(
                   children: [
                     HorizontalCard(
-                      authorID: 'user1',
+                      authorID: 'GeorgeVk',
                     ),
                     HorizontalCard(
-                      authorID: 'user2',
+                      authorID: 'KostasP23',
                     ),
                   ],
                 )),

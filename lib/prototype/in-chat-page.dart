@@ -30,44 +30,44 @@ class _InChatState extends State<InChat> {
   );
   String _author = '';
 
-  // Future<String> get _localPath async {
-  //   final directory = await getApplicationDocumentsDirectory();
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
 
-  //   return directory.path;
-  // }
+    return directory.path;
+  }
 
-  // Future<File> get _localFile async {
-  //   final path = await _localPath;
-  //   return File('$path/counter.txt');
-  // }
+  Future<File> get _localFile async {
+    final path = Directory.current.path;
+    return File(path + '/lib/messages/counter.txt');
+  }
 
-  // Future<int> readCounter() async {
-  //   try {
-  //     final file = await _localFile;
+  Future<int> readCounter() async {
+    try {
+      final file = await _localFile;
 
-  //     // Read the file
-  //     final contents = await file.readAsString();
+      // Read the file
+      final contents = await file.readAsString();
 
-  //     return int.parse(contents);
-  //   } catch (e) {
-  //     // If encountering an error, return 0
-  //     return 0;
-  //   }
-  // }
+      return int.parse(contents);
+    } catch (e) {
+      // If encountering an error, return 0
+      return 0;
+    }
+  }
 
-  // Future<File> writeCounter(int counter) async {
-  //   final file = await _localFile;
+  Future<File> writeCounter(int counter) async {
+    final file = await _localFile;
 
-  //   // Write the file
-  //   return file.writeAsString('$counter');
-  // }
+    // Write the file
+    return file.writeAsString('$counter');
+  }
 
-  // Future<File> writeMessage(types.Message message) async {
-  //   final file = await _localFile;
-  //   return file.writeAsString('$message');
-  // }
+  Future<File> writeMessage(String message) async {
+    final file = await _localFile;
+    return file.writeAsString(message);
+  }
 
-  // int _counter = 0;
+  int _counter = 0;
 
   @override
   void initState() {
@@ -75,21 +75,21 @@ class _InChatState extends State<InChat> {
 
     _author = '${widget.authorID}';
     _loadMessages();
-    // readCounter().then((value) {
-    //   setState(() {
-    //     _counter = value;
-    //   });
-    // });
+    readCounter().then((value) {
+      setState(() {
+        _counter = value;
+      });
+    });
   }
 
-  // Future<File> _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
+  Future<File> _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
 
-  //   // Write the variable as a string to the file.
-  //   return writeCounter(_counter);
-  // }
+    // Write the variable as a string to the file.
+    return writeCounter(_counter);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -148,7 +148,6 @@ class _InChatState extends State<InChat> {
     setState(() {
       _messages.insert(0, message);
     });
-    // writeMessage(_messages[0]);
   }
 
   void _handleAttachmentPressed() {
@@ -299,7 +298,7 @@ class _InChatState extends State<InChat> {
     });
   }
 
-  void _handleSendPressed(types.PartialText message) {
+  void _handleSendPressed(types.PartialText message) async {
     final textMessage = types.TextMessage(
       author: _user,
       createdAt: DateTime.now().millisecondsSinceEpoch,
@@ -307,12 +306,36 @@ class _InChatState extends State<InChat> {
       text: message.text,
     );
 
+    final obj = {
+      'author': {"firstName": "Matthew", "id": "user0", "lastName": "White"},
+      'createdAt': DateTime.now().millisecondsSinceEpoch,
+      'id': const Uuid().v4(),
+      'status': 'seen',
+      'text': message.text,
+      'type': "text"
+    };
+
+    final path = Directory.current.path;
+    final file = File(path + '/lib/messages/messages_' + _author + '.json');
+
+    // final response = await file.openWrite()
+    final response = await file.readAsString();
+
+    List data = jsonDecode(response);
+    data.insert(0, obj);
+
+    var json_data = json.encode(data);
+
+    await file.writeAsString(json_data);
+
     _addMessage(textMessage);
   }
 
   void _loadMessages() async {
-    final response = await rootBundle
-        .loadString('assets/messages/messages_' + _author + '.json');
+    final path = Directory.current.path;
+    final file = File(path + '/lib/messages/messages_' + _author + '.json');
+    final response = await file.readAsString();
+
     final messages = (jsonDecode(response) as List)
         .map((e) => types.Message.fromJson(e as Map<String, dynamic>))
         .toList();
