@@ -9,13 +9,11 @@ class StackedCard extends StatelessWidget {
   const StackedCard(
       {Key? key,
       required this.username,
-      required this.distance,
       required this.title,
-      required this.requested})
+      required this.imagestring})
       : super(key: key);
 
-  final String username, distance, title;
-  final bool requested;
+  final String username, title, imagestring;
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +94,7 @@ class StackedCard extends StatelessWidget {
                           Container(
                             // monogramyqK (I51:4636;57:11537)
                             margin: EdgeInsets.fromLTRB(
-                                0 * fem, 2 * fem, 15.91 * fem, 2 * fem),
+                                0 * fem, 2 * fem, 12 * fem, 2 * fem),
                             width: 40 * fem,
                             height: double.infinity,
                             decoration: BoxDecoration(
@@ -106,7 +104,7 @@ class StackedCard extends StatelessWidget {
                             child: Center(
                               child: Center(
                                 child: Text(
-                                  'A',
+                                  username.isEmpty ? '' : username[0],
                                   textAlign: TextAlign.center,
                                   style: SafeGoogleFont(
                                     'Roboto',
@@ -122,7 +120,7 @@ class StackedCard extends StatelessWidget {
                           ),
                           Container(
                             // textnGy (I51:4636;57:11540)
-                            width: 75.09 * fem,
+                            width: 78 * fem,
                             height: double.infinity,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,7 +145,7 @@ class StackedCard extends StatelessWidget {
                                   // subheadNW5 (I51:4636;57:11542)
                                   width: double.infinity,
                                   child: Text(
-                                    '$distance km',
+                                    'Distance',
                                     textAlign: TextAlign.left,
                                     style: SafeGoogleFont(
                                       'Roboto',
@@ -174,7 +172,7 @@ class StackedCard extends StatelessWidget {
                   width: 160 * fem,
                   height: 121 * fem,
                   child: Image.asset(
-                    'assets/images/Nikos123---Harry Potter and the Goblet of Fire.png',
+                    imagestring,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -277,9 +275,7 @@ class StackedCard extends StatelessWidget {
                                                       width: 47 * fem,
                                                       height: 14 * fem,
                                                       child: Text(
-                                                        requested
-                                                            ? 'Requested'
-                                                            : 'Request',
+                                                        'Request',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: SafeGoogleFont(

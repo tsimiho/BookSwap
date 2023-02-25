@@ -5,13 +5,100 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/assets/NewSearchField.dart';
 import 'package:myapp/utils.dart';
 import '../assets/stacked-card.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class Search extends StatelessWidget {
-  final Sexample = StackedCard(
-      username: 'Nikos',
-      distance: '3.5',
-      title: 'Harry Potter and the Goblet of Fire',
-      requested: true);
+class Search extends StatefulWidget {
+  @override
+  _SearchState createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  String currentuser = '';
+  List<String> users = [], results = [];
+  List<Widget> C = [];
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  Future<void> _loadResults(String title) async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      users = (prefs.getStringList('usernames') ?? []);
+      currentuser = (prefs.getString('user') ?? '');
+      for (var user in users) {
+        if (user == currentuser) continue;
+        final books = (prefs.getStringList('$user---list') ?? []);
+        for (var t in books) {
+          if (t == title) {
+            results.add('$user---$title');
+          }
+        }
+      }
+      double fem = MediaQuery.of(context).size.width / 360;
+      C = [
+        SizedBox(
+          height: 10 * fem,
+        )
+      ];
+      for (var i = 0; i < results.length ~/ 2; i++) {
+        final r1 = results[2 * i].split('---');
+        final r2 = results[2 * i + 1].split('---');
+        C.add(Container(
+          // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+          width: double.infinity,
+          height: 308 * fem,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              StackedCard(
+                  title: r1[1],
+                  username: r1[0],
+                  imagestring: 'assets/images/${r1[0]}---${r1[1]}.png'),
+              Container(
+                width: 12 * fem,
+                height: 308 * fem,
+              ),
+              StackedCard(
+                  title: r2[1],
+                  username: r2[0],
+                  imagestring: 'assets/images/${r2[0]}---${r2[1]}.png'),
+            ],
+          ),
+        ));
+        C.add(SizedBox(
+          height: 10 * fem,
+        ));
+      }
+      if (results.length % 2 != 0) {
+        final r = results[results.length - 1].split('---');
+        C.add(Container(
+          // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
+          width: double.infinity,
+          height: 308 * fem,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              StackedCard(
+                title: r[1],
+                username: r[0],
+                imagestring: 'assets/images/${r[0]}---${r[1]}.png',
+              ),
+              Container(
+                width: 172 * fem,
+                height: 308 * fem,
+              ),
+            ],
+          ),
+        ));
+        C.add(SizedBox(
+          height: 10 * fem,
+        ));
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +116,7 @@ class Search extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SearchField(),
+            SearchField(onSearch: _loadResults),
             SizedBox(height: 4 * fem),
             Container(
                 // frame16To7 (65:12474)
@@ -40,42 +127,7 @@ class Search extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(height: 10 * fem),
-                        Container(
-                          // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
-                          width: double.infinity,
-                          height: 308 * fem,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Sexample,
-                              Container(
-                                width: 12 * fem,
-                                height: 308 * fem,
-                              ),
-                              Sexample,
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10 * fem,
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Sexample,
-                            Container(
-                              width: 12 * fem,
-                              height: 308 * fem,
-                            ),
-                            Sexample
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10 * fem,
-                        ),
-                      ]),
+                      children: C),
                 )),
           ],
         ),

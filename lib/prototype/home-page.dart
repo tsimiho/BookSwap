@@ -8,10 +8,11 @@ import '../assets/stacked-card.dart';
 
 class Home extends StatelessWidget {
   final Sexample = StackedCard(
-      username: 'Nikos',
-      distance: '3.5',
-      title: 'Harry Potter and the Goblet of Fire',
-      requested: true);
+    username: 'Nikos',
+    title: 'Harry Potter and the Goblet of Fire',
+    imagestring:
+        'assets/images/Nikos123---Harry Potter and the Goblet of Fire.png',
+  );
 
   @override
   Widget build(BuildContext context) {

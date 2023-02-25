@@ -12,6 +12,10 @@ import 'package:speech_to_text/speech_to_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SearchField extends StatefulWidget {
+  const SearchField({Key? key, required this.onSearch}) : super(key: key);
+
+  final Function onSearch;
+
   @override
   _SearchFieldState createState() => _SearchFieldState();
 }
@@ -21,6 +25,7 @@ class _SearchFieldState extends State<SearchField> {
   SpeechToText _speechToText = SpeechToText();
   bool _speechEnabled = false;
   String _lastWords = '';
+  String currentuser = '';
   List<String> users = [], Options = [];
   final FocusNode _focusNode = FocusNode();
   final GlobalKey _autocompleteKey = GlobalKey();
@@ -29,7 +34,9 @@ class _SearchFieldState extends State<SearchField> {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       users = (prefs.getStringList('usernames') ?? []);
+      currentuser = (prefs.getString('user') ?? '');
       for (var user in users) {
+        if (user == currentuser) continue;
         final books = (prefs.getStringList('$user---list') ?? []);
         for (var title in books) {
           if (!Options.contains(title)) {
@@ -168,12 +175,13 @@ class _SearchFieldState extends State<SearchField> {
               AutocompleteOnSelected<String> onSelected,
               Iterable<String> options) {
             return Material(
-              elevation: 4.0,
+              elevation: 2.0,
               child: ListView(
                 children: options
                     .map((String option) => GestureDetector(
                           onTap: () {
                             onSelected(option);
+                            widget.onSearch(option);
                           },
                           child: ListTile(
                             title: Text(option),
