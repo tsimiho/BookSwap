@@ -14,7 +14,7 @@ class Chats extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Container(
-      //height: 640 * fem,
+      height: 720 * fem,
       width: double.infinity,
       child: Container(
         // chatspagegcH (51:8537)
@@ -66,16 +66,12 @@ class Chats extends StatelessWidget {
                 width: 360 * fem,
                 child: Column(
                   children: [
-                    HorizontalCard(),
-                    HorizontalCard(),
-                    HorizontalCard(),
-                    HorizontalCard(),
-                    HorizontalCard(),
-                    HorizontalCard(),
-                    HorizontalCard(),
-                    HorizontalCard(),
-                    HorizontalCard(),
-                    HorizontalCard()
+                    HorizontalCard(
+                      authorID: 'user1',
+                    ),
+                    HorizontalCard(
+                      authorID: 'user2',
+                    ),
                   ],
                 )),
           ],

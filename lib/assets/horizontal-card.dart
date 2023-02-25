@@ -7,6 +7,10 @@ import 'package:myapp/utils.dart';
 import '../prototype/in-chat-page.dart';
 
 class HorizontalCard extends StatelessWidget {
+  const HorizontalCard({Key? key, this.authorID}) : super(key: key);
+
+  final String? authorID;
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -53,7 +57,10 @@ class HorizontalCard extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => InChat()),
+                      MaterialPageRoute(
+                          builder: (context) => InChat(
+                                authorID: authorID,
+                              )),
                     );
                   },
                   style: TextButton.styleFrom(
@@ -106,7 +113,7 @@ class HorizontalCard extends StatelessWidget {
                                 margin: EdgeInsets.fromLTRB(
                                     0.09 * fem, 6 * fem, 0 * fem, 0 * fem),
                                 child: Text(
-                                  'Username',
+                                  '$authorID',
                                   style: SafeGoogleFont(
                                     'Roboto',
                                     fontSize: 16 * ffem,

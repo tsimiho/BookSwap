@@ -1,20 +1,8 @@
 [
     {
         "author": {
-            "firstName": "John",
-            "id": "4c2307ba-3d40-442f-b1ff-b271f63904ca",
-            "lastName": "Doe"
-        },
-        "createdAt": 1655648404000,
-        "id": "c67ed376-52bf-4d4e-ba2a-7a0f8467b22a",
-        "status": "seen",
-        "text": "Ooowww ☺️",
-        "type": "text"
-    },
-    {
-        "author": {
             "firstName": "Janice",
-            "id": "e52552f4-835d-4dbe-ba77-b076e659774d",
+            "id": "user2",
             "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
             "lastName": "King"
         },
@@ -31,7 +19,7 @@
     {
         "author": {
             "firstName": "Janice",
-            "id": "e52552f4-835d-4dbe-ba77-b076e659774d",
+            "id": "user2",
             "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
             "lastName": "King"
         },
@@ -44,7 +32,7 @@
     {
         "author": {
             "firstName": "Matthew",
-            "id": "82091008-a484-4a89-ae75-a22bf8d6f3ac",
+            "id": "user0",
             "lastName": "White"
         },
         "createdAt": 1655648401000,
@@ -56,7 +44,7 @@
     {
         "author": {
             "firstName": "Matthew",
-            "id": "82091008-a484-4a89-ae75-a22bf8d6f3ac",
+            "id": "user0",
             "lastName": "White"
         },
         "createdAt": 1655648400000,
@@ -70,20 +58,8 @@
     },
     {
         "author": {
-            "firstName": "John",
-            "id": "4c2307ba-3d40-442f-b1ff-b271f63904ca",
-            "lastName": "Doe"
-        },
-        "createdAt": 1655624464000,
-        "id": "38681a33-2563-42aa-957b-cfc12f791d16",
-        "status": "seen",
-        "text": "Matt, where is my Madrid guide?",
-        "type": "text"
-    },
-    {
-        "author": {
             "firstName": "Matthew",
-            "id": "82091008-a484-4a89-ae75-a22bf8d6f3ac",
+            "id": "user0",
             "lastName": "White"
         },
         "createdAt": 1655624463000,
@@ -95,7 +71,7 @@
     {
         "author": {
             "firstName": "Janice",
-            "id": "e52552f4-835d-4dbe-ba77-b076e659774d",
+            "id": "user2",
             "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
             "lastName": "King"
         },
@@ -108,7 +84,7 @@
     {
         "author": {
             "firstName": "Janice",
-            "id": "e52552f4-835d-4dbe-ba77-b076e659774d",
+            "id": "user2",
             "imageUrl": "https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d",
             "lastName": "King"
         },
@@ -116,18 +92,6 @@
         "id": "afc2269a-374b-4382-8864-b3b60d1e8cd7",
         "status": "seen",
         "text": "Yeah! Together with Demna, Mark Hamill and others 🥰",
-        "type": "text"
-    },
-    {
-        "author": {
-            "firstName": "John",
-            "id": "4c2307ba-3d40-442f-b1ff-b271f63904ca",
-            "lastName": "Doe"
-        },
-        "createdAt": 1655624460000,
-        "id": "634b2f0b-2486-4bfe-b36d-1c7d6313c7b3",
-        "status": "seen",
-        "text": "Guys! Did you know Imagine Dragons became ambassadors for u24.gov.ua ?",
         "type": "text"
     }
 ]

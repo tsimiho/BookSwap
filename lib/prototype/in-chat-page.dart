@@ -15,7 +15,9 @@ import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
 
 class InChat extends StatefulWidget {
-  const InChat({super.key});
+  const InChat({super.key, this.authorID});
+
+  final String? authorID;
 
   @override
   State<InChat> createState() => _InChatState();
@@ -24,14 +26,70 @@ class InChat extends StatefulWidget {
 class _InChatState extends State<InChat> {
   List<types.Message> _messages = [];
   final _user = const types.User(
-    id: '82091008-a484-4a89-ae75-a22bf8d6f3ac',
+    id: 'user0',
   );
+  String _author = '';
+
+  // Future<String> get _localPath async {
+  //   final directory = await getApplicationDocumentsDirectory();
+
+  //   return directory.path;
+  // }
+
+  // Future<File> get _localFile async {
+  //   final path = await _localPath;
+  //   return File('$path/counter.txt');
+  // }
+
+  // Future<int> readCounter() async {
+  //   try {
+  //     final file = await _localFile;
+
+  //     // Read the file
+  //     final contents = await file.readAsString();
+
+  //     return int.parse(contents);
+  //   } catch (e) {
+  //     // If encountering an error, return 0
+  //     return 0;
+  //   }
+  // }
+
+  // Future<File> writeCounter(int counter) async {
+  //   final file = await _localFile;
+
+  //   // Write the file
+  //   return file.writeAsString('$counter');
+  // }
+
+  // Future<File> writeMessage(types.Message message) async {
+  //   final file = await _localFile;
+  //   return file.writeAsString('$message');
+  // }
+
+  // int _counter = 0;
 
   @override
   void initState() {
     super.initState();
+
+    _author = '${widget.authorID}';
     _loadMessages();
+    // readCounter().then((value) {
+    //   setState(() {
+    //     _counter = value;
+    //   });
+    // });
   }
+
+  // Future<File> _incrementCounter() {
+  //   setState(() {
+  //     _counter++;
+  //   });
+
+  //   // Write the variable as a string to the file.
+  //   return writeCounter(_counter);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +148,7 @@ class _InChatState extends State<InChat> {
     setState(() {
       _messages.insert(0, message);
     });
+    // writeMessage(_messages[0]);
   }
 
   void _handleAttachmentPressed() {
@@ -252,7 +311,8 @@ class _InChatState extends State<InChat> {
   }
 
   void _loadMessages() async {
-    final response = await rootBundle.loadString('assets/messages.json');
+    final response = await rootBundle
+        .loadString('assets/messages/messages_' + _author + '.json');
     final messages = (jsonDecode(response) as List)
         .map((e) => types.Message.fromJson(e as Map<String, dynamic>))
         .toList();
