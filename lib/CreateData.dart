@@ -56,6 +56,14 @@ Future<void> CreateData() async {
     'The Lord of the Rings---LefterisR---Les Miserables---24 Oct 2022',
   ]);
 
+  // Nikos123---searches
+  await prefs.setStringList('Nikos123---searches', [
+    'The Lord of the Rings---2',
+    "The 39 Clues---1",
+    'Surrounded by Idiots---2',
+    'Rich Dad Poor Dad---4'
+  ]);
+
   //----------------------------- GeorgeVk -----------------------------------//
 
   // GeorgeVk---list
