@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/about/frame-1.dart';
 import 'package:myapp/assets/newTextField.dart';
+import 'package:myapp/assets/GeoField.dart';
 import 'package:myapp/utils.dart';
 import '../assets/ListItem.dart';
 import '../assets/newSwitch.dart';
@@ -10,6 +12,7 @@ import 'package:myapp/prototype/change-password-page.dart';
 import 'package:myapp/prototype/privacy-policy-page.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:myapp/prototype/sign-in-page.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -208,18 +211,18 @@ class _SettingsState extends State<Settings> {
                       children: [
                         NewTextField(label: 'Username', init: 'Input'),
                         SizedBox(height: 10 * fem),
-                        NewTextField(
-                          label: 'ADDRESS: ${_currentAddress ?? ""}',
+                        GeoField(
+                          label: 'Home Address',
                           init: 'Input',
                           specialIcon: Icons.language,
-                          onClick: _getCurrentPosition,
+                          // onClick: _getCurrentPosition,
                         ),
                         SizedBox(height: 10 * fem),
-                        NewTextField(
+                        GeoField(
                           label: 'Work Address',
                           init: 'Input',
                           specialIcon: Icons.language,
-                          onClick: () => {},
+                          // onClick: () => {},
                         ),
                         SizedBox(height: 10 * fem),
                         Container(
@@ -568,8 +571,7 @@ class _SettingsState extends State<Settings> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => PrivacyPolicy()),
+                        MaterialPageRoute(builder: (context) => SignIn()),
                       );
                     },
                     style: TextButton.styleFrom(
