@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/assets/PasswordField.dart';
 import 'package:myapp/assets/newTextField.dart';
 import 'package:myapp/assets/testTextField.dart';
 import 'package:myapp/prototype/sign-up-page.dart';
+import 'package:myapp/prototype/home-page.dart';
 import 'package:myapp/utils.dart';
 import 'dart:io';
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -19,17 +22,21 @@ class _SignInState extends State<SignIn> {
   var passwordController = TextEditingController();
 
   Future<bool> auth(String u, String p) async {
-    final path = Directory.current.path;
-    final file = File(path + '/lib/users/users.json');
+    // final path = Directory.current.path;
+    // final file = File(path + '/lib/users/users.json');
 
-    // final response = await file.openWrite()
-    final response = await file.readAsString();
+    // // final response = await file.openWrite()
+    // final response = await file.readAsString();
 
-    List data = json.decode(response);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String response = prefs.getString('users') ?? '';
+
+    List data = jsonDecode(response);
 
     for (var i = 0; i < data.length; i++) {
       var obj = data[i];
       if (obj["username"] == u && obj["password"] == p) {
+        await prefs.setString('user', u);
         return true;
       }
     }
@@ -313,7 +320,7 @@ class _SignInState extends State<SignIn> {
                 child: Container(
                     width: 222 * fem,
                     height: 48 * fem,
-                    child: tNewTextField(
+                    child: PasswordField(
                       label: 'Password',
                       textController: passwordController,
                     )),
@@ -330,7 +337,7 @@ class _SignInState extends State<SignIn> {
                   if (c) {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SignUp()),
+                      MaterialPageRoute(builder: (context) => Home()),
                     );
                   } else {
                     showDialog(

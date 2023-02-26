@@ -14,6 +14,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
 import 'dart:convert';
 import 'dart:io';
+import 'package:myapp/prototype/sign-in-page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -38,18 +40,25 @@ class _SignUpState extends State<SignUp> {
       'WorkAddress': work
     };
 
-    final path = Directory.current.path;
-    final file = File(path + '/lib/users/users.json');
-
-    // final response = await file.openWrite()
-    final response = await file.readAsString();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String response = prefs.getString('users') ?? '';
 
     List data = jsonDecode(response);
+
+    // final path = Directory.current.path;
+    // final file = File(path + '/lib/users/users.json');
+
+    // // final response = await file.openWrite()
+    // final response = await file.readAsString();
+
+    // List data = jsonDecode(response);
     data.insert(0, obj);
 
     var json_data = json.encode(data);
 
-    await file.writeAsString(json_data);
+    await prefs.setString('users', json_data);
+
+    // await file.writeAsString(json_data);
   }
 
   Future<bool> userExists(String u) async {
@@ -511,6 +520,12 @@ class _SignUpState extends State<SignUp> {
                         conpasswordController.text,
                         homeController.text,
                         workController.text);
+                    {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignIn()),
+                      );
+                    }
                   }
                 },
                 style: TextButton.styleFrom(

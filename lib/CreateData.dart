@@ -9,6 +9,9 @@ Future<void> CreateData() async {
   await prefs.setStringList(
       'usernames', ['Nikos123', 'GeorgeVk', 'KostasP23', 'LefterisR']);
 
+  await prefs.setString('users',
+      '[{"name":"User 123","username": "user123","password":"123","HomeAddress":"abc","WorkAddress":"def"},{"name":"Nikos 123","username":"Nikos123","password":"123","HomeAddress":"abc","WorkAddress":"def"}]');
+
   //----------------------------- Nikos123 -----------------------------------//
 
   // Nikos123---list
