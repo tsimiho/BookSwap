@@ -3,8 +3,11 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/assets/newTextField.dart';
+import 'package:myapp/assets/testTextField.dart';
 import 'package:myapp/prototype/sign-up-page.dart';
 import 'package:myapp/utils.dart';
+import 'dart:io';
+import 'dart:convert';
 
 class SignIn extends StatefulWidget {
   @override
@@ -12,6 +15,27 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  var userController = TextEditingController();
+  var passwordController = TextEditingController();
+
+  Future<bool> auth(String u, String p) async {
+    final path = Directory.current.path;
+    final file = File(path + '/lib/users/users.json');
+
+    // final response = await file.openWrite()
+    final response = await file.readAsString();
+
+    List data = json.decode(response);
+
+    for (var i = 0; i < data.length; i++) {
+      var obj = data[i];
+      if (obj["username"] == u && obj["password"] == p) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -271,7 +295,10 @@ class _SignInState extends State<SignIn> {
                 child: Container(
                     width: 222 * fem,
                     height: 48 * fem,
-                    child: NewTextField(label: 'Username')),
+                    child: tNewTextField(
+                      label: 'Username',
+                      textController: userController,
+                    )),
               ),
             ),
             Positioned(
@@ -286,7 +313,10 @@ class _SignInState extends State<SignIn> {
                 child: Container(
                     width: 222 * fem,
                     height: 48 * fem,
-                    child: NewTextField(label: 'Password')),
+                    child: tNewTextField(
+                      label: 'Password',
+                      textController: passwordController,
+                    )),
               ),
             ),
             Positioned(
@@ -294,7 +324,16 @@ class _SignInState extends State<SignIn> {
               left: 57 * fem,
               top: 390 * fem,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () async {
+                  var c =
+                      await auth(userController.text, passwordController.text);
+                  if (c) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUp()),
+                    );
+                  }
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
