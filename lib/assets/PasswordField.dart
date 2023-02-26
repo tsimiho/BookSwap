@@ -5,9 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
 class PasswordField extends StatefulWidget {
-  PasswordField({Key? key, required this.label, this.init}) : super(key: key);
+  PasswordField(
+      {Key? key, required this.label, this.init, required this.textController})
+      : super(key: key);
   final String label;
   final String? init;
+  final TextEditingController textController;
+
   bool isPasswordVisible = false;
 
   @override
@@ -15,12 +19,13 @@ class PasswordField extends StatefulWidget {
 }
 
 class _PasswordFieldState extends State<PasswordField> {
-  final textController = TextEditingController();
+  var textController;
 
   @override
   void initState() {
     super.initState();
 
+    textController = widget.textController;
     if (widget.init != null) textController.text = '${widget.init}';
     textController.addListener(() => setState(() {}));
   }

@@ -5,9 +5,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/assets/CheckBox.dart';
 import 'package:myapp/assets/ListItem.dart';
 import 'package:myapp/assets/newTextField.dart';
+import 'package:myapp/assets/testTextField.dart';
 import 'package:myapp/assets/GeoField.dart';
 import 'package:myapp/assets/PasswordField.dart';
 import 'package:myapp/utils.dart';
+import 'package:open_filex/open_filex.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:uuid/uuid.dart';
+import 'dart:convert';
+import 'dart:io';
 
 class SignUp extends StatefulWidget {
   @override
@@ -15,6 +21,55 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  var nameController = TextEditingController();
+  var usernameController = TextEditingController();
+  var passwordController = TextEditingController();
+  var conpasswordController = TextEditingController();
+  var homeController = TextEditingController();
+  var workController = TextEditingController();
+
+  void addUser(String name, String username, String pass, String confpass,
+      String home, String work) async {
+    final obj = {
+      'name': name,
+      'username': username,
+      'password': pass,
+      'HomeAddress': home,
+      'WorkAddress': work
+    };
+
+    final path = Directory.current.path;
+    final file = File(path + '/lib/users/users.json');
+
+    // final response = await file.openWrite()
+    final response = await file.readAsString();
+
+    List data = jsonDecode(response);
+    data.insert(0, obj);
+
+    var json_data = json.encode(data);
+
+    await file.writeAsString(json_data);
+  }
+
+  Future<bool> userExists(String u) async {
+    final path = Directory.current.path;
+    final file = File(path + '/lib/users/users.json');
+
+    // final response = await file.openWrite()
+    final response = await file.readAsString();
+
+    List data = jsonDecode(response);
+
+    for (var i = 0; i < data.length; i++) {
+      var obj = data[i];
+      if (obj["username"] == u) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -151,14 +206,20 @@ class _SignUpState extends State<SignUp> {
                   Container(
                       width: 222 * fem,
                       height: 48 * fem,
-                      child: NewTextField(label: 'Name')),
+                      child: tNewTextField(
+                        label: 'Name',
+                        textController: nameController,
+                      )),
                   SizedBox(
                     height: 15 * fem,
                   ),
                   Container(
                       width: 222 * fem,
                       height: 48 * fem,
-                      child: NewTextField(label: 'Username')),
+                      child: tNewTextField(
+                        label: 'Username',
+                        textController: usernameController,
+                      )),
                   SizedBox(
                     height: 15 * fem,
                   ),
@@ -171,7 +232,10 @@ class _SignUpState extends State<SignUp> {
                     child: Container(
                         width: 222 * fem,
                         height: 48 * fem,
-                        child: PasswordField(label: 'Password')),
+                        child: PasswordField(
+                          label: 'Password',
+                          textController: passwordController,
+                        )),
                   ),
                   SizedBox(
                     height: 15 * fem,
@@ -187,6 +251,7 @@ class _SignUpState extends State<SignUp> {
                         height: 48 * fem,
                         child: PasswordField(
                           label: 'Confirm Password',
+                          textController: conpasswordController,
                         )),
                   ),
                   SizedBox(
@@ -204,6 +269,7 @@ class _SignUpState extends State<SignUp> {
                         child: GeoField(
                           label: 'Home Address',
                           specialIcon: Icons.language,
+                          textController: homeController,
                           // onClick: () => {},
                         )),
                   ),
@@ -222,6 +288,8 @@ class _SignUpState extends State<SignUp> {
                         child: GeoField(
                           label: 'Work Address',
                           specialIcon: Icons.language,
+                          textController: workController,
+
                           // onClick: () => {},
                         )),
                   ),
@@ -412,7 +480,39 @@ class _SignUpState extends State<SignUp> {
               // createaccountoXw (54:11978)
               margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 110 * fem, 0 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () async {
+                  if (passwordController.text != conpasswordController.text) {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          // Retrieve the text that the user has entered by using the
+                          // TextEditingController.
+                          content: Text('Passwords do not match!'),
+                        );
+                      },
+                    );
+                  } else if (await userExists(usernameController.text)) {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          // Retrieve the text that the user has entered by using the
+                          // TextEditingController.
+                          content: Text('Username already exists!'),
+                        );
+                      },
+                    );
+                  } else {
+                    addUser(
+                        nameController.text,
+                        usernameController.text,
+                        passwordController.text,
+                        conpasswordController.text,
+                        homeController.text,
+                        workController.text);
+                  }
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),

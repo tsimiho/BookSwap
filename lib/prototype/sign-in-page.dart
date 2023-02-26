@@ -332,6 +332,17 @@ class _SignInState extends State<SignIn> {
                       context,
                       MaterialPageRoute(builder: (context) => SignUp()),
                     );
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          // Retrieve the text that the user has entered by using the
+                          // TextEditingController.
+                          content: Text('Invalid Credentials'),
+                        );
+                      },
+                    );
                   }
                 },
                 style: TextButton.styleFrom(

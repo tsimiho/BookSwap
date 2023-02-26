@@ -82,51 +82,51 @@ class ChangePassword extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              // textfieldDkD (54:5172)
-              margin:
-                  EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 18 * fem),
-              child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                ),
-                child: Container(
-                    width: double.infinity,
-                    height: 48 * fem,
-                    child: PasswordField(
-                        label: 'Current Password', init: '12345678')),
-              ),
-            ),
-            Container(
-              // textfieldbgD (54:5195)
-              margin:
-                  EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 18 * fem),
-              child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                ),
-                child: Container(
-                    width: double.infinity,
-                    height: 48 * fem,
-                    child: PasswordField(label: 'New Password')),
-              ),
-            ),
-            Container(
-              // textfield2gy (54:5184)
-              margin:
-                  EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 31 * fem),
-              child: TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                  ),
-                  child: Container(
-                      width: double.infinity,
-                      height: 48 * fem,
-                      child: PasswordField(label: 'Confirm Password'))),
-            ),
+            // Container(
+            //   // textfieldDkD (54:5172)
+            //   margin:
+            //       EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 18 * fem),
+            //   child: TextButton(
+            //     onPressed: () {},
+            //     style: TextButton.styleFrom(
+            //       padding: EdgeInsets.zero,
+            //     ),
+            //     child: Container(
+            //         width: double.infinity,
+            //         height: 48 * fem,
+            //         child: PasswordField(
+            //             label: 'Current Password', init: '12345678')),
+            //   ),
+            // ),
+            // Container(
+            //   // textfieldbgD (54:5195)
+            //   margin:
+            //       EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 18 * fem),
+            //   child: TextButton(
+            //     onPressed: () {},
+            //     style: TextButton.styleFrom(
+            //       padding: EdgeInsets.zero,
+            //     ),
+            //     child: Container(
+            //         width: double.infinity,
+            //         height: 48 * fem,
+            //         child: PasswordField(label: 'New Password')),
+            //   ),
+            // ),
+            // Container(
+            //   // textfield2gy (54:5184)
+            //   margin:
+            //       EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 31 * fem),
+            //   child: TextButton(
+            //       onPressed: () {},
+            //       style: TextButton.styleFrom(
+            //         padding: EdgeInsets.zero,
+            //       ),
+            //       child: Container(
+            //           width: double.infinity,
+            //           height: 48 * fem,
+            //           child: PasswordField(label: 'Confirm Password'))),
+            // ),
             Container(
               // changepassword66V (54:5208)
               margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 168 * fem, 0 * fem),

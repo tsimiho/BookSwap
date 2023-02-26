@@ -13,12 +13,14 @@ class GeoField extends StatefulWidget {
       this.init,
       this.specialIcon,
       this.text,
-      this.onClick})
+      this.onClick,
+      this.textController})
       : super(key: key);
   final String label;
   final String? init;
   final IconData? specialIcon;
   final VoidCallback? onClick;
+  final TextEditingController? textController;
 
   final String? text;
 
@@ -27,7 +29,7 @@ class GeoField extends StatefulWidget {
 }
 
 class _GeoFieldState extends State<GeoField> {
-  final textController = TextEditingController();
+  var textController;
 
   String _currentAddress = '';
   Position? _currentPosition;
@@ -93,6 +95,9 @@ class _GeoFieldState extends State<GeoField> {
   void initState() {
     super.initState();
 
+    textController = widget.textController == null
+        ? TextEditingController()
+        : widget.textController;
     if (widget.init != null) textController.text = '${widget.init}';
     textController.addListener(() => setState(() {}));
   }
