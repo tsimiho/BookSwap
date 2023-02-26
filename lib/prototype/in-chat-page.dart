@@ -316,7 +316,7 @@ class _InChatState extends State<InChat> {
     };
 
     final path = Directory.current.path;
-    final file = File(path + 'lib/messages/messages_' + _author + '.json');
+    final file = File(path + '/lib/messages/messages_' + _author + '.json');
 
     // final response = await file.openWrite()
     final response = await file.readAsString();
@@ -333,7 +333,7 @@ class _InChatState extends State<InChat> {
 
   void _loadMessages() async {
     final path = Directory.current.path;
-    final File file = File('lib/messages/messages_' + _author + '.json');
+    final file = File(path + '/lib/messages/messages_' + _author + '.json');
     final response = await file.readAsString();
 
     final messages = (jsonDecode(response) as List)

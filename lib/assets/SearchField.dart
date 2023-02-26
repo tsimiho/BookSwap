@@ -19,7 +19,7 @@ class _SearchFieldState extends State<SearchField> {
   final textController = TextEditingController();
   SpeechToText _speechToText = SpeechToText();
   bool _speechEnabled = false;
-  String _lastWords = '';
+  String _lastWords = 'Search...';
 
   @override
   void initState() {
@@ -54,6 +54,7 @@ class _SearchFieldState extends State<SearchField> {
   void _onSpeechResult(SpeechRecognitionResult result) {
     setState(() {
       _lastWords = result.recognizedWords;
+      textController.text = _lastWords;
     });
   }
 
@@ -72,18 +73,10 @@ class _SearchFieldState extends State<SearchField> {
         controller: textController,
         cursorColor: Color(0xffe46962),
         decoration: InputDecoration(
-          hintText: 'Search...',
+          hintText: '$_lastWords',
           hintStyle: TextStyle(color: Color(0xff49454f)),
           floatingLabelBehavior: FloatingLabelBehavior.never,
-          labelText: _speechToText.isListening
-              ? '$_lastWords'
-              // If listening isn't active but could be tell the user
-              // how to start it, otherwise indicate that speech
-              // recognition is not yet ready or not supported on
-              // the target device
-              : _speechEnabled
-                  ? 'Search...'
-                  : 'Speech not available',
+          labelText: '$_lastWords',
           labelStyle: TextStyle(
               color: textController.text.isEmpty
                   ? Color(0xff49454f)

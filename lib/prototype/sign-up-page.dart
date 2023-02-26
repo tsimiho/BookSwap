@@ -8,13 +8,19 @@ import 'package:myapp/assets/newTextField.dart';
 import 'package:myapp/assets/PasswordField.dart';
 import 'package:myapp/utils.dart';
 
-class Scene extends StatelessWidget {
+class SignUp extends StatefulWidget {
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
+    return SingleChildScrollView(
+        child: Container(
       width: double.infinity,
       child: Container(
         // signuppage36Z (1:2301)
@@ -40,7 +46,9 @@ class Scene extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(
                         0 * fem, 0 * fem, 77 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -491,6 +499,6 @@ class Scene extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }

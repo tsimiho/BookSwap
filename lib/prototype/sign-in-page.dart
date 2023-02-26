@@ -3,9 +3,15 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/assets/newTextField.dart';
+import 'package:myapp/prototype/sign-up-page.dart';
 import 'package:myapp/utils.dart';
 
-class Scene extends StatelessWidget {
+class SignIn extends StatefulWidget {
+  @override
+  State<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -175,7 +181,12 @@ class Scene extends StatelessWidget {
               left: 230 * fem,
               top: 418 * fem,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUp()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),

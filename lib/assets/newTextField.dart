@@ -1,3 +1,5 @@
+// import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
@@ -10,12 +12,15 @@ class NewTextField extends StatefulWidget {
       required this.label,
       this.init,
       this.specialIcon,
+      this.text,
       this.onClick})
       : super(key: key);
   final String label;
   final String? init;
   final IconData? specialIcon;
   final VoidCallback? onClick;
+
+  final String? text;
 
   @override
   _NewTextFieldState createState() => _NewTextFieldState();
@@ -59,8 +64,7 @@ class _NewTextFieldState extends State<NewTextField> {
               ? IconButton(
                   icon: Icon(widget.specialIcon),
                   color: Color(0xffe46962),
-                  onPressed: widget.onClick,
-                )
+                  onPressed: widget.onClick)
               : (textController.text.isEmpty
                   ? Container(width: 0)
                   : IconButton(
