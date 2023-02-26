@@ -3,8 +3,22 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
+import 'package:myapp/prototype/other-user-page.dart';
+import '../prototype/in-chat-page.dart';
 
 class TradeOffer extends StatelessWidget {
+  const TradeOffer(
+      {Key? key,
+      required this.user,
+      required this.username,
+      required this.title1,
+      required this.title2,
+      required this.onDelete})
+      : super(key: key);
+
+  final String user, username, title1, title2;
+  final Function onDelete;
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -103,7 +117,7 @@ class TradeOffer extends StatelessWidget {
                                     borderRadius:
                                         BorderRadius.circular(10 * fem),
                                     child: Image.asset(
-                                      'assets/prototype/images/media-KwX.png',
+                                      'assets/images/$user---$title1.png',
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -128,7 +142,7 @@ class TradeOffer extends StatelessWidget {
                                     borderRadius:
                                         BorderRadius.circular(10 * fem),
                                     child: Image.asset(
-                                      'assets/prototype/images/media-usf.png',
+                                      'assets/images/$username---$title2.png',
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -148,7 +162,14 @@ class TradeOffer extends StatelessWidget {
                                   margin: EdgeInsets.fromLTRB(
                                       0 * fem, 0 * fem, 16 * fem, 6 * fem),
                                   child: TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                OtherUser(username: username)),
+                                      );
+                                    },
                                     style: TextButton.styleFrom(
                                       padding: EdgeInsets.zero,
                                     ),
@@ -163,7 +184,7 @@ class TradeOffer extends StatelessWidget {
                                           Container(
                                             // monogramCzM (I54:28615;54:14715)
                                             margin: EdgeInsets.fromLTRB(0 * fem,
-                                                2 * fem, 16 * fem, 2 * fem),
+                                                2 * fem, 14 * fem, 2 * fem),
                                             width: 40 * fem,
                                             height: double.infinity,
                                             decoration: BoxDecoration(
@@ -175,7 +196,9 @@ class TradeOffer extends StatelessWidget {
                                             child: Center(
                                               child: Center(
                                                 child: Text(
-                                                  'A',
+                                                  username.isEmpty
+                                                      ? ''
+                                                      : username[0],
                                                   textAlign: TextAlign.center,
                                                   style: SafeGoogleFont(
                                                     'Roboto',
@@ -205,7 +228,7 @@ class TradeOffer extends StatelessWidget {
                                                       0 * fem,
                                                       4 * fem),
                                                   child: Text(
-                                                    'Username',
+                                                    username,
                                                     style: SafeGoogleFont(
                                                       'Roboto',
                                                       fontSize: 16 * ffem,
@@ -246,7 +269,15 @@ class TradeOffer extends StatelessWidget {
                                   margin: EdgeInsets.fromLTRB(
                                       0 * fem, 16 * fem, 4 * fem, 5 * fem),
                                   child: TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => InChat(
+                                                  authorID: username,
+                                                )),
+                                      );
+                                    },
                                     style: TextButton.styleFrom(
                                       padding: EdgeInsets.zero,
                                     ),
@@ -365,7 +396,10 @@ class TradeOffer extends StatelessWidget {
                                           BorderRadius.circular(100 * fem),
                                     ),
                                     child: TextButton(
-                                      onPressed: () {},
+                                      onPressed: () => {
+                                        onDelete(
+                                            '$title1---$username---$title2')
+                                      },
                                       style: TextButton.styleFrom(
                                         padding: EdgeInsets.zero,
                                       ),

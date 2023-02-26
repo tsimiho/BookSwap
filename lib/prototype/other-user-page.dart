@@ -19,6 +19,8 @@ class _OtherUserState extends State<OtherUser> {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   List<String> title = [];
   List<String> author = [];
+  List<String> requests = [];
+  String user = '';
   List<Widget> C = [];
 
   @override
@@ -27,10 +29,24 @@ class _OtherUserState extends State<OtherUser> {
     _loadData();
   }
 
+  Future<void> _Request(String T) async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      requests = (prefs.getStringList('$user---requestedbooks') ?? []);
+      requests.contains('${widget.username}---$T')
+          ? requests.remove('${widget.username}---$T')
+          : requests.add('${widget.username}---$T');
+      prefs.setStringList('$user---requestedbooks', requests);
+    });
+    _loadData();
+  }
+
   Future<void> _loadData() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
+      user = (prefs.getString('user') ?? '');
       title = (prefs.getStringList('${widget.username}---list') ?? []);
+      requests = (prefs.getStringList('$user---requestedbooks') ?? []);
       author = [];
       for (var t in title) {
         String at = (prefs.getString('${widget.username}---$t---author') ?? '');
@@ -47,10 +63,14 @@ class _OtherUserState extends State<OtherUser> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               StackedCard4(
-                  title: title[2 * i],
-                  author: author[2 * i],
-                  imagestring:
-                      'assets/images/${widget.username}---${title[2 * i]}.png'),
+                title: title[2 * i],
+                author: author[2 * i],
+                imagestring:
+                    'assets/images/${widget.username}---${title[2 * i]}.png',
+                requested:
+                    requests.contains('${widget.username}---${title[2 * i]}'),
+                onRequest: _Request,
+              ),
               //onDelete: _deleteBook
               Container(
                 width: 12 * fem,
@@ -60,7 +80,10 @@ class _OtherUserState extends State<OtherUser> {
                   title: title[2 * i + 1],
                   author: author[2 * i + 1],
                   imagestring:
-                      'assets/images/${widget.username}---${title[2 * i + 1]}.png'),
+                      'assets/images/${widget.username}---${title[2 * i + 1]}.png',
+                  requested: requests
+                      .contains('${widget.username}---${title[2 * i + 1]}'),
+                  onRequest: _Request),
             ],
           ),
         ));
@@ -77,11 +100,13 @@ class _OtherUserState extends State<OtherUser> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               StackedCard4(
-                title: title[title.length - 1],
-                author: author[title.length - 1],
-                imagestring:
-                    'assets/images/${widget.username}---${title[title.length - 1]}.png',
-              ),
+                  title: title[title.length - 1],
+                  author: author[title.length - 1],
+                  imagestring:
+                      'assets/images/${widget.username}---${title[title.length - 1]}.png',
+                  requested: requests.contains(
+                      '${widget.username}---${title[title.length - 1]}'),
+                  onRequest: _Request),
               Container(
                 width: 172 * fem,
                 height: 256 * fem,

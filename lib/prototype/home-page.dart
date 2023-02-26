@@ -12,6 +12,8 @@ class Home extends StatelessWidget {
     title: 'Harry Potter and the Goblet of Fire',
     imagestring:
         'assets/images/Nikos123---Harry Potter and the Goblet of Fire.png',
+    requested: true,
+    onRequest: () => {},
   );
 
   @override

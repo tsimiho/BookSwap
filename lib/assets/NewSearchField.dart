@@ -35,6 +35,7 @@ class _SearchFieldState extends State<SearchField> {
     setState(() {
       users = (prefs.getStringList('usernames') ?? []);
       currentuser = (prefs.getString('user') ?? '');
+      Options = [];
       for (var user in users) {
         if (user == currentuser) continue;
         final books = (prefs.getStringList('$user---list') ?? []);

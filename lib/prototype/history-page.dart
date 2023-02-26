@@ -5,8 +5,66 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 import '../assets/history.dart';
 import '../assets/navbar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class HistoryPage extends StatelessWidget {
+class HistoryPage extends StatefulWidget {
+  @override
+  _HistoryPageState createState() => _HistoryPageState();
+}
+
+class _HistoryPageState extends State<HistoryPage> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  String user = '';
+  List<String> history = [];
+  List<Widget> C = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _deleteHistory(String T) async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      history = (prefs.getStringList('$user---history') ?? []);
+      history.remove(T);
+      prefs.setStringList('$user---history', history);
+    });
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      user = (prefs.getString('user') ?? '');
+      history = (prefs.getStringList('$user---history') ?? []);
+      double fem = MediaQuery.of(context).size.width / 360;
+      C = [
+        SizedBox(
+          height: 10 * fem,
+        )
+      ];
+      for (var t in history) {
+        final tl = t.split('---');
+        C.add(History(
+          user: user,
+          username: tl[1],
+          title1: tl[0],
+          title2: tl[2],
+          date: tl[3],
+          onHide: _deleteHistory,
+        ));
+        C.add(SizedBox(
+          height: 10 * fem,
+        ));
+      }
+      if (C.length <= 3) {
+        C.add(SizedBox(height: (C.length == 1 ? 600 : 300) * fem));
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -110,20 +168,11 @@ class HistoryPage extends StatelessWidget {
                   ],
                 )),
             Container(
-                height: 510 * fem,
-                child: SingleChildScrollView(
-                  child: Column(children: [
-                    History(),
-                    SizedBox(
-                      height: 10 * fem,
-                    ),
-                    History(),
-                    SizedBox(
-                      height: 10 * fem,
-                    ),
-                    History()
-                  ]),
-                ))
+              //height: 510 * fem,
+              //child: SingleChildScrollView(
+              child: Column(children: C),
+            )
+            //)
           ],
         ),
       ),

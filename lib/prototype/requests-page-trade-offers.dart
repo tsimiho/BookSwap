@@ -5,8 +5,76 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 import '../assets/trade-offer.dart';
 import '../assets/navbar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class TradeOffers extends StatelessWidget {
+class TradeOffers extends StatefulWidget {
+  @override
+  _TradeOffersState createState() => _TradeOffersState();
+}
+
+class _TradeOffersState extends State<TradeOffers> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  String user = '';
+  List<String> usernames = [], tradeoffers = [], deletedtradeoffers = [];
+  List<Widget> C = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _deleteTradeOffer(String T) async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      deletedtradeoffers =
+          (prefs.getStringList('$user---deletedtradeoffers') ?? []);
+      deletedtradeoffers.add(T);
+      prefs.setStringList('$user---deletedtradeoffers', deletedtradeoffers);
+    });
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      user = (prefs.getString('user') ?? '');
+      usernames = (prefs.getStringList('useranmes') ?? []);
+      deletedtradeoffers =
+          (prefs.getStringList('$user---deletedtradeoffers') ?? []);
+      final request = (prefs.getStringList('$user---requests') ?? []);
+      final requested = (prefs.getStringList('$user---requestedbooks') ?? []);
+      tradeoffers = [];
+      for (var r1 in request) {
+        for (var r2 in requested) {
+          if (r1.split('---')[0] != r2.split('---')[0]) continue;
+          if (!deletedtradeoffers.contains('${r1.split('---')[1]}---$r2')) {
+            tradeoffers.add('${r1.split('---')[1]}---$r2');
+          }
+        }
+      }
+      double fem = MediaQuery.of(context).size.width / 360;
+      C = [
+        SizedBox(
+          height: 10 * fem,
+        )
+      ];
+      for (var t in tradeoffers) {
+        final tl = t.split('---');
+        C.add(TradeOffer(
+          user: user,
+          username: tl[1],
+          title1: tl[0],
+          title2: tl[2],
+          onDelete: _deleteTradeOffer,
+        ));
+        C.add(SizedBox(
+          height: 10 * fem,
+        ));
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -20,23 +88,7 @@ class TradeOffers extends StatelessWidget {
       child: SingleChildScrollView(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 10 * fem,
-          ),
-          TradeOffer(),
-          SizedBox(
-            height: 10 * fem,
-          ),
-          TradeOffer(),
-          SizedBox(
-            height: 10 * fem,
-          ),
-          TradeOffer(),
-          SizedBox(
-            height: 10 * fem,
-          ),
-        ],
+        children: C,
       )),
     );
   }

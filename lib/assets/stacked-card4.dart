@@ -10,10 +10,14 @@ class StackedCard4 extends StatelessWidget {
       {Key? key,
       required this.title,
       required this.author,
-      required this.imagestring})
+      required this.imagestring,
+      required this.requested,
+      required this.onRequest})
       : super(key: key);
 
   final String title, author, imagestring;
+  final bool requested;
+  final Function onRequest;
 
   @override
   Widget build(BuildContext context) {
@@ -150,11 +154,7 @@ class StackedCard4 extends StatelessWidget {
                                 0 * fem, 8 * fem, 0 * fem, 0 * fem),
                             child: TextButton(
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => EditBook()),
-                                );
+                                onRequest(title);
                               },
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
@@ -181,7 +181,9 @@ class StackedCard4 extends StatelessWidget {
                                         width: double.infinity,
                                         height: 27 * fem,
                                         decoration: BoxDecoration(
-                                          color: Color(0xffe46962),
+                                          color: requested
+                                              ? Color(0xffffffff)
+                                              : Color(0xffe46962),
                                           borderRadius: BorderRadius.only(
                                             topLeft: Radius.circular(12 * fem),
                                             topRight: Radius.circular(12 * fem),
@@ -193,8 +195,11 @@ class StackedCard4 extends StatelessWidget {
                                         ),
                                         child: Container(
                                           // statelayerkN5 (I71:14252;63:10978;54:11369;52798:24432)
-                                          padding: EdgeInsets.fromLTRB(16 * fem,
-                                              5.5 * fem, 16 * fem, 3 * fem),
+                                          padding: EdgeInsets.fromLTRB(
+                                              (requested ? 12 : 14) * fem,
+                                              5.5 * fem,
+                                              16 * fem,
+                                              3 * fem),
                                           width: double.infinity,
                                           height: double.infinity,
                                           decoration: BoxDecoration(
@@ -217,10 +222,12 @@ class StackedCard4 extends StatelessWidget {
                                                   child: Center(
                                                     child: Align(
                                                       child: SizedBox(
-                                                        width: 55 * fem,
+                                                        width: 60 * fem,
                                                         height: 16 * fem,
                                                         child: Text(
-                                                          'Request',
+                                                          requested
+                                                              ? 'Requested'
+                                                              : 'Request',
                                                           textAlign:
                                                               TextAlign.center,
                                                           style: SafeGoogleFont(
@@ -235,8 +242,11 @@ class StackedCard4 extends StatelessWidget {
                                                             letterSpacing:
                                                                 0.400000006 *
                                                                     fem,
-                                                            color: Color(
-                                                                0xffffffff),
+                                                            color: requested
+                                                                ? Color(
+                                                                    0xffe46962)
+                                                                : Color(
+                                                                    0xffffffff),
                                                           ),
                                                         ),
                                                       ),

@@ -116,52 +116,7 @@ class _RequestsState extends State<Requests> {
       padding: EdgeInsets.fromLTRB(14 * fem, 0 * fem, 0 * fem, 0 * fem),
       child: SingleChildScrollView(
           child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center, children: C
-              //         [
-              //   SizedBox(
-              //     height: 10 * fem,
-              //   ),
-              //   Container(
-              //     // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
-              //     width: double.infinity,
-              //     height: 304 * fem,
-              //     padding: EdgeInsets.fromLTRB(0 * fem, 2 * fem, 0 * fem, 0 * fem),
-              //     child: Row(
-              //       crossAxisAlignment: CrossAxisAlignment.center,
-              //       children: [
-              //         StackedCard3(),
-              //         Container(
-              //           width: 12 * fem,
-              //           height: 256 * fem,
-              //         ),
-              //         StackedCard3(),
-              //       ],
-              //     ),
-              //   ),
-              //   SizedBox(
-              //     height: 10 * fem,
-              //   ),
-              //   Container(
-              //     // autogroupa5c5jkd (UPukFH62TGXWDT48rGA5C5)
-              //     width: double.infinity,
-              //     height: 304 * fem,
-              //     child: Row(
-              //       crossAxisAlignment: CrossAxisAlignment.center,
-              //       children: [
-              //         StackedCard3(),
-              //         Container(
-              //           width: 12 * fem,
-              //           height: 256 * fem,
-              //         ),
-              //         StackedCard3(),
-              //       ],
-              //     ),
-              //   ),
-              //   SizedBox(
-              //     height: 10 * fem,
-              //   ),
-              // ]
-              )),
+              crossAxisAlignment: CrossAxisAlignment.center, children: C)),
     );
   }
 }

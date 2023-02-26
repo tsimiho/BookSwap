@@ -40,6 +40,22 @@ Future<void> CreateData() async {
     'LefterisR---Appointment with Death'
   ]);
 
+  // Nikos123---requestedbooks
+  await prefs.setStringList('Nikos123---requestedbooks', [
+    'GeorgeVk---The Lord of the Rings',
+    "KostasP23---Harry Potter and the Philosopher's Stone",
+    'LefterisR---The 39 Clues',
+  ]);
+
+  await prefs.setStringList('Nikos123---deletedtradeoffers', []);
+
+  // Nikos123---history
+  await prefs.setStringList('Nikos123---history', [
+    'Rich Dad Poor Dad---GeorgeVk---Appointment with Death---12 Feb 2023',
+    'Surrounded by Idiots---KostasP23---Diary of a Wimpy Kid---3 Dec 2022',
+    'The Lord of the Rings---LefterisR---Les Miserables---24 Oct 2022',
+  ]);
+
   //----------------------------- GeorgeVk -----------------------------------//
 
   // GeorgeVk---list

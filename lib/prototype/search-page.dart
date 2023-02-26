@@ -16,6 +16,7 @@ class _SearchState extends State<Search> {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   String currentuser = '';
   List<String> users = [], results = [];
+  List<String> requests = [];
   List<Widget> C = [];
 
   @override
@@ -23,11 +24,25 @@ class _SearchState extends State<Search> {
     super.initState();
   }
 
+  Future<void> _Request(String U, String T) async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      requests = (prefs.getStringList('$currentuser---requestedbooks') ?? []);
+      requests.contains('$U---$T')
+          ? requests.remove('$U---$T')
+          : requests.add('$U---$T');
+      prefs.setStringList('$currentuser---requestedbooks', requests);
+    });
+    _loadResults(T);
+  }
+
   Future<void> _loadResults(String title) async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       users = (prefs.getStringList('usernames') ?? []);
       currentuser = (prefs.getString('user') ?? '');
+      requests = (prefs.getStringList('$currentuser---requestedbooks') ?? []);
+      results = [];
       for (var user in users) {
         if (user == currentuser) continue;
         final books = (prefs.getStringList('$user---list') ?? []);
@@ -54,17 +69,23 @@ class _SearchState extends State<Search> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               StackedCard(
-                  title: r1[1],
-                  username: r1[0],
-                  imagestring: 'assets/images/${r1[0]}---${r1[1]}.png'),
+                title: r1[1],
+                username: r1[0],
+                imagestring: 'assets/images/${r1[0]}---${r1[1]}.png',
+                requested: requests.contains('${r1[0]}---${r1[1]}'),
+                onRequest: _Request,
+              ),
               Container(
                 width: 12 * fem,
                 height: 308 * fem,
               ),
               StackedCard(
-                  title: r2[1],
-                  username: r2[0],
-                  imagestring: 'assets/images/${r2[0]}---${r2[1]}.png'),
+                title: r2[1],
+                username: r2[0],
+                imagestring: 'assets/images/${r2[0]}---${r2[1]}.png',
+                requested: requests.contains('${r2[0]}---${r2[1]}'),
+                onRequest: _Request,
+              ),
             ],
           ),
         ));
@@ -85,6 +106,8 @@ class _SearchState extends State<Search> {
                 title: r[1],
                 username: r[0],
                 imagestring: 'assets/images/${r[0]}---${r[1]}.png',
+                requested: requests.contains('${r[0]}---${r[1]}'),
+                onRequest: _Request,
               ),
               Container(
                 width: 172 * fem,

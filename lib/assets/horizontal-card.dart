@@ -7,9 +7,9 @@ import 'package:myapp/utils.dart';
 import '../prototype/in-chat-page.dart';
 
 class HorizontalCard extends StatelessWidget {
-  const HorizontalCard({Key? key, this.authorID}) : super(key: key);
+  const HorizontalCard({Key? key, required this.authorID}) : super(key: key);
 
-  final String? authorID;
+  final String authorID;
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +87,7 @@ class HorizontalCard extends StatelessWidget {
                           child: Center(
                             child: Center(
                               child: Text(
-                                'A',
+                                authorID.isEmpty ? '' : authorID[0],
                                 textAlign: TextAlign.center,
                                 style: SafeGoogleFont(
                                   'Roboto',

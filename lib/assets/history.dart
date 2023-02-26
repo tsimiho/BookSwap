@@ -5,6 +5,19 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
 class History extends StatelessWidget {
+  const History(
+      {Key? key,
+      required this.user,
+      required this.username,
+      required this.title1,
+      required this.title2,
+      required this.date,
+      required this.onHide})
+      : super(key: key);
+
+  final String user, username, title1, title2, date;
+  final Function onHide;
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -94,7 +107,7 @@ class History extends StatelessWidget {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10 * fem),
                                   child: Image.asset(
-                                    'assets/prototype/images/media-HHb.png',
+                                    'assets/images/$username---$title1.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -109,7 +122,7 @@ class History extends StatelessWidget {
                                     Container(
                                       // monogramHRb (I54:15594;57:9388)
                                       margin: EdgeInsets.fromLTRB(
-                                          0 * fem, 2 * fem, 16 * fem, 2 * fem),
+                                          0 * fem, 2 * fem, 13 * fem, 2 * fem),
                                       width: 40 * fem,
                                       height: double.infinity,
                                       decoration: BoxDecoration(
@@ -120,7 +133,7 @@ class History extends StatelessWidget {
                                       child: Center(
                                         child: Center(
                                           child: Text(
-                                            'A',
+                                            username.isEmpty ? '' : username[0],
                                             textAlign: TextAlign.center,
                                             style: SafeGoogleFont(
                                               'Roboto',
@@ -146,7 +159,7 @@ class History extends StatelessWidget {
                                             margin: EdgeInsets.fromLTRB(0 * fem,
                                                 0 * fem, 0 * fem, 4 * fem),
                                             child: Text(
-                                              'Username',
+                                              username,
                                               style: SafeGoogleFont(
                                                 'Roboto',
                                                 fontSize: 16 * ffem,
@@ -160,7 +173,7 @@ class History extends StatelessWidget {
                                           ),
                                           Text(
                                             // subheadJED (I54:15594;57:9393)
-                                            'Date',
+                                            date,
                                             style: SafeGoogleFont(
                                               'Roboto',
                                               fontSize: 12 * ffem,
@@ -215,7 +228,7 @@ class History extends StatelessWidget {
                                         borderRadius:
                                             BorderRadius.circular(10 * fem),
                                         child: Image.asset(
-                                          'assets/prototype/images/media-PYd.png',
+                                          'assets/images/$user---$title2.png',
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -225,7 +238,10 @@ class History extends StatelessWidget {
                                       margin: EdgeInsets.fromLTRB(
                                           0 * fem, 0 * fem, 0 * fem, 0 * fem),
                                       child: TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          onHide(
+                                              '$title1---$username---$title2---$date');
+                                        },
                                         style: TextButton.styleFrom(
                                           padding: EdgeInsets.zero,
                                         ),
