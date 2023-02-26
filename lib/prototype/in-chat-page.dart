@@ -13,6 +13,7 @@ import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class InChat extends StatefulWidget {
   const InChat({super.key, this.authorID});
@@ -315,26 +316,40 @@ class _InChatState extends State<InChat> {
       'type': "text"
     };
 
-    final path = Directory.current.path;
-    final file = File(path + '/lib/messages/messages_' + _author + '.json');
+    // final path = Directory.current.path;
+    // final file = File(path + '/lib/messages/messages_' + _author + '.json');
 
-    // final response = await file.openWrite()
-    final response = await file.readAsString();
+    // // final response = await file.openWrite()
+    // final response = await file.readAsString();
+
+    // List data = jsonDecode(response);
+    // data.insert(0, obj);
+
+    // var json_data = json.encode(data);
+
+    // await file.writeAsString(json_data);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String response = prefs.getString(_author + '---Chat') ?? '';
 
     List data = jsonDecode(response);
     data.insert(0, obj);
 
     var json_data = json.encode(data);
 
-    await file.writeAsString(json_data);
+    await prefs.setString(_author + '---Chat', json_data);
 
     _addMessage(textMessage);
   }
 
   void _loadMessages() async {
-    final path = Directory.current.path;
-    final file = File(path + '/lib/messages/messages_' + _author + '.json');
-    final response = await file.readAsString();
+    // final path = Directory.current.path;
+    // final file = File(path + '/lib/messages/messages_' + _author + '.json');
+    // final test = await file.readAsString();
+
+    // print(test);
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String response = prefs.getString(_author + '---Chat') ?? '';
 
     final messages = (jsonDecode(response) as List)
         .map((e) => types.Message.fromJson(e as Map<String, dynamic>))
