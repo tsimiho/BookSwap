@@ -108,7 +108,7 @@ class _GeoFieldState extends State<GeoField> {
     super.dispose();
   }
 
-  void setText() async {
+  Future<void> setText() async {
     textController.text = await _getCurrentPosition();
   }
 
@@ -132,8 +132,8 @@ class _GeoFieldState extends State<GeoField> {
           suffixIcon: IconButton(
               icon: Icon(widget.specialIcon),
               color: Color(0xffe46962),
-              onPressed: () {
-                setText();
+              onPressed: () async {
+                await setText();
               }),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xfff4eff4)),
