@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/assets/CheckBox.dart';
 import 'package:myapp/assets/ListItem.dart';
 import 'package:myapp/assets/newTextField.dart';
+import 'package:myapp/assets/GeoField.dart';
 import 'package:myapp/assets/PasswordField.dart';
 import 'package:myapp/utils.dart';
 
@@ -200,10 +201,10 @@ class _SignUpState extends State<SignUp> {
                     child: Container(
                         width: 222 * fem,
                         height: 48 * fem,
-                        child: NewTextField(
+                        child: GeoField(
                           label: 'Home Address',
                           specialIcon: Icons.language,
-                          onClick: () => {},
+                          // onClick: () => {},
                         )),
                   ),
                   SizedBox(
@@ -218,10 +219,10 @@ class _SignUpState extends State<SignUp> {
                     child: Container(
                         width: 222 * fem,
                         height: 48 * fem,
-                        child: NewTextField(
+                        child: GeoField(
                           label: 'Work Address',
                           specialIcon: Icons.language,
-                          onClick: () => {},
+                          // onClick: () => {},
                         )),
                   ),
                   SizedBox(
