@@ -6,31 +6,36 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class BookCover extends StatefulWidget {
+class BookCoverTest extends StatefulWidget {
   @override
-  State<BookCover> createState() => _BookCoverState();
+  State<BookCoverTest> createState() => _BookCoverTestState();
 }
 
-class _BookCoverState extends State<BookCover> {
+class _BookCoverTestState extends State<BookCoverTest> {
   File? image;
 
   Future pickImageC() async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      final image = await ImagePicker().pickImage(source: ImageSource.camera);
+      // final image = await ImagePicker().pickImage(source: ImageSource.camera);
 
-      print(image?.path);
+      // print(image?.path);
 
-      if (image == null) return;
+      // if (image == null) return;
 
-      final imageTemp = File(image.path);
+      // final imageTemp = File(image.path);
 
-      var bytes = await imageTemp.readAsBytes();
-      var base64img = base64Encode(bytes);
+      // var bytes = await imageTemp.readAsBytes();
+      // var base64img = base64Encode(bytes);
 
-      prefs.setString("image", base64img);
+      // prefs.setString("image", base64img);
 
-      setState(() => this.image = imageTemp);
+      String t = prefs.getString("image") ?? '';
+      Uint8List bytes = base64Decode(t);
+      Image i = Image.memory(bytes);
+      File f = File.fromRawPath(bytes);
+
+      setState(() => this.image = f);
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
     }

@@ -3,10 +3,17 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/assets/newTextField.dart';
+import 'package:myapp/assets/testTextField.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/assets/book-cover.dart';
+import 'package:myapp/assets/book-cover-test.dart';
 
 class AddBook extends StatelessWidget {
+  var titleController = TextEditingController();
+  var authorController = TextEditingController();
+
+  void add(String title, String author) {}
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -93,7 +100,10 @@ class AddBook extends StatelessWidget {
                 child: Container(
                     width: 295 * fem,
                     height: 48 * fem,
-                    child: NewTextField(label: 'Title')),
+                    child: tNewTextField(
+                      label: 'Title',
+                      textController: titleController,
+                    )),
               ),
             ),
             Container(
@@ -107,21 +117,21 @@ class AddBook extends StatelessWidget {
                   child: Container(
                       width: 295 * fem,
                       height: 48 * fem,
-                      child: NewTextField(label: 'Author'))),
+                      child: tNewTextField(
+                        label: 'Author',
+                        textController: authorController,
+                      ))),
             ),
-            Container(
-              // textfield3bX (54:18781)
-              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 12 * fem, 20 * fem),
-              child: TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                  ),
-                  child: Container(
-                      width: 295 * fem,
-                      height: 48 * fem,
-                      child: NewTextField(label: 'Edition'))),
-            ),
+            // Container(
+            //   // textfield3bX (54:18781)
+            //   margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 12 * fem, 20 * fem),
+            //   child: Container(
+            //       child: Container(
+            //     width: 295 * fem,
+            //     height: 48 * fem,
+            //     // child: NewTextField(label: 'Edition')
+            //   )),
+            // ),
             Container(
               // autogroupap4mSJD (UPt9eSPC9a3HS5V8iiAP4m)
               margin: EdgeInsets.fromLTRB(4 * fem, 0 * fem, 32 * fem, 0 * fem),
@@ -200,7 +210,7 @@ class AddBook extends StatelessWidget {
                     // coverRSy (54:28821)
                     width: 96 * fem,
                     height: 157 * fem,
-                    child: BookCover(),
+                    child: BookCoverTest(),
                   ),
                 ],
               ),
@@ -209,7 +219,10 @@ class AddBook extends StatelessWidget {
               // addbookJWm (54:28245)
               margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 183 * fem, 0 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  add(titleController.text, authorController.text);
+                  Navigator.pop(context);
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
