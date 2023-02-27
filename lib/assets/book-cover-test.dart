@@ -30,12 +30,16 @@ class _BookCoverTestState extends State<BookCoverTest> {
 
       // prefs.setString("image", base64img);
 
-      String t = prefs.getString("image") ?? '';
-      Uint8List bytes = base64Decode(t);
-      Image i = Image.memory(bytes);
-      File f = File.fromRawPath(bytes);
+      String path = prefs.getString("image") ?? '';
 
-      setState(() => this.image = f);
+      final imageTemp = File(path);
+
+      var bytes = await imageTemp.readAsBytes();
+      var base64img = base64Encode(bytes);
+
+      prefs.setString("image", path);
+
+      setState(() => this.image = imageTemp);
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
     }
