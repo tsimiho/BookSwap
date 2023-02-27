@@ -5,22 +5,26 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/prototype/other-user-page.dart';
 import '../prototype/in-chat-page.dart';
+import 'package:myapp/assets/Distance.dart';
 
 class TradeOffer extends StatelessWidget {
-  const TradeOffer(
+  TradeOffer(
       {Key? key,
       required this.user,
       required this.username,
       required this.title1,
       required this.title2,
-      required this.onDelete})
+      required this.onDelete,
+      this.dist})
       : super(key: key);
 
   final String user, username, title1, title2;
   final Function onDelete;
+  double? dist;
 
   @override
   Widget build(BuildContext context) {
+    getDistance(username).then((value) => {dist = value});
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -243,7 +247,7 @@ class TradeOffer extends StatelessWidget {
                                                 ),
                                                 Text(
                                                   // subheadW1P (I54:28615;54:14720)
-                                                  'Distance',
+                                                  '$dist',
                                                   style: SafeGoogleFont(
                                                     'Roboto',
                                                     fontSize: 12 * ffem,
