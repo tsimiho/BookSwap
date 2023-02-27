@@ -331,7 +331,7 @@ class _InChatState extends State<InChat> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String response = prefs.getString(_author + '---Chat') ?? '';
 
-    List data = jsonDecode(response);
+    List data = response != '' ? jsonDecode(response) : [];
     data.insert(0, obj);
 
     var json_data = json.encode(data);
