@@ -52,6 +52,19 @@ class _SearchState extends State<Search> {
           }
         }
       }
+
+      List<String> searches =
+          (prefs.getStringList('$currentuser---searches') ?? []);
+      if (searches.map((s) => s.split('---')[0]).toList().contains(title)) {
+        String r = searches.firstWhere((e) => e.split('---')[0] == title);
+        String nf = (int.parse(r.split('---')[1]) + 1).toString();
+        searches.remove(r);
+        searches.add('$title---$nf');
+      } else {
+        searches.add('$title---1');
+      }
+      prefs.setStringList('$currentuser---searches', searches);
+
       double fem = MediaQuery.of(context).size.width / 360;
       C = [
         SizedBox(
