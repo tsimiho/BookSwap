@@ -23,7 +23,7 @@ class MyProfile extends StatefulWidget {
 class _MyProfileState extends State<MyProfile> {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   List<String> title = [];
-  String username = '';
+  String username = '', addedpath = '', addedtitle = '';
   List<String> author = [];
   List<Widget> C = [];
 
@@ -66,6 +66,11 @@ class _MyProfileState extends State<MyProfile> {
       for (var t in title) {
         String at = (prefs.getString('$username---$t---author') ?? '');
         author.add(at);
+        String path = prefs.getString('addbook---$t') ?? '';
+        if (path != '') {
+          addedtitle = t;
+          addedpath = path;
+        }
       }
       double fem = MediaQuery.of(context).size.width / 360;
       C = [];
@@ -81,6 +86,7 @@ class _MyProfileState extends State<MyProfile> {
                   title: title[2 * i],
                   author: author[2 * i],
                   imagestring: 'assets/images/$username---${title[2 * i]}.png',
+                  imagefile: title[2 * i] == addedtitle ? addedpath : '',
                   onDelete: _deleteBook),
               //onDelete: _deleteBook
               Container(
@@ -92,6 +98,7 @@ class _MyProfileState extends State<MyProfile> {
                 author: author[2 * i + 1],
                 imagestring:
                     'assets/images/$username---${title[2 * i + 1]}.png',
+                imagefile: title[2 * i + 1] == addedtitle ? addedpath : '',
                 onDelete: _deleteBook,
               ),
             ],
@@ -114,6 +121,8 @@ class _MyProfileState extends State<MyProfile> {
                 author: author[title.length - 1],
                 imagestring:
                     'assets/images/$username---${title[title.length - 1]}.png',
+                imagefile:
+                    title[title.length - 1] == addedtitle ? addedpath : '',
                 onDelete: _deleteBook,
               ),
               Container(

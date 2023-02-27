@@ -16,12 +16,13 @@ class AddBook extends StatelessWidget {
   void add(String title, String author) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    List<String> list = prefs.getStringList('Nikos123---list') ?? [];
+    String user = prefs.getString('user') ?? '';
+    List<String> list = prefs.getStringList('$user---list') ?? [];
     list.add(title);
 
-    await prefs.setStringList('Nikos123---list', list);
+    await prefs.setStringList('$user---list', list);
 
-    await prefs.setString('Nikos123---' + title + 'author', author);
+    await prefs.setString('$user---' + title + '---author', author);
   }
 
   @override

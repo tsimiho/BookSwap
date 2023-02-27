@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
@@ -11,10 +13,11 @@ class StackedCard2 extends StatelessWidget {
       required this.title,
       required this.author,
       required this.imagestring,
+      required this.imagefile,
       required this.onDelete})
       : super(key: key);
 
-  final String title, author, imagestring;
+  final String title, author, imagestring, imagefile;
   final Function onDelete;
 
   @override
@@ -120,10 +123,15 @@ class StackedCard2 extends StatelessWidget {
                       EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 2 * fem),
                   width: 160 * fem,
                   height: (title.length > 20 ? 114 : 136) * fem,
-                  child: Image.asset(
-                    imagestring,
-                    fit: BoxFit.cover,
-                  ),
+                  child: imagefile == ''
+                      ? Image.asset(
+                          imagestring,
+                          fit: BoxFit.cover,
+                        )
+                      : Image.file(
+                          File(imagefile),
+                          fit: BoxFit.cover,
+                        ),
                 ),
                 Container(
                   // textcontentvc1 (I71:14252;63:10974)
