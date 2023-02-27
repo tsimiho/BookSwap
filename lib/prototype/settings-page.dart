@@ -4,8 +4,10 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/about/frame-1.dart';
 import 'package:myapp/assets/newTextField.dart';
+import 'package:myapp/assets/testTextField.dart';
 import 'package:myapp/assets/GeoField.dart';
 import 'package:myapp/utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../assets/ListItem.dart';
 import '../assets/newSwitch.dart';
 import 'package:myapp/prototype/change-password-page.dart';
@@ -13,6 +15,7 @@ import 'package:myapp/prototype/privacy-policy-page.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:myapp/prototype/sign-in-page.dart';
+import 'dart:convert';
 
 class Settings extends StatefulWidget {
   @override
@@ -21,6 +24,67 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   final bool notifications = true;
+
+  var usernameController = TextEditingController();
+  var homeController = TextEditingController();
+  var workController = TextEditingController();
+
+  Future<String> getUsername() async {
+    String res = '';
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String u = prefs.getString('user') ?? '';
+
+    String response = prefs.getString('users') ?? '';
+
+    List data = jsonDecode(response);
+
+    for (var i = 0; i < data.length; i++) {
+      var obj = data[i];
+      if (obj["username"] == u) {
+        res = obj["username"];
+        break;
+      }
+    }
+    return res;
+  }
+
+  Future<String> getHome() async {
+    String res = '';
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String u = prefs.getString('user') ?? '';
+
+    String response = prefs.getString('users') ?? '';
+
+    List data = jsonDecode(response);
+
+    for (var i = 0; i < data.length; i++) {
+      var obj = data[i];
+      if (obj["username"] == u) {
+        res = obj["HomeAddress"];
+        break;
+      }
+    }
+    return res;
+  }
+
+  Future<String> getWork() async {
+    String res = '';
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String u = prefs.getString('user') ?? '';
+
+    String response = prefs.getString('users') ?? '';
+
+    List data = jsonDecode(response);
+
+    for (var i = 0; i < data.length; i++) {
+      var obj = data[i];
+      if (obj["username"] == u) {
+        res = obj["WorkAddress"];
+        break;
+      }
+    }
+    return res;
+  }
 
   String? _currentAddress;
   Position? _currentPosition;
@@ -83,6 +147,9 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
+    getUsername().then((value) => {usernameController.text = value});
+    getHome().then((value) => {homeController.text = value});
+    getWork().then((value) => {workController.text = value});
     String s;
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
@@ -209,19 +276,25 @@ class _SettingsState extends State<Settings> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        NewTextField(label: 'Username', init: 'Input'),
+                        tNewTextField(
+                          label: 'Username',
+                          init: usernameController.text,
+                          textController: usernameController,
+                        ),
                         SizedBox(height: 10 * fem),
                         GeoField(
                           label: 'Home Address',
-                          init: 'Input',
+                          init: homeController.text,
                           specialIcon: Icons.language,
+                          textController: homeController,
                           // onClick: _getCurrentPosition,
                         ),
                         SizedBox(height: 10 * fem),
                         GeoField(
                           label: 'Work Address',
-                          init: 'Input',
+                          init: workController.text,
                           specialIcon: Icons.language,
+                          textController: workController,
                           // onClick: () => {},
                         ),
                         SizedBox(height: 10 * fem),
