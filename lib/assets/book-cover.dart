@@ -34,7 +34,7 @@ class _BookCoverState extends State<BookCover> {
       var bytes = await imageTemp.readAsBytes();
       var base64img = base64Encode(bytes);
 
-      prefs.setString(username + '---' + t, image.path);
+      prefs.setString('addbook---' + t, image.path);
 
       setState(() => this.image = imageTemp);
     } on PlatformException catch (e) {
