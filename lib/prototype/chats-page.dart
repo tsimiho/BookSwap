@@ -6,8 +6,47 @@ import 'package:myapp/assets/SearchField.dart';
 import 'package:myapp/utils.dart';
 import '../assets/horizontal-card.dart';
 import '../assets/navbar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class Chats extends StatelessWidget {
+class Chats extends StatefulWidget {
+  const Chats({Key? key}) : super(key: key);
+
+  @override
+  _ChatsState createState() => _ChatsState();
+}
+
+class _ChatsState extends State<Chats> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  List<String> users = [], chats = [];
+  List<Widget> C = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      users = (prefs.getStringList('usernames') ?? []);
+      chats = [];
+      for (var u in users) {
+        String at = (prefs.getString('$u---Chat') ?? '');
+        if (at != '') {
+          chats.add(u);
+        }
+      }
+      double fem = MediaQuery.of(context).size.width / 360;
+      C = [];
+      for (var c in chats) {
+        C.add(HorizontalCard(
+          authorID: c,
+        ));
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -65,14 +104,7 @@ class Chats extends StatelessWidget {
                 //height: 410 * fem,
                 width: 360 * fem,
                 child: Column(
-                  children: [
-                    HorizontalCard(
-                      authorID: 'GeorgeVk',
-                    ),
-                    HorizontalCard(
-                      authorID: 'KostasP23',
-                    ),
-                  ],
+                  children: C,
                 )),
           ],
         ),
