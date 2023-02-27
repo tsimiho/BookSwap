@@ -36,7 +36,7 @@ class ChangePassword extends StatelessWidget {
   Future<String?> getCurrentPassword() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    String user = await prefs.getString('user') ?? '';
+    String user = prefs.getString('user') ?? '';
 
     String response = prefs.getString('users') ?? '';
 
