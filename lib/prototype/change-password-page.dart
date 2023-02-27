@@ -4,10 +4,56 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/assets/PasswordField.dart';
 import 'package:myapp/utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 class ChangePassword extends StatelessWidget {
+  var currController = TextEditingController();
+  var passController = TextEditingController();
+  var conpassController = TextEditingController();
+
+  Future<void> change() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    String user = await prefs.getString('user') ?? '';
+
+    String response = prefs.getString('users') ?? '';
+
+    List data = jsonDecode(response);
+
+    for (var i = 0; i < data.length; i++) {
+      var obj = data[i];
+      if (obj["username"] == user) {
+        obj['password'] = passController.text;
+        var json_data = json.encode(obj);
+
+        await prefs.setString('users', json_data);
+        break;
+      }
+    }
+  }
+
+  Future<String?> getCurrentPassword() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    String user = await prefs.getString('user') ?? '';
+
+    String response = prefs.getString('users') ?? '';
+
+    List data = json.decode(response);
+
+    for (var i = 0; i < data.length; i++) {
+      var obj = data[i];
+      if (obj["username"] == user) {
+        return obj['password'];
+      }
+    }
+    return '';
+  }
+
   @override
   Widget build(BuildContext context) {
+    getCurrentPassword().then((value) => {currController.text = value ?? ''});
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -82,56 +128,93 @@ class ChangePassword extends StatelessWidget {
                 ],
               ),
             ),
-            // Container(
-            //   // textfieldDkD (54:5172)
-            //   margin:
-            //       EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 18 * fem),
-            //   child: TextButton(
-            //     onPressed: () {},
-            //     style: TextButton.styleFrom(
-            //       padding: EdgeInsets.zero,
-            //     ),
-            //     child: Container(
-            //         width: double.infinity,
-            //         height: 48 * fem,
-            //         child: PasswordField(
-            //             label: 'Current Password', init: '12345678')),
-            //   ),
-            // ),
-            // Container(
-            //   // textfieldbgD (54:5195)
-            //   margin:
-            //       EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 18 * fem),
-            //   child: TextButton(
-            //     onPressed: () {},
-            //     style: TextButton.styleFrom(
-            //       padding: EdgeInsets.zero,
-            //     ),
-            //     child: Container(
-            //         width: double.infinity,
-            //         height: 48 * fem,
-            //         child: PasswordField(label: 'New Password')),
-            //   ),
-            // ),
-            // Container(
-            //   // textfield2gy (54:5184)
-            //   margin:
-            //       EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 31 * fem),
-            //   child: TextButton(
-            //       onPressed: () {},
-            //       style: TextButton.styleFrom(
-            //         padding: EdgeInsets.zero,
-            //       ),
-            //       child: Container(
-            //           width: double.infinity,
-            //           height: 48 * fem,
-            //           child: PasswordField(label: 'Confirm Password'))),
-            // ),
+            Container(
+              // textfieldDkD (54:5172)
+              margin:
+                  EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 18 * fem),
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                ),
+                child: Container(
+                    width: double.infinity,
+                    height: 48 * fem,
+                    child: PasswordField(
+                      label: 'Current Password',
+                      init: currController.text,
+                      textController: currController,
+                    )),
+              ),
+            ),
+            Container(
+              // textfieldbgD (54:5195)
+              margin:
+                  EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 18 * fem),
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                ),
+                child: Container(
+                    width: double.infinity,
+                    height: 48 * fem,
+                    child: PasswordField(
+                      label: 'New Password',
+                      textController: passController,
+                    )),
+              ),
+            ),
+            Container(
+              // textfield2gy (54:5184)
+              margin:
+                  EdgeInsets.fromLTRB(12 * fem, 0 * fem, 32 * fem, 31 * fem),
+              child: TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: Container(
+                      width: double.infinity,
+                      height: 48 * fem,
+                      child: PasswordField(
+                        label: 'Confirm Password',
+                        textController: conpassController,
+                      ))),
+            ),
             Container(
               // changepassword66V (54:5208)
               margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 168 * fem, 0 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (passController.text != conpassController.text) {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          // Retrieve the text that the user has entered by using the
+                          // TextEditingController.
+                          content: Text('Passwords do not match!'),
+                        );
+                      },
+                    );
+                  } else if (passController.text == '') {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          // Retrieve the text that the user has entered by using the
+                          // TextEditingController.
+                          content: Text('Passwords are empty!'),
+                        );
+                      },
+                    );
+                  } else {
+                    change();
+
+                    Navigator.pop(context);
+                  }
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
