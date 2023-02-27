@@ -10,11 +10,11 @@ import '../assets/stacked-card2.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:holding_gesture/holding_gesture.dart';
 import 'package:myapp/main.dart';
+import 'package:myapp/prototype/sign-in-page.dart';
+import 'package:myapp/main.dart';
 
 class MyProfile extends StatefulWidget {
-  // const MyProfile({Key? key, required this.onLogOut}) : super(key: key);
-
-  // final Function onLogOut;
+  const MyProfile({Key? key}) : super(key: key);
 
   @override
   _MyProfileState createState() => _MyProfileState();
@@ -33,14 +33,19 @@ class _MyProfileState extends State<MyProfile> {
     _loadData();
   }
 
-  // Future<void> logout() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   await prefs.setString('user', '');
-  //   print('hey');
-  //   // widget.onLogOut;
+  Future<void> logout() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('user', '');
+    print('hey');
 
-  //   Navigator.pop(context);
-  // }
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MyApp(),
+      ),
+      (route) => false, //if you want to disable back feature set to false
+    );
+  }
 
   Future<void> _deleteBook(String T) async {
     final prefs = await SharedPreferences.getInstance();
@@ -323,7 +328,7 @@ class _MyProfileState extends State<MyProfile> {
                                                   return AlertDialog(
                                                     content: TextButton(
                                                       onPressed: () {
-                                                        // logout();
+                                                        logout();
                                                       },
                                                       child: Container(
                                                         color: Color.fromARGB(
