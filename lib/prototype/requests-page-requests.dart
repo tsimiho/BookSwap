@@ -38,6 +38,11 @@ class _RequestsState extends State<Requests> {
     setState(() {
       username = (prefs.getString('user') ?? '');
       request = (prefs.getStringList('$username---requests') ?? []);
+      var D = [];
+      for (var res in request) {
+        String d = (prefs.getString('${res.split('---')[0]}---distance') ?? '');
+        D.add(d);
+      }
       double fem = MediaQuery.of(context).size.width / 360;
       C = [
         SizedBox(
@@ -58,6 +63,7 @@ class _RequestsState extends State<Requests> {
                   title: r1[1],
                   username: r1[0],
                   imagestring: 'assets/images/$username---${r1[1]}.png',
+                  distance: D[2 * i],
                   onDelete: _deleteRequest),
               Container(
                 width: 12 * fem,
@@ -67,6 +73,7 @@ class _RequestsState extends State<Requests> {
                 title: r2[1],
                 username: r2[0],
                 imagestring: 'assets/images/$username---${r2[1]}.png',
+                distance: D[2 * i + 1],
                 onDelete: _deleteRequest,
               ),
             ],
@@ -89,6 +96,7 @@ class _RequestsState extends State<Requests> {
                 title: r[1],
                 username: r[0],
                 imagestring: 'assets/images/$username---${r[1]}.png',
+                distance: D[D.length - 1],
                 onDelete: _deleteRequest,
               ),
               Container(

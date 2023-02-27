@@ -50,6 +50,7 @@ import 'package:myapp/prototype/sign-in-page.dart';
 // import 'package:myapp/assets/other-message.dart';
 // import 'package:myapp/about/frame-1.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:myapp/assets/Distance.dart';
 
 void main() => runApp(MyApp());
 
@@ -62,6 +63,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String username = '';
+  //String distance = '0.0';
 
   Future<void> getUser() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -110,11 +112,29 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   void initState() {
     super.initState();
+    getD();
   }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+    });
+  }
+
+  Future<void> getD() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      var users = prefs.getStringList('usernames') ?? [];
+      for (var user in users) {
+        getDistance(user).then((value) {
+          //distance = '$value';
+          double r = value / 1000;
+          String s1 = '$r'.split('.')[0];
+          String s2 = '$r'.split('.')[1][0];
+          String s3 = '$r'.split('.')[1][1];
+          prefs.setString('$user---distance', '$s1.$s2$s3 km');
+        });
+      }
     });
   }
 

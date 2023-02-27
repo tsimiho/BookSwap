@@ -391,26 +391,31 @@ class _SettingsState extends State<Settings> {
                                       child: Container(
                                           width: 222 * fem,
                                           height: 40 * fem,
-                                          child: ListItem(label: 'Genre')),
+                                          child: ListItem(
+                                            label: 'Fiction',
+                                            username: usernameController.text,
+                                          )),
                                     ),
                                   ),
                                   Positioned(
-                                    // listitem1k7s (I54:12944;57:7779;57:7658)
+                                    // listitem1wuB (I57:8028;57:7779;57:7658)
                                     left: 0 * fem,
-                                    top: 76.225 * fem,
+                                    top: 76.25 * fem,
                                     child: TextButton(
-                                      onPressed: () {},
-                                      style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero,
-                                      ),
-                                      child: Container(
-                                          width: 222 * fem,
-                                          height: 40 * fem,
-                                          child: ListItem(label: 'Genre')),
-                                    ),
+                                        onPressed: () {},
+                                        style: TextButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                        child: Container(
+                                            width: 222 * fem,
+                                            height: 40 * fem,
+                                            child: ListItem(
+                                              label: 'Novel',
+                                              username: usernameController.text,
+                                            ))),
                                   ),
                                   Positioned(
-                                    // listitem1KVj (I54:12944;57:7794;57:7658)
+                                    // listitem1SFb (I57:8028;57:7794;57:7658)
                                     left: 0 * fem,
                                     top: 114.375 * fem,
                                     child: TextButton(
@@ -421,11 +426,14 @@ class _SettingsState extends State<Settings> {
                                       child: Container(
                                           width: 222 * fem,
                                           height: 40 * fem,
-                                          child: ListItem(label: 'Genre')),
+                                          child: ListItem(
+                                            label: 'Mystery',
+                                            username: usernameController.text,
+                                          )),
                                     ),
                                   ),
                                   Positioned(
-                                    // listitem1Xn9 (I54:12944;57:7809;57:7658)
+                                    // listitem1t33 (I57:8028;57:7809;57:7658)
                                     left: 0 * fem,
                                     top: 152.5 * fem,
                                     child: TextButton(
@@ -436,11 +444,14 @@ class _SettingsState extends State<Settings> {
                                       child: Container(
                                           width: 222 * fem,
                                           height: 40 * fem,
-                                          child: ListItem(label: 'Genre')),
+                                          child: ListItem(
+                                            label: "Children's Literature",
+                                            username: usernameController.text,
+                                          )),
                                     ),
                                   ),
                                   Positioned(
-                                    // listitem1Cam (I54:12944;57:7810;57:7658)
+                                    // listitem1jE1 (I57:8028;57:7810;57:7658)
                                     left: 0 * fem,
                                     top: 190.625 * fem,
                                     child: TextButton(
@@ -451,11 +462,14 @@ class _SettingsState extends State<Settings> {
                                       child: Container(
                                           width: 222 * fem,
                                           height: 40 * fem,
-                                          child: ListItem(label: 'Genre')),
+                                          child: ListItem(
+                                            label: 'Action',
+                                            username: usernameController.text,
+                                          )),
                                     ),
                                   ),
                                   Positioned(
-                                    // listitem1Zzy (I54:12944;57:7811;57:7658)
+                                    // listitem1Bn9 (I57:8028;57:7811;57:7658)
                                     left: 0 * fem,
                                     top: 228.75 * fem,
                                     child: TextButton(
@@ -466,11 +480,14 @@ class _SettingsState extends State<Settings> {
                                       child: Container(
                                           width: 222 * fem,
                                           height: 40 * fem,
-                                          child: ListItem(label: 'Genre')),
+                                          child: ListItem(
+                                            label: 'Horror',
+                                            username: usernameController.text,
+                                          )),
                                     ),
                                   ),
                                   Positioned(
-                                    // listitem1CiV (I54:12944;57:7812;57:7658)
+                                    // listitem1z9F (I57:8028;57:7812;57:7658)
                                     left: 0 * fem,
                                     top: 266.875 * fem,
                                     child: TextButton(
@@ -481,7 +498,10 @@ class _SettingsState extends State<Settings> {
                                       child: Container(
                                           width: 222 * fem,
                                           height: 40 * fem,
-                                          child: ListItem(label: 'Genre')),
+                                          child: ListItem(
+                                              label: 'Fantasy',
+                                              username:
+                                                  usernameController.text)),
                                     ),
                                   ),
                                 ],

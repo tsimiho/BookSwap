@@ -64,7 +64,11 @@ class _SearchState extends State<Search> {
         searches.add('$title---1');
       }
       prefs.setStringList('$currentuser---searches', searches);
-
+      var D = [];
+      for (var res in results) {
+        String d = prefs.getString('${res.split('---')[0]}---distance') ?? '';
+        D.add(d);
+      }
       double fem = MediaQuery.of(context).size.width / 360;
       C = [
         SizedBox(
@@ -87,6 +91,7 @@ class _SearchState extends State<Search> {
                 imagestring: 'assets/images/${r1[0]}---${r1[1]}.png',
                 requested: requests.contains('${r1[0]}---${r1[1]}'),
                 onRequest: _Request,
+                distance: D[2 * i],
               ),
               Container(
                 width: 12 * fem,
@@ -98,6 +103,7 @@ class _SearchState extends State<Search> {
                 imagestring: 'assets/images/${r2[0]}---${r2[1]}.png',
                 requested: requests.contains('${r2[0]}---${r2[1]}'),
                 onRequest: _Request,
+                distance: D[2 * i + 1],
               ),
             ],
           ),
@@ -121,6 +127,7 @@ class _SearchState extends State<Search> {
                 imagestring: 'assets/images/${r[0]}---${r[1]}.png',
                 requested: requests.contains('${r[0]}---${r[1]}'),
                 onRequest: _Request,
+                distance: D[D.length - 1],
               ),
               Container(
                 width: 172 * fem,

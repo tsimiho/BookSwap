@@ -6,8 +6,8 @@ import 'package:myapp/utils.dart';
 import 'CheckBox.dart';
 
 class ListItem extends StatelessWidget {
-  const ListItem({required this.label});
-  final String label;
+  const ListItem({required this.label, required this.username});
+  final String label, username;
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +37,10 @@ class ListItem extends StatelessWidget {
               child: Container(
                 // autogroupm7wfMnZ (UPv7FRbHeS6AbNnDGvm7wf)
                 margin:
-                    EdgeInsets.fromLTRB(0 * fem, 0 * fem, 84 * fem, 10 * fem),
+                    EdgeInsets.fromLTRB(0 * fem, 0 * fem, 10 * fem, 10 * fem),
                 padding:
                     EdgeInsets.fromLTRB(20 * fem, 10 * fem, 0 * fem, 0 * fem),
-                width: 58 * fem,
+                width: 100 * fem,
                 height: 30 * fem,
                 child: Text(
                   '${this.label}',
@@ -59,7 +59,10 @@ class ListItem extends StatelessWidget {
                 // trailingelementz4q (I57:8028;57:7764;57:7658;54:11646;51964:68600)
                 width: 40 * fem,
                 height: double.infinity,
-                child: NewCheckBox()),
+                child: NewCheckBox(
+                  label: label,
+                  username: username,
+                )),
           ],
         ),
       ),

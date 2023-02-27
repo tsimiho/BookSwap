@@ -67,6 +67,10 @@ Future<void> CreateData() async {
     'Rich Dad Poor Dad---4'
   ]);
 
+  // Nikos123---genres
+  await prefs
+      .setStringList('Nikos123---genres', ['Mystery', "Action", 'Horror']);
+
   //----------------------------- GeorgeVk -----------------------------------//
 
   // GeorgeVk---list

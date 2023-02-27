@@ -15,16 +15,14 @@ class TradeOffer extends StatelessWidget {
       required this.title1,
       required this.title2,
       required this.onDelete,
-      this.dist})
+      required this.distance})
       : super(key: key);
 
-  final String user, username, title1, title2;
+  final String user, username, title1, title2, distance;
   final Function onDelete;
-  double? dist;
 
   @override
   Widget build(BuildContext context) {
-    getDistance(username).then((value) => {dist = value});
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -247,7 +245,7 @@ class TradeOffer extends StatelessWidget {
                                                 ),
                                                 Text(
                                                   // subheadW1P (I54:28615;54:14720)
-                                                  '$dist',
+                                                  distance,
                                                   style: SafeGoogleFont(
                                                     'Roboto',
                                                     fontSize: 12 * ffem,

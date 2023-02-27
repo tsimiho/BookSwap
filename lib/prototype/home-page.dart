@@ -77,6 +77,11 @@ class _HomeState extends State<Home> {
       for (var i = count; i < 4; i++) {
         results.add(options[4 - count]);
       }
+      var D = [];
+      for (var res in results) {
+        String d = (prefs.getString('${res.split('---')[0]}---distance') ?? '');
+        D.add(d);
+      }
       double fem = MediaQuery.of(context).size.width / 360;
       C = [
         SizedBox(
@@ -99,18 +104,19 @@ class _HomeState extends State<Home> {
                 imagestring: 'assets/images/${r1[0]}---${r1[1]}.png',
                 requested: false,
                 onRequest: _Request,
+                distance: D[2 * i],
               ),
               Container(
                 width: 12 * fem,
                 height: 308 * fem,
               ),
               StackedCard(
-                title: r2[1],
-                username: r2[0],
-                imagestring: 'assets/images/${r2[0]}---${r2[1]}.png',
-                requested: false,
-                onRequest: _Request,
-              ),
+                  title: r2[1],
+                  username: r2[0],
+                  imagestring: 'assets/images/${r2[0]}---${r2[1]}.png',
+                  requested: false,
+                  onRequest: _Request,
+                  distance: D[2 * i + 1]),
             ],
           ),
         ));
@@ -133,6 +139,7 @@ class _HomeState extends State<Home> {
                 imagestring: 'assets/images/${r[0]}---${r[1]}.png',
                 requested: false,
                 onRequest: _Request,
+                distance: D[D.length - 1],
               ),
               Container(
                 width: 172 * fem,

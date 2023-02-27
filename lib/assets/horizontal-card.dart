@@ -5,17 +5,40 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 import '../prototype/in-chat-page.dart';
 import 'package:myapp/assets/Distance.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class HorizontalCard extends StatelessWidget {
-  HorizontalCard({Key? key, required this.authorID}) : super(key: key);
+class HorizontalCard extends StatefulWidget {
+  const HorizontalCard({Key? key, required this.authorID}) : super(key: key);
 
   final String authorID;
 
-  double dist = 0.0;
+  @override
+  State<HorizontalCard> createState() => _HorizontalCardState();
+}
+
+class _HorizontalCardState extends State<HorizontalCard> {
+  String dist = '0.0';
+
+  @override
+  void initState() {
+    super.initState();
+    getDist();
+    //getDist();
+  }
+
+  Future<void> getDist() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      dist = prefs.getString('${widget.authorID}---distance') ?? '';
+      //getDistance(widget.authorID).then((value) => dist = value);
+      //dist = getD(widget.authorID);
+      //dist = getDistance(widget.authorID) ?? 0.0;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    getDistance(authorID).then((value) => {dist = value});
+    //getDistance(widget.authorID).then((value) => dist = value);
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -62,7 +85,7 @@ class HorizontalCard extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => InChat(
-                                authorID: authorID,
+                                authorID: widget.authorID,
                               )),
                     );
                   },
@@ -90,7 +113,9 @@ class HorizontalCard extends StatelessWidget {
                           child: Center(
                             child: Center(
                               child: Text(
-                                authorID.isEmpty ? '' : authorID[0],
+                                widget.authorID.isEmpty
+                                    ? ''
+                                    : widget.authorID[0],
                                 textAlign: TextAlign.center,
                                 style: SafeGoogleFont(
                                   'Roboto',
@@ -116,7 +141,7 @@ class HorizontalCard extends StatelessWidget {
                                 margin: EdgeInsets.fromLTRB(
                                     0.09 * fem, 6 * fem, 0 * fem, 0 * fem),
                                 child: Text(
-                                  '$authorID',
+                                  '${widget.authorID}',
                                   style: SafeGoogleFont(
                                     'Roboto',
                                     fontSize: 16 * ffem,

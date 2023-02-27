@@ -21,7 +21,7 @@ class _OtherUserState extends State<OtherUser> {
   List<String> title = [];
   List<String> author = [];
   List<String> requests = [];
-  String user = '';
+  String user = '', distance = '';
   List<Widget> C = [];
 
   @override
@@ -48,6 +48,7 @@ class _OtherUserState extends State<OtherUser> {
       user = (prefs.getString('user') ?? '');
       title = (prefs.getStringList('${widget.username}---list') ?? []);
       requests = (prefs.getStringList('$user---requestedbooks') ?? []);
+      distance = (prefs.getString('${widget.username}---distance') ?? '');
       author = [];
       for (var t in title) {
         String at = (prefs.getString('${widget.username}---$t---author') ?? '');
@@ -265,7 +266,7 @@ class _OtherUserState extends State<OtherUser> {
                                       ),
                                       Text(
                                         // subheadbYV (I54:11297;52350:27888)
-                                        'Distance',
+                                        distance,
                                         style: SafeGoogleFont(
                                           'Roboto',
                                           fontSize: 12 * ffem,

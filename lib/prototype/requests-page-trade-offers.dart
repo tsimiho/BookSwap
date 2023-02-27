@@ -53,19 +53,25 @@ class _TradeOffersState extends State<TradeOffers> {
           }
         }
       }
+      var D = [];
+      for (var res in tradeoffers) {
+        String d = (prefs.getString('${res.split('---')[1]}---distance') ?? '');
+        D.add(d);
+      }
       double fem = MediaQuery.of(context).size.width / 360;
       C = [
         SizedBox(
           height: 10 * fem,
         )
       ];
-      for (var t in tradeoffers) {
-        final tl = t.split('---');
+      for (var i = 0; i < tradeoffers.length; i++) {
+        final tl = tradeoffers[i].split('---');
         C.add(TradeOffer(
           user: user,
           username: tl[1],
           title1: tl[0],
           title2: tl[2],
+          distance: D[i],
           onDelete: _deleteTradeOffer,
         ));
         C.add(SizedBox(

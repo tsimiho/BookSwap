@@ -445,49 +445,49 @@ class _MyProfileState extends State<MyProfile> {
                                                           ),
                                                         ),
                                                       ),
-                                                      RichText(
-                                                        // subheadNJM (I54:5334;52350:27888)
-                                                        text: TextSpan(
-                                                          style: SafeGoogleFont(
-                                                            'Roboto',
-                                                            fontSize: 14 * ffem,
-                                                            fontWeight:
-                                                                FontWeight.w400,
-                                                            height:
-                                                                1.4285714286 *
-                                                                    ffem /
-                                                                    fem,
-                                                            letterSpacing:
-                                                                0.25 * fem,
-                                                            color: Color(
-                                                                0xff1c1b1f),
-                                                          ),
-                                                          children: [
-                                                            TextSpan(
-                                                              text:
-                                                                  'Favorite Genres',
-                                                              style:
-                                                                  SafeGoogleFont(
-                                                                'Roboto',
-                                                                fontSize:
-                                                                    12 * ffem,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400,
-                                                                height:
-                                                                    1.3333333333 *
-                                                                        ffem /
-                                                                        fem,
-                                                                letterSpacing:
-                                                                    0.400000006 *
-                                                                        fem,
-                                                                color: Color(
-                                                                    0xff1c1b1f),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
+                                                      // RichText(
+                                                      //   // subheadNJM (I54:5334;52350:27888)
+                                                      //   text: TextSpan(
+                                                      //     style: SafeGoogleFont(
+                                                      //       'Roboto',
+                                                      //       fontSize: 14 * ffem,
+                                                      //       fontWeight:
+                                                      //           FontWeight.w400,
+                                                      //       height:
+                                                      //           1.4285714286 *
+                                                      //               ffem /
+                                                      //               fem,
+                                                      //       letterSpacing:
+                                                      //           0.25 * fem,
+                                                      //       color: Color(
+                                                      //           0xff1c1b1f),
+                                                      //     ),
+                                                      //     children: [
+                                                      //       TextSpan(
+                                                      //         text:
+                                                      //             'Favorite Genres',
+                                                      //         style:
+                                                      //             SafeGoogleFont(
+                                                      //           'Roboto',
+                                                      //           fontSize:
+                                                      //               12 * ffem,
+                                                      //           fontWeight:
+                                                      //               FontWeight
+                                                      //                   .w400,
+                                                      //           height:
+                                                      //               1.3333333333 *
+                                                      //                   ffem /
+                                                      //                   fem,
+                                                      //           letterSpacing:
+                                                      //               0.400000006 *
+                                                      //                   fem,
+                                                      //           color: Color(
+                                                      //               0xff1c1b1f),
+                                                      //         ),
+                                                      //       ),
+                                                      //     ],
+                                                      //   ),
+                                                      // ),
                                                     ],
                                                   ),
                                                 ),

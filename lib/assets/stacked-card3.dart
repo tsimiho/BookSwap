@@ -12,17 +12,15 @@ class StackedCard3 extends StatelessWidget {
       required this.title,
       required this.username,
       required this.imagestring,
-      required this.onDelete,
-      this.dist})
+      required this.distance,
+      required this.onDelete})
       : super(key: key);
 
-  final String title, username, imagestring;
+  final String title, username, imagestring, distance;
   final Function onDelete;
-  double? dist;
 
   @override
   Widget build(BuildContext context) {
-    getDistance(username).then((value) => {dist = value});
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -151,7 +149,7 @@ class StackedCard3 extends StatelessWidget {
                                   // subheadNW5 (I51:4636;57:11542)
                                   width: double.infinity,
                                   child: Text(
-                                    '$dist',
+                                    distance,
                                     textAlign: TextAlign.left,
                                     style: SafeGoogleFont(
                                       'Roboto',

@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/prototype/other-user-page.dart';
-import 'package:myapp/assets/Distance.dart';
 
 class StackedCard extends StatelessWidget {
   StackedCard(
@@ -14,19 +13,15 @@ class StackedCard extends StatelessWidget {
       required this.imagestring,
       required this.requested,
       required this.onRequest,
-      this.dist})
+      required this.distance})
       : super(key: key);
 
-  final String username, title, imagestring;
+  final String username, title, imagestring, distance;
   final bool requested;
   final Function onRequest;
-  double? dist = 0.0;
 
   @override
   Widget build(BuildContext context) {
-    getDistance(username).then(
-      (value) => {dist = value},
-    );
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -155,7 +150,7 @@ class StackedCard extends StatelessWidget {
                                   // subheadNW5 (I51:4636;57:11542)
                                   width: double.infinity,
                                   child: Text(
-                                    '$dist',
+                                    distance,
                                     textAlign: TextAlign.left,
                                     style: SafeGoogleFont(
                                       'Roboto',
