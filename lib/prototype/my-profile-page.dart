@@ -297,107 +297,31 @@ class _MyProfileState extends State<MyProfile> {
                               borderRadius: BorderRadius.circular(12 * fem),
                             ),
                             child: Container(
-                              // cardoutlinedJP3 (I54:5334;52350:27878)
-                              width: double.infinity,
-                              height: double.infinity,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xffffffff)),
-                                color: Color(0xfffffbfe),
-                                borderRadius: BorderRadius.circular(12 * fem),
-                              ),
-                              child: Container(
-                                // contentcontainerq85 (I54:5334;52350:27879)
-                                padding: EdgeInsets.fromLTRB(
-                                    16 * fem, 0 * fem, 0 * fem, 0 * fem),
+                                // cardoutlinedJP3 (I54:5334;52350:27878)
                                 width: double.infinity,
                                 height: double.infinity,
                                 decoration: BoxDecoration(
                                   border: Border.all(color: Color(0xffffffff)),
+                                  color: Color.fromARGB(255, 255, 255, 255),
                                   borderRadius: BorderRadius.circular(12 * fem),
                                 ),
-                                child: Container(
-                                  // headerL4q (I54:5334;52350:27881)
-                                  padding: EdgeInsets.fromLTRB(
-                                      0 * fem, 16 * fem, 0 * fem, 16 * fem),
-                                  width: 344 * fem,
-                                  height: double.infinity,
-                                  child: Container(
-                                    // contentf77 (I54:5334;52350:27882)
-                                    width: 156 * fem,
-                                    height: double.infinity,
-                                    child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        HoldDetector(
-                                          onHold: () {
-                                            showDialog(
-                                                context: context,
-                                                builder: (context) {
-                                                  return AlertDialog(
-                                                    content: TextButton(
-                                                      onPressed: () {
-                                                        logout();
-                                                      },
-                                                      child: Container(
-                                                        color: Color.fromARGB(
-                                                            255, 255, 255, 255),
-                                                        // padding:
-                                                        //     const EdgeInsets
-                                                        //         .all(14),
-                                                        child: Text('Log out',
-                                                            style:
-                                                                SafeGoogleFont(
-                                                              'Roboto',
-                                                              fontSize:
-                                                                  16 * ffem,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              height: 1.5 *
-                                                                  ffem /
-                                                                  fem,
-                                                              letterSpacing:
-                                                                  0.150000006 *
-                                                                      fem,
-                                                              color: Color(
-                                                                  0xffe46962),
-                                                            )),
-                                                      ),
-                                                    ),
-                                                  );
-                                                });
-                                          },
-                                          onCancel: () {
-                                            print("object");
-                                          },
-                                          holdTimeout:
-                                              Duration(milliseconds: 300),
-                                          enableHapticFeedback: true,
-                                          child: TextButton(
-                                              child: Container(
-                                                // monogramnxR (I54:5334;52350:27883)
-                                                margin: EdgeInsets.fromLTRB(
-                                                    0 * fem,
-                                                    4 * fem,
-                                                    26 * fem,
-                                                    4 * fem),
-                                                width: 36 * fem,
-                                                height: double.infinity,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xffe46962),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20 * fem),
-                                                ),
-                                                child: Center(
-                                                  child: Center(
-                                                    child: Text(
-                                                      username.isEmpty
-                                                          ? ''
-                                                          : username[0],
-                                                      textAlign:
-                                                          TextAlign.center,
+                                child: HoldDetector(
+                                    onHold: () {
+                                      showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            return AlertDialog(
+                                              content: TextButton(
+                                                onPressed: () {
+                                                  logout();
+                                                },
+                                                child: Container(
+                                                  color: Color.fromARGB(
+                                                      255, 255, 255, 255),
+                                                  // padding:
+                                                  //     const EdgeInsets
+                                                  //         .all(14),
+                                                  child: Text('Log out',
                                                       style: SafeGoogleFont(
                                                         'Roboto',
                                                         fontSize: 16 * ffem,
@@ -408,83 +332,171 @@ class _MyProfileState extends State<MyProfile> {
                                                         letterSpacing:
                                                             0.150000006 * fem,
                                                         color:
-                                                            Color(0xfffffbfe),
-                                                      ),
-                                                    ),
-                                                  ),
+                                                            Color(0xffe46962),
+                                                      )),
                                                 ),
                                               ),
-                                              onPressed: () {}),
+                                            );
+                                          });
+                                    },
+                                    onCancel: () {
+                                      print("object");
+                                    },
+                                    holdTimeout: Duration(milliseconds: 300),
+                                    enableHapticFeedback: true,
+                                    child: TextButton(
+                                      onPressed: () {},
+                                      child: Container(
+                                        // contentcontainerq85 (I54:5334;52350:27879)
+                                        padding: EdgeInsets.fromLTRB(16 * fem,
+                                            0 * fem, 0 * fem, 0 * fem),
+                                        width: double.infinity,
+                                        height: double.infinity,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Color(0xffffffff)),
+                                          borderRadius:
+                                              BorderRadius.circular(12 * fem),
                                         ),
-                                        Container(
-                                          // textwyj (I54:5334;52350:27886)
+                                        child: Container(
+                                          // headerL4q (I54:5334;52350:27881)
+                                          padding: EdgeInsets.fromLTRB(0 * fem,
+                                              16 * fem, 0 * fem, 16 * fem),
+                                          width: 344 * fem,
                                           height: double.infinity,
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                // headerJ3b (I54:5334;52350:27887)
-                                                margin: EdgeInsets.fromLTRB(
-                                                    0 * fem,
-                                                    0 * fem,
-                                                    0 * fem,
-                                                    4 * fem),
-                                                child: Text(
-                                                  username,
-                                                  style: SafeGoogleFont(
-                                                    'Roboto',
-                                                    fontSize: 16 * ffem,
-                                                    fontWeight: FontWeight.w500,
-                                                    height: 1.5 * ffem / fem,
-                                                    letterSpacing:
-                                                        0.150000006 * fem,
-                                                    color: Color(0xff1c1b1f),
+                                          child: Container(
+                                            // contentf77 (I54:5334;52350:27882)
+                                            width: 156 * fem,
+                                            height: double.infinity,
+                                            child: Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  // monogramnxR (I54:5334;52350:27883)
+                                                  margin: EdgeInsets.fromLTRB(
+                                                      0 * fem,
+                                                      4 * fem,
+                                                      26 * fem,
+                                                      4 * fem),
+                                                  width: 36 * fem,
+                                                  height: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xffe46962),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20 * fem),
                                                   ),
-                                                ),
-                                              ),
-                                              RichText(
-                                                // subheadNJM (I54:5334;52350:27888)
-                                                text: TextSpan(
-                                                  style: SafeGoogleFont(
-                                                    'Roboto',
-                                                    fontSize: 14 * ffem,
-                                                    fontWeight: FontWeight.w400,
-                                                    height: 1.4285714286 *
-                                                        ffem /
-                                                        fem,
-                                                    letterSpacing: 0.25 * fem,
-                                                    color: Color(0xff1c1b1f),
-                                                  ),
-                                                  children: [
-                                                    TextSpan(
-                                                      text: 'Favorite Genres',
-                                                      style: SafeGoogleFont(
-                                                        'Roboto',
-                                                        fontSize: 12 * ffem,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        height: 1.3333333333 *
-                                                            ffem /
-                                                            fem,
-                                                        letterSpacing:
-                                                            0.400000006 * fem,
-                                                        color:
-                                                            Color(0xff1c1b1f),
+                                                  child: Center(
+                                                    child: Center(
+                                                      child: Text(
+                                                        username.isEmpty
+                                                            ? ''
+                                                            : username[0],
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: SafeGoogleFont(
+                                                          'Roboto',
+                                                          fontSize: 16 * ffem,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          height:
+                                                              1.5 * ffem / fem,
+                                                          letterSpacing:
+                                                              0.150000006 * fem,
+                                                          color:
+                                                              Color(0xfffffbfe),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ],
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                                Container(
+                                                  // textwyj (I54:5334;52350:27886)
+                                                  height: double.infinity,
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Container(
+                                                        // headerJ3b (I54:5334;52350:27887)
+                                                        margin:
+                                                            EdgeInsets.fromLTRB(
+                                                                0 * fem,
+                                                                0 * fem,
+                                                                0 * fem,
+                                                                4 * fem),
+                                                        child: Text(
+                                                          username,
+                                                          style: SafeGoogleFont(
+                                                            'Roboto',
+                                                            fontSize: 16 * ffem,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            height: 1.5 *
+                                                                ffem /
+                                                                fem,
+                                                            letterSpacing:
+                                                                0.150000006 *
+                                                                    fem,
+                                                            color: Color(
+                                                                0xff1c1b1f),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      RichText(
+                                                        // subheadNJM (I54:5334;52350:27888)
+                                                        text: TextSpan(
+                                                          style: SafeGoogleFont(
+                                                            'Roboto',
+                                                            fontSize: 14 * ffem,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                            height:
+                                                                1.4285714286 *
+                                                                    ffem /
+                                                                    fem,
+                                                            letterSpacing:
+                                                                0.25 * fem,
+                                                            color: Color(
+                                                                0xff1c1b1f),
+                                                          ),
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  'Favorite Genres',
+                                                              style:
+                                                                  SafeGoogleFont(
+                                                                'Roboto',
+                                                                fontSize:
+                                                                    12 * ffem,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400,
+                                                                height:
+                                                                    1.3333333333 *
+                                                                        ffem /
+                                                                        fem,
+                                                                letterSpacing:
+                                                                    0.400000006 *
+                                                                        fem,
+                                                                color: Color(
+                                                                    0xff1c1b1f),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                                      ),
+                                    ))),
                           ),
                         ),
                         Positioned(
