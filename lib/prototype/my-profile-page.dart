@@ -33,12 +33,14 @@ class _MyProfileState extends State<MyProfile> {
     _loadData();
   }
 
-  void logout() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('user', '');
-    print('hey');
-    // widget.onLogOut;
-  }
+  // Future<void> logout() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   await prefs.setString('user', '');
+  //   print('hey');
+  //   // widget.onLogOut;
+
+  //   Navigator.pop(context);
+  // }
 
   Future<void> _deleteBook(String T) async {
     final prefs = await SharedPreferences.getInstance();
@@ -321,7 +323,7 @@ class _MyProfileState extends State<MyProfile> {
                                                   return AlertDialog(
                                                     content: TextButton(
                                                       onPressed: () {
-                                                        logout();
+                                                        // logout();
                                                       },
                                                       child: Container(
                                                         color: Color.fromARGB(

@@ -73,6 +73,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    CreateData();
     getUser();
   }
 
@@ -109,7 +110,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   void initState() {
     super.initState();
-    CreateData();
   }
 
   void _onItemTapped(int index) {

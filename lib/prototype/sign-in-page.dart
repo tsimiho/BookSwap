@@ -41,7 +41,6 @@ class _SignInState extends State<SignIn> {
       var obj = data[i];
       if (obj["username"] == u && obj["password"] == p) {
         await prefs.setString('user', u);
-        print(u);
         return true;
       }
     }
