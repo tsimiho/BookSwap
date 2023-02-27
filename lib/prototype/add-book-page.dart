@@ -7,12 +7,22 @@ import 'package:myapp/assets/testTextField.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/assets/book-cover.dart';
 import 'package:myapp/assets/book-cover-test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AddBook extends StatelessWidget {
   var titleController = TextEditingController();
   var authorController = TextEditingController();
 
-  void add(String title, String author) {}
+  void add(String title, String author) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    List<String> list = prefs.getStringList('Nikos123---list') ?? [];
+    list.add(title);
+
+    await prefs.setStringList('Nikos123---list', list);
+
+    await prefs.setString('Nikos123---' + title + 'author', author);
+  }
 
   @override
   Widget build(BuildContext context) {
