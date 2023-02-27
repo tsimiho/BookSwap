@@ -10,7 +10,7 @@ Future<void> CreateData() async {
       'usernames', ['Nikos123', 'GeorgeVk', 'KostasP23', 'LefterisR']);
 
   await prefs.setString('users',
-      '[{"name":"User 123","username": "user123","password":"123","HomeAddress":"abc","WorkAddress":"def"},{"name":"Nikos 123","username":"Nikos123","password":"123","HomeAddress":"abc","WorkAddress":"def"}]');
+      '[{"name":"User 123","username": "GeorgeVk","password":"123","HomeAddress":"Oxford Street 100, London","WorkAddress":"Oxford Street 200, London"},{"name":"Nikos 123","username":"Nikos123","password":"123","HomeAddress":"Abbey Road 10, London","WorkAddress":"Abbey Road 100, London"}, {"name":"Lefteris","username": "LefterisR","password":"123","HomeAddress":"Downing Street 2, London","WorkAddress":"Downing Street 8, London"}, {"name":"Kostas","username": "KostasP23","password":"123","HomeAddress":"Piccadilly 20, London","WorkAddress":"Piccadilly 5, London"}]');
 
   //----------------------------- Nikos123 -----------------------------------//
 

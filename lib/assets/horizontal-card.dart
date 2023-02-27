@@ -3,16 +3,19 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
-
 import '../prototype/in-chat-page.dart';
+import 'package:myapp/assets/Distance.dart';
 
 class HorizontalCard extends StatelessWidget {
-  const HorizontalCard({Key? key, required this.authorID}) : super(key: key);
+  HorizontalCard({Key? key, required this.authorID}) : super(key: key);
 
   final String authorID;
 
+  double dist = 0.0;
+
   @override
   Widget build(BuildContext context) {
+    getDistance(authorID).then((value) => {dist = value});
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -128,7 +131,7 @@ class HorizontalCard extends StatelessWidget {
                                 // subheadNW5 (I51:4636;57:11542)
                                 width: double.infinity,
                                 child: Text(
-                                  'Distance',
+                                  '$dist',
                                   textAlign: TextAlign.left,
                                   style: SafeGoogleFont(
                                     'Roboto',
