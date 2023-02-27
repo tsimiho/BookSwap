@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 import '../assets/stacked-card4.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:myapp/prototype/in-chat-page.dart';
 
 class OtherUser extends StatefulWidget {
   const OtherUser({Key? key, required this.username}) : super(key: key);
@@ -320,7 +321,14 @@ class _OtherUserState extends State<OtherUser> {
                   ),
                   TextButton(
                     // createaccountMJh (54:11354)
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                InChat(authorID: widget.username)),
+                      );
+                    },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
                     ),
