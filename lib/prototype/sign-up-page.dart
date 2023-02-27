@@ -313,66 +313,70 @@ class _SignUpState extends State<SignUp> {
                     height: 15 * fem,
                   ),
                   Container(
-                    // listaZX (57:8028)
-                    margin:
-                        EdgeInsets.fromLTRB(0 * fem, 0 * fem, 2 * fem, 0 * fem),
-                    width: 222 * fem,
-                    height: 305 * fem,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30 * fem),
-                    ),
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          // listitem1TdK (I57:8028;57:7869;57:7658)
-                          left: 0 * fem,
-                          top: 0 * fem,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                            ),
-                            child: Container(
-                              width: 222 * fem,
-                              height: 40 * fem,
-                              child: Container(
-                                // listitem19FF (I57:8028;57:7869;57:7658;54:11646)
-                                padding: EdgeInsets.fromLTRB(
-                                    16 * fem, 0 * fem, 16 * fem, 0 * fem),
-                                width: 360 * fem,
-                                height: 58 * fem,
-                                decoration: BoxDecoration(
-                                  color: Color(0xfff4eff4),
+                      // listaZX (57:8028)
+                      margin: EdgeInsets.fromLTRB(
+                          0 * fem, 0 * fem, 2 * fem, 0 * fem),
+                      width: 222 * fem,
+                      height: 305 * fem,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30 * fem),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16 * fem),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              // listitem1TdK (I57:8028;57:7869;57:7658)
+                              left: 0 * fem,
+                              top: 0 * fem,
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
                                 ),
                                 child: Container(
-                                  // statelayer35j (I57:8028;57:7869;57:7658;54:11646;51964:68595)
-                                  margin: EdgeInsets.fromLTRB(
-                                      0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                                  width: 190 * fem,
+                                  width: 222 * fem,
                                   height: 40 * fem,
                                   child: Container(
-                                    // contentMMK (I57:8028;57:7869;57:7658;54:11646;51964:68596)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 8 * fem, 0 * fem),
-                                    width: 182 * fem,
-                                    height: double.infinity,
+                                    // listitem19FF (I57:8028;57:7869;57:7658;54:11646)
+                                    padding: EdgeInsets.fromLTRB(
+                                        16 * fem, 0 * fem, 16 * fem, 0 * fem),
+                                    width: 360 * fem,
+                                    height: 58 * fem,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xfff4eff4),
+                                    ),
                                     child: Container(
-                                      // autogroupyp3tsqT (UPv6n2DHHTgaPYnNYuyp3T)
+                                      // statelayer35j (I57:8028;57:7869;57:7658;54:11646;51964:68595)
                                       margin: EdgeInsets.fromLTRB(
                                           0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                                      padding: EdgeInsets.fromLTRB(
-                                          0 * fem, 10 * fem, 0 * fem, 0 * fem),
-                                      width: 101 * fem,
-                                      height: 30 * fem,
-                                      child: Text(
-                                        'Favorite Genres',
-                                        style: SafeGoogleFont(
-                                          'Roboto',
-                                          fontSize: 14 * ffem,
-                                          fontWeight: FontWeight.w400,
-                                          height: 1.4285714286 * ffem / fem,
-                                          letterSpacing: 0.25 * fem,
-                                          color: Color(0xff49454f),
+                                      width: 190 * fem,
+                                      height: 40 * fem,
+                                      child: Container(
+                                        // contentMMK (I57:8028;57:7869;57:7658;54:11646;51964:68596)
+                                        margin: EdgeInsets.fromLTRB(
+                                            0 * fem, 0 * fem, 8 * fem, 0 * fem),
+                                        width: 182 * fem,
+                                        height: double.infinity,
+                                        child: Container(
+                                          // autogroupyp3tsqT (UPv6n2DHHTgaPYnNYuyp3T)
+                                          margin: EdgeInsets.fromLTRB(0 * fem,
+                                              0 * fem, 0 * fem, 0 * fem),
+                                          padding: EdgeInsets.fromLTRB(0 * fem,
+                                              10 * fem, 0 * fem, 0 * fem),
+                                          width: 101 * fem,
+                                          height: 30 * fem,
+                                          child: Text(
+                                            'Favorite Genres',
+                                            style: SafeGoogleFont(
+                                              'Roboto',
+                                              fontSize: 14 * ffem,
+                                              fontWeight: FontWeight.w400,
+                                              height: 1.4285714286 * ffem / fem,
+                                              letterSpacing: 0.25 * fem,
+                                              color: Color(0xff49454f),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -380,115 +384,113 @@ class _SignUpState extends State<SignUp> {
                                 ),
                               ),
                             ),
-                          ),
-                        ),
-                        Positioned(
-                          // listitem1KBf (I57:8028;57:7764;57:7658)
-                          left: 0 * fem,
-                          top: 38.125 * fem,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                            ),
-                            child: Container(
-                                width: 222 * fem,
-                                height: 40 * fem,
-                                child: ListItem(label: 'Genre')),
-                          ),
-                        ),
-                        Positioned(
-                          // listitem1wuB (I57:8028;57:7779;57:7658)
-                          left: 0 * fem,
-                          top: 76.25 * fem,
-                          child: TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
+                            Positioned(
+                              // listitem1KBf (I57:8028;57:7764;57:7658)
+                              left: 0 * fem,
+                              top: 38.125 * fem,
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                ),
+                                child: Container(
+                                    width: 222 * fem,
+                                    height: 40 * fem,
+                                    child: ListItem(label: 'Genre')),
                               ),
-                              child: Container(
-                                  width: 222 * fem,
-                                  height: 40 * fem,
-                                  child: ListItem(label: 'Genre'))),
-                        ),
-                        Positioned(
-                          // listitem1SFb (I57:8028;57:7794;57:7658)
-                          left: 0 * fem,
-                          top: 114.375 * fem,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
                             ),
-                            child: Container(
-                                width: 222 * fem,
-                                height: 40 * fem,
-                                child: ListItem(label: 'Genre')),
-                          ),
-                        ),
-                        Positioned(
-                          // listitem1t33 (I57:8028;57:7809;57:7658)
-                          left: 0 * fem,
-                          top: 152.5 * fem,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
+                            Positioned(
+                              // listitem1wuB (I57:8028;57:7779;57:7658)
+                              left: 0 * fem,
+                              top: 76.25 * fem,
+                              child: TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.zero,
+                                  ),
+                                  child: Container(
+                                      width: 222 * fem,
+                                      height: 40 * fem,
+                                      child: ListItem(label: 'Genre'))),
                             ),
-                            child: Container(
-                                width: 222 * fem,
-                                height: 40 * fem,
-                                child: ListItem(label: 'Genre')),
-                          ),
-                        ),
-                        Positioned(
-                          // listitem1jE1 (I57:8028;57:7810;57:7658)
-                          left: 0 * fem,
-                          top: 190.625 * fem,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
+                            Positioned(
+                              // listitem1SFb (I57:8028;57:7794;57:7658)
+                              left: 0 * fem,
+                              top: 114.375 * fem,
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                ),
+                                child: Container(
+                                    width: 222 * fem,
+                                    height: 40 * fem,
+                                    child: ListItem(label: 'Genre')),
+                              ),
                             ),
-                            child: Container(
-                                width: 222 * fem,
-                                height: 40 * fem,
-                                child: ListItem(label: 'Genre')),
-                          ),
-                        ),
-                        Positioned(
-                          // listitem1Bn9 (I57:8028;57:7811;57:7658)
-                          left: 0 * fem,
-                          top: 228.75 * fem,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
+                            Positioned(
+                              // listitem1t33 (I57:8028;57:7809;57:7658)
+                              left: 0 * fem,
+                              top: 152.5 * fem,
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                ),
+                                child: Container(
+                                    width: 222 * fem,
+                                    height: 40 * fem,
+                                    child: ListItem(label: 'Genre')),
+                              ),
                             ),
-                            child: Container(
-                                width: 222 * fem,
-                                height: 40 * fem,
-                                child: ListItem(label: 'Genre')),
-                          ),
-                        ),
-                        Positioned(
-                          // listitem1z9F (I57:8028;57:7812;57:7658)
-                          left: 0 * fem,
-                          top: 266.875 * fem,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
+                            Positioned(
+                              // listitem1jE1 (I57:8028;57:7810;57:7658)
+                              left: 0 * fem,
+                              top: 190.625 * fem,
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                ),
+                                child: Container(
+                                    width: 222 * fem,
+                                    height: 40 * fem,
+                                    child: ListItem(label: 'Genre')),
+                              ),
                             ),
-                            child: Container(
-                                width: 222 * fem,
-                                height: 40 * fem,
-                                child: ListItem(label: 'Genre')),
-                          ),
+                            Positioned(
+                              // listitem1Bn9 (I57:8028;57:7811;57:7658)
+                              left: 0 * fem,
+                              top: 228.75 * fem,
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                ),
+                                child: Container(
+                                    width: 222 * fem,
+                                    height: 40 * fem,
+                                    child: ListItem(label: 'Genre')),
+                              ),
+                            ),
+                            Positioned(
+                              // listitem1z9F (I57:8028;57:7812;57:7658)
+                              left: 0 * fem,
+                              top: 266.875 * fem,
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                ),
+                                child: Container(
+                                    width: 222 * fem,
+                                    height: 40 * fem,
+                                    child: ListItem(label: 'Genre')),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
+                      )),
                 ],
               ),
             ),
