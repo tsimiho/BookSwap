@@ -8,8 +8,14 @@ import 'package:myapp/prototype/history-page.dart';
 import 'package:myapp/utils.dart';
 import '../assets/stacked-card2.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:holding_gesture/holding_gesture.dart';
+import 'package:myapp/main.dart';
 
 class MyProfile extends StatefulWidget {
+  // const MyProfile({Key? key, required this.onLogOut}) : super(key: key);
+
+  // final Function onLogOut;
+
   @override
   _MyProfileState createState() => _MyProfileState();
 }
@@ -27,6 +33,13 @@ class _MyProfileState extends State<MyProfile> {
     _loadData();
   }
 
+  void logout() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('user', '');
+    print('hey');
+    // widget.onLogOut;
+  }
+
   Future<void> _deleteBook(String T) async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -41,7 +54,6 @@ class _MyProfileState extends State<MyProfile> {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       username = (prefs.getString('user') ?? '');
-      print(username);
       title = (prefs.getStringList('$username---list') ?? []);
       author = [];
       for (var t in title) {
@@ -301,36 +313,92 @@ class _MyProfileState extends State<MyProfile> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Container(
-                                          // monogramnxR (I54:5334;52350:27883)
-                                          margin: EdgeInsets.fromLTRB(0 * fem,
-                                              4 * fem, 26 * fem, 4 * fem),
-                                          width: 36 * fem,
-                                          height: double.infinity,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xffe46962),
-                                            borderRadius:
-                                                BorderRadius.circular(20 * fem),
-                                          ),
-                                          child: Center(
-                                            child: Center(
-                                              child: Text(
-                                                username.isEmpty
-                                                    ? ''
-                                                    : username[0],
-                                                textAlign: TextAlign.center,
-                                                style: SafeGoogleFont(
-                                                  'Roboto',
-                                                  fontSize: 16 * ffem,
-                                                  fontWeight: FontWeight.w500,
-                                                  height: 1.5 * ffem / fem,
-                                                  letterSpacing:
-                                                      0.150000006 * fem,
-                                                  color: Color(0xfffffbfe),
+                                        HoldDetector(
+                                          onHold: () {
+                                            showDialog(
+                                                context: context,
+                                                builder: (context) {
+                                                  return AlertDialog(
+                                                    content: TextButton(
+                                                      onPressed: () {
+                                                        logout();
+                                                      },
+                                                      child: Container(
+                                                        color: Color.fromARGB(
+                                                            255, 255, 255, 255),
+                                                        // padding:
+                                                        //     const EdgeInsets
+                                                        //         .all(14),
+                                                        child: Text('Log out',
+                                                            style:
+                                                                SafeGoogleFont(
+                                                              'Roboto',
+                                                              fontSize:
+                                                                  16 * ffem,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              height: 1.5 *
+                                                                  ffem /
+                                                                  fem,
+                                                              letterSpacing:
+                                                                  0.150000006 *
+                                                                      fem,
+                                                              color: Color(
+                                                                  0xffe46962),
+                                                            )),
+                                                      ),
+                                                    ),
+                                                  );
+                                                });
+                                          },
+                                          onCancel: () {
+                                            print("object");
+                                          },
+                                          holdTimeout:
+                                              Duration(milliseconds: 300),
+                                          enableHapticFeedback: true,
+                                          child: TextButton(
+                                              child: Container(
+                                                // monogramnxR (I54:5334;52350:27883)
+                                                margin: EdgeInsets.fromLTRB(
+                                                    0 * fem,
+                                                    4 * fem,
+                                                    26 * fem,
+                                                    4 * fem),
+                                                width: 36 * fem,
+                                                height: double.infinity,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xffe46962),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20 * fem),
+                                                ),
+                                                child: Center(
+                                                  child: Center(
+                                                    child: Text(
+                                                      username.isEmpty
+                                                          ? ''
+                                                          : username[0],
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: SafeGoogleFont(
+                                                        'Roboto',
+                                                        fontSize: 16 * ffem,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        height:
+                                                            1.5 * ffem / fem,
+                                                        letterSpacing:
+                                                            0.150000006 * fem,
+                                                        color:
+                                                            Color(0xfffffbfe),
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ),
+                                              onPressed: () {}),
                                         ),
                                         Container(
                                           // textwyj (I54:5334;52350:27886)
