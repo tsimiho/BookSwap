@@ -41,6 +41,7 @@ class _MyProfileState extends State<MyProfile> {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       username = (prefs.getString('user') ?? '');
+      print(username);
       title = (prefs.getStringList('$username---list') ?? []);
       author = [];
       for (var t in title) {

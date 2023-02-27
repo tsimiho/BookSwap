@@ -571,7 +571,8 @@ class _SettingsState extends State<Settings> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SignIn()),
+                        MaterialPageRoute(
+                            builder: (context) => PrivacyPolicy()),
                       );
                     },
                     style: TextButton.styleFrom(

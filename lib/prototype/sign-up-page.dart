@@ -16,8 +16,13 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:myapp/prototype/sign-in-page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:myapp/main.dart';
 
 class SignUp extends StatefulWidget {
+  const SignUp({Key? key, required this.onSignUp}) : super(key: key);
+
+  final Function onSignUp;
+
   @override
   State<SignUp> createState() => _SignUpState();
 }
@@ -57,6 +62,8 @@ class _SignUpState extends State<SignUp> {
     var json_data = json.encode(data);
 
     await prefs.setString('users', json_data);
+
+    widget.onSignUp();
 
     // await file.writeAsString(json_data);
   }
@@ -521,10 +528,7 @@ class _SignUpState extends State<SignUp> {
                         homeController.text,
                         workController.text);
                     {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignIn()),
-                      );
+                      Navigator.pop(context);
                     }
                   }
                 },

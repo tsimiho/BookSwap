@@ -19,6 +19,7 @@ import 'package:myapp/prototype/requests-trade-offers-page.dart';
 //import 'package:myapp/prototype/requests-page-requests.dart';
 import 'package:myapp/prototype/search-page.dart';
 import 'package:myapp/prototype/home-page.dart';
+import 'package:myapp/prototype/sign-in-page.dart';
 //import 'package:myapp/prototype/sign-up-page.dart'; // GPS
 //import 'package:myapp/prototype/sign-in-page.dart';
 // import 'package:myapp/assets/text-field.dart';
@@ -48,10 +49,34 @@ import 'package:myapp/prototype/home-page.dart';
 // import 'package:myapp/assets/my-message.dart';
 // import 'package:myapp/assets/other-message.dart';
 // import 'package:myapp/about/frame-1.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String username = '';
+
+  Future<void> getUser() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      username = prefs.getString('user') ?? '';
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    CreateData();
+    getUser();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -61,7 +86,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MyStatefulWidget());
+        home: username == '' ? SignIn(onSignIn: getUser) : MyStatefulWidget());
   }
 }
 
@@ -85,7 +110,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   void initState() {
     super.initState();
-    CreateData();
+    // CreateData();
   }
 
   void _onItemTapped(int index) {

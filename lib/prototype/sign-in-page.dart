@@ -11,8 +11,12 @@ import 'package:myapp/utils.dart';
 import 'dart:io';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:myapp/main.dart';
 
 class SignIn extends StatefulWidget {
+  const SignIn({Key? key, required this.onSignIn}) : super(key: key);
+
+  final Function onSignIn;
   @override
   State<SignIn> createState() => _SignInState();
 }
@@ -37,6 +41,7 @@ class _SignInState extends State<SignIn> {
       var obj = data[i];
       if (obj["username"] == u && obj["password"] == p) {
         await prefs.setString('user', u);
+        print(u);
         return true;
       }
     }
@@ -215,7 +220,9 @@ class _SignInState extends State<SignIn> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SignUp()),
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            SignUp(onSignUp: widget.onSignIn)),
                   );
                 },
                 style: TextButton.styleFrom(
@@ -335,10 +342,7 @@ class _SignInState extends State<SignIn> {
                   var c =
                       await auth(userController.text, passwordController.text);
                   if (c) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Home()),
-                    );
+                    widget.onSignIn();
                   } else {
                     showDialog(
                       context: context,

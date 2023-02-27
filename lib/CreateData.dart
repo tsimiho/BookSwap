@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 Future<void> CreateData() async {
   final prefs = await SharedPreferences.getInstance();
 
-  await prefs.setString('user', 'Nikos123');
+  await prefs.setString('user', '');
 
   await prefs.setStringList(
       'usernames', ['Nikos123', 'GeorgeVk', 'KostasP23', 'LefterisR']);
