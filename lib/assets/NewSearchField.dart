@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SearchField extends StatefulWidget {
   const SearchField({Key? key, required this.onSearch}) : super(key: key);
@@ -64,6 +65,7 @@ class _SearchFieldState extends State<SearchField> {
 
   /// Each time to start a speech recognition session
   void _startListening() async {
+    await Permission.audio.request().isGranted;
     await _speechToText.listen(onResult: _onSpeechResult);
     setState(() {});
   }
