@@ -17,18 +17,6 @@ class _BookCoverTestState extends State<BookCoverTest> {
   Future pickImageC() async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      // final image = await ImagePicker().pickImage(source: ImageSource.camera);
-
-      // print(image?.path);
-
-      // if (image == null) return;
-
-      // final imageTemp = File(image.path);
-
-      // var bytes = await imageTemp.readAsBytes();
-      // var base64img = base64Encode(bytes);
-
-      // prefs.setString("image", base64img);
 
       String path = prefs.getString("image") ?? '';
 

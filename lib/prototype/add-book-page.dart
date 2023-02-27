@@ -205,7 +205,9 @@ class AddBook extends StatelessWidget {
                           0 * fem, 0 * fem, 73 * fem, 0 * fem),
                       width: 96 * fem,
                       height: 157 * fem,
-                      child: BookCover()),
+                      child: BookCover(
+                        title: titleController.text,
+                      )),
                   Container(
                     // coverRSy (54:28821)
                     width: 96 * fem,
