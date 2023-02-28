@@ -65,6 +65,7 @@ class _SearchFieldState extends State<SearchField> {
 
   /// Each time to start a speech recognition session
   void _startListening() async {
+    await Permission.microphone.request().isGranted;
     await Permission.audio.request().isGranted;
     await _speechToText.listen(onResult: _onSpeechResult);
     setState(() {});
