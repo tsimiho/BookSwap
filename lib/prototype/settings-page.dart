@@ -18,6 +18,10 @@ import 'package:myapp/prototype/sign-in-page.dart';
 import 'dart:convert';
 
 class Settings extends StatefulWidget {
+  const Settings({super.key, this.user});
+
+  final user;
+
   @override
   State<Settings> createState() => _SettingsState();
 }
@@ -25,9 +29,16 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   final bool notifications = true;
 
+  String s = 'user';
+
   var usernameController = TextEditingController();
   var homeController = TextEditingController();
   var workController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   Future<String> getUsername() async {
     String res = '';
@@ -298,78 +309,87 @@ class _SettingsState extends State<Settings> {
                           // onClick: () => {},
                         ),
                         SizedBox(height: 10 * fem),
-                        Container(
-                            // listgeV (54:12944)
-                            width: double.infinity,
-                            height: 305 * fem,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30 * fem),
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(16 * fem),
-                              child: Stack(
-                                children: [
-                                  Positioned(
-                                    // listitem11Ay (I54:12944;57:7869;57:7658)
-                                    left: 0 * fem,
-                                    top: 0 * fem,
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero,
-                                      ),
-                                      child: Container(
-                                        width: 222 * fem,
-                                        height: 50 * fem,
+                        SingleChildScrollView(
+                          child: Container(
+                              // listgeV (54:12944)
+                              width: double.infinity,
+                              height: 305 * fem,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30 * fem),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16 * fem),
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      // listitem11Ay (I54:12944;57:7869;57:7658)
+                                      left: 0 * fem,
+                                      top: 0 * fem,
+                                      child: TextButton(
+                                        onPressed: () {},
+                                        style: TextButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                        ),
                                         child: Container(
-                                          // listitem1WdX (I54:12944;57:7869;57:7658;54:11646)
-                                          padding: EdgeInsets.fromLTRB(16 * fem,
-                                              10 * fem, 16 * fem, 0 * fem),
-                                          width: 360 * fem,
-                                          height: 40 * fem,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xfff4eff4),
-                                          ),
+                                          width: 222 * fem,
+                                          height: 50 * fem,
                                           child: Container(
-                                            // statelayerDXw (I54:12944;57:7869;57:7658;54:11646;51964:68595)
-                                            margin: EdgeInsets.fromLTRB(0 * fem,
-                                                0 * fem, 0 * fem, 18 * fem),
-                                            width: 190 * fem,
+                                            // listitem1WdX (I54:12944;57:7869;57:7658;54:11646)
+                                            padding: EdgeInsets.fromLTRB(
+                                                16 * fem,
+                                                10 * fem,
+                                                16 * fem,
+                                                0 * fem),
+                                            width: 360 * fem,
                                             height: 40 * fem,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xfff4eff4),
+                                            ),
                                             child: Container(
-                                              // contentLMf (I54:12944;57:7869;57:7658;54:11646;51964:68596)
+                                              // statelayerDXw (I54:12944;57:7869;57:7658;54:11646;51964:68595)
                                               margin: EdgeInsets.fromLTRB(
                                                   0 * fem,
                                                   0 * fem,
-                                                  8 * fem,
-                                                  0 * fem),
-                                              width: 182 * fem,
-                                              height: double.infinity,
+                                                  0 * fem,
+                                                  18 * fem),
+                                              width: 190 * fem,
+                                              height: 40 * fem,
                                               child: Container(
-                                                // autogroupxpswTx5 (UPtFTgrv9b4JohvfepxPsw)
+                                                // contentLMf (I54:12944;57:7869;57:7658;54:11646;51964:68596)
                                                 margin: EdgeInsets.fromLTRB(
                                                     0 * fem,
                                                     0 * fem,
-                                                    0 * fem,
+                                                    8 * fem,
                                                     0 * fem),
-                                                padding: EdgeInsets.fromLTRB(
-                                                    0 * fem,
-                                                    0 * fem,
-                                                    0 * fem,
-                                                    0 * fem),
-                                                width: 101 * fem,
-                                                height: 30 * fem,
-                                                child: Text(
-                                                  'Favorite Genres',
-                                                  style: SafeGoogleFont(
-                                                    'Roboto',
-                                                    fontSize: 14 * ffem,
-                                                    fontWeight: FontWeight.w400,
-                                                    height: 1.4285714286 *
-                                                        ffem /
-                                                        fem,
-                                                    letterSpacing: 0.25 * fem,
-                                                    color: Color(0xff49454f),
+                                                width: 182 * fem,
+                                                height: double.infinity,
+                                                child: Container(
+                                                  // autogroupxpswTx5 (UPtFTgrv9b4JohvfepxPsw)
+                                                  margin: EdgeInsets.fromLTRB(
+                                                      0 * fem,
+                                                      0 * fem,
+                                                      0 * fem,
+                                                      0 * fem),
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      0 * fem,
+                                                      0 * fem,
+                                                      0 * fem,
+                                                      0 * fem),
+                                                  width: 101 * fem,
+                                                  height: 30 * fem,
+                                                  child: Text(
+                                                    'Favorite Genres',
+                                                    style: SafeGoogleFont(
+                                                      'Roboto',
+                                                      fontSize: 14 * ffem,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      height: 1.4285714286 *
+                                                          ffem /
+                                                          fem,
+                                                      letterSpacing: 0.25 * fem,
+                                                      color: Color(0xff49454f),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -378,30 +398,11 @@ class _SettingsState extends State<Settings> {
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    // listitem1KBf (I57:8028;57:7764;57:7658)
-                                    left: 0 * fem,
-                                    top: 38.125 * fem,
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero,
-                                      ),
-                                      child: Container(
-                                          width: 222 * fem,
-                                          height: 40 * fem,
-                                          child: ListItem(
-                                            label: 'Fiction',
-                                            username: usernameController.text,
-                                          )),
-                                    ),
-                                  ),
-                                  Positioned(
-                                    // listitem1wuB (I57:8028;57:7779;57:7658)
-                                    left: 0 * fem,
-                                    top: 76.25 * fem,
-                                    child: TextButton(
+                                    Positioned(
+                                      // listitem1KBf (I57:8028;57:7764;57:7658)
+                                      left: 0 * fem,
+                                      top: 38.125 * fem,
+                                      child: TextButton(
                                         onPressed: () {},
                                         style: TextButton.styleFrom(
                                           padding: EdgeInsets.zero,
@@ -410,103 +411,121 @@ class _SettingsState extends State<Settings> {
                                             width: 222 * fem,
                                             height: 40 * fem,
                                             child: ListItem(
-                                              label: 'Novel',
-                                              username: usernameController.text,
-                                            ))),
-                                  ),
-                                  Positioned(
-                                    // listitem1SFb (I57:8028;57:7794;57:7658)
-                                    left: 0 * fem,
-                                    top: 114.375 * fem,
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero,
+                                              label: 'Fiction',
+                                              username: widget.user,
+                                            )),
                                       ),
-                                      child: Container(
-                                          width: 222 * fem,
-                                          height: 40 * fem,
-                                          child: ListItem(
-                                            label: 'Mystery',
-                                            username: usernameController.text,
-                                          )),
                                     ),
-                                  ),
-                                  Positioned(
-                                    // listitem1t33 (I57:8028;57:7809;57:7658)
-                                    left: 0 * fem,
-                                    top: 152.5 * fem,
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero,
+                                    Positioned(
+                                      // listitem1wuB (I57:8028;57:7779;57:7658)
+                                      left: 0 * fem,
+                                      top: 76.25 * fem,
+                                      child: TextButton(
+                                          onPressed: () {},
+                                          style: TextButton.styleFrom(
+                                            padding: EdgeInsets.zero,
+                                          ),
+                                          child: Container(
+                                              width: 222 * fem,
+                                              height: 40 * fem,
+                                              child: ListItem(
+                                                label: 'Novel',
+                                                username: widget.user,
+                                              ))),
+                                    ),
+                                    Positioned(
+                                      // listitem1SFb (I57:8028;57:7794;57:7658)
+                                      left: 0 * fem,
+                                      top: 114.375 * fem,
+                                      child: TextButton(
+                                        onPressed: () {},
+                                        style: TextButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                        child: Container(
+                                            width: 222 * fem,
+                                            height: 40 * fem,
+                                            child: ListItem(
+                                              label: 'Mystery',
+                                              username: widget.user,
+                                            )),
                                       ),
-                                      child: Container(
-                                          width: 222 * fem,
-                                          height: 40 * fem,
-                                          child: ListItem(
-                                            label: "Children's Literature",
-                                            username: usernameController.text,
-                                          )),
                                     ),
-                                  ),
-                                  Positioned(
-                                    // listitem1jE1 (I57:8028;57:7810;57:7658)
-                                    left: 0 * fem,
-                                    top: 190.625 * fem,
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero,
+                                    Positioned(
+                                      // listitem1t33 (I57:8028;57:7809;57:7658)
+                                      left: 0 * fem,
+                                      top: 152.5 * fem,
+                                      child: TextButton(
+                                        onPressed: () {},
+                                        style: TextButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                        child: Container(
+                                            width: 222 * fem,
+                                            height: 40 * fem,
+                                            child: ListItem(
+                                              label: "Children's Literature",
+                                              username: widget.user,
+                                            )),
                                       ),
-                                      child: Container(
-                                          width: 222 * fem,
-                                          height: 40 * fem,
-                                          child: ListItem(
-                                            label: 'Action',
-                                            username: usernameController.text,
-                                          )),
                                     ),
-                                  ),
-                                  Positioned(
-                                    // listitem1Bn9 (I57:8028;57:7811;57:7658)
-                                    left: 0 * fem,
-                                    top: 228.75 * fem,
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero,
+                                    Positioned(
+                                      // listitem1jE1 (I57:8028;57:7810;57:7658)
+                                      left: 0 * fem,
+                                      top: 190.625 * fem,
+                                      child: TextButton(
+                                        onPressed: () {},
+                                        style: TextButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                        child: Container(
+                                            width: 222 * fem,
+                                            height: 40 * fem,
+                                            child: ListItem(
+                                              label: 'Action',
+                                              username: widget.user,
+                                            )),
                                       ),
-                                      child: Container(
-                                          width: 222 * fem,
-                                          height: 40 * fem,
-                                          child: ListItem(
-                                            label: 'Horror',
-                                            username: usernameController.text,
-                                          )),
                                     ),
-                                  ),
-                                  Positioned(
-                                    // listitem1z9F (I57:8028;57:7812;57:7658)
-                                    left: 0 * fem,
-                                    top: 266.875 * fem,
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero,
+                                    Positioned(
+                                      // listitem1Bn9 (I57:8028;57:7811;57:7658)
+                                      left: 0 * fem,
+                                      top: 228.75 * fem,
+                                      child: TextButton(
+                                        onPressed: () {},
+                                        style: TextButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                        child: Container(
+                                            width: 222 * fem,
+                                            height: 40 * fem,
+                                            child: ListItem(
+                                              label: 'Horror',
+                                              username: widget.user,
+                                            )),
                                       ),
-                                      child: Container(
-                                          width: 222 * fem,
-                                          height: 40 * fem,
-                                          child: ListItem(
-                                              label: 'Fantasy',
-                                              username:
-                                                  usernameController.text)),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            )),
+                                    Positioned(
+                                      // listitem1z9F (I57:8028;57:7812;57:7658)
+                                      left: 0 * fem,
+                                      top: 266.875 * fem,
+                                      child: TextButton(
+                                        onPressed: () {},
+                                        style: TextButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                        child: Container(
+                                            width: 222 * fem,
+                                            height: 40 * fem,
+                                            child: ListItem(
+                                                label: 'Fantasy',
+                                                username: widget.user)),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )),
+                        )
                       ],
                     ),
                   ),

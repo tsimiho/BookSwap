@@ -177,7 +177,8 @@ class _MyProfileState extends State<MyProfile> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Settings()),
+                                        builder: (context) =>
+                                            Settings(user: username)),
                                   );
                                 },
                                 style: TextButton.styleFrom(
