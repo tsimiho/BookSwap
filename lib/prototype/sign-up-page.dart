@@ -34,6 +34,7 @@ class _SignUpState extends State<SignUp> {
   var conpasswordController = TextEditingController();
   var homeController = TextEditingController();
   var workController = TextEditingController();
+  String u = '';
   List<String> genres = [];
 
   void addUser(String name, String username, String pass, String confpass,
@@ -368,16 +369,22 @@ class _SignUpState extends State<SignUp> {
                                               10 * fem, 0 * fem, 0 * fem),
                                           width: 101 * fem,
                                           height: 30 * fem,
-                                          child: Text(
-                                            'Favorite Genres',
-                                            style: SafeGoogleFont(
-                                              'Roboto',
-                                              fontSize: 14 * ffem,
-                                              fontWeight: FontWeight.w400,
-                                              height: 1.4285714286 * ffem / fem,
-                                              letterSpacing: 0.25 * fem,
-                                              color: Color(0xff49454f),
-                                            ),
+                                          child: TextButton(
+                                            onPressed: () => {
+                                              setState(() {
+                                                u = usernameController.text;
+                                              })
+                                            },
+                                            child: Text('Favorite Genres',
+                                                style: SafeGoogleFont(
+                                                  'Roboto',
+                                                  fontSize: 14 * ffem,
+                                                  fontWeight: FontWeight.w400,
+                                                  height:
+                                                      1.4285714286 * ffem / fem,
+                                                  letterSpacing: 0.25 * fem,
+                                                  color: Color(0xff49454f),
+                                                )),
                                           ),
                                         ),
                                       ),
@@ -400,7 +407,7 @@ class _SignUpState extends State<SignUp> {
                                     height: 40 * fem,
                                     child: ListItem(
                                       label: 'Fiction',
-                                      username: usernameController.text,
+                                      username: u,
                                     )),
                               ),
                             ),
@@ -418,7 +425,7 @@ class _SignUpState extends State<SignUp> {
                                       height: 40 * fem,
                                       child: ListItem(
                                         label: 'Novel',
-                                        username: usernameController.text,
+                                        username: u,
                                       ))),
                             ),
                             Positioned(
@@ -435,7 +442,7 @@ class _SignUpState extends State<SignUp> {
                                     height: 40 * fem,
                                     child: ListItem(
                                       label: 'Mystery',
-                                      username: usernameController.text,
+                                      username: u,
                                     )),
                               ),
                             ),
@@ -453,7 +460,7 @@ class _SignUpState extends State<SignUp> {
                                     height: 40 * fem,
                                     child: ListItem(
                                       label: "Children's Literature",
-                                      username: usernameController.text,
+                                      username: u,
                                     )),
                               ),
                             ),
@@ -471,7 +478,7 @@ class _SignUpState extends State<SignUp> {
                                     height: 40 * fem,
                                     child: ListItem(
                                       label: 'Action',
-                                      username: usernameController.text,
+                                      username: u,
                                     )),
                               ),
                             ),
@@ -489,7 +496,7 @@ class _SignUpState extends State<SignUp> {
                                     height: 40 * fem,
                                     child: ListItem(
                                       label: 'Horror',
-                                      username: usernameController.text,
+                                      username: u,
                                     )),
                               ),
                             ),
@@ -506,8 +513,7 @@ class _SignUpState extends State<SignUp> {
                                     width: 222 * fem,
                                     height: 40 * fem,
                                     child: ListItem(
-                                        label: 'Fantasy',
-                                        username: usernameController.text)),
+                                        label: 'Fantasy', username: u)),
                               ),
                             ),
                           ],
